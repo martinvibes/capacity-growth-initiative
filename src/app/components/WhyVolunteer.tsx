@@ -23,7 +23,7 @@ const WhyVolunteer = () => {
       </div>
 
       <div className="w-full text-center md:w-1/2">
-        <h1 className="text-[#051609] text-xl md:text-2xl lg:text-3xl mt-4 md:mt-0 mb-4 md:mb-2 lg:mb-4 font-bold text-center md:text-left">
+        <h1 className="text-xl md:text-2xl lg:text-3xl mt-4 md:mt-0 mb-4 md:mb-2 lg:mb-4 font-bold text-center md:text-left">
           Why Volunteer With Us?
         </h1>
         <ul>
@@ -34,7 +34,7 @@ const WhyVolunteer = () => {
           ].map((item, index) => (
             <li
               key={index}
-              className="flex py-2 justify-center md:justify-start text-base md:text-lg lg:text-xl text-[#051609] items-center space-x-3"
+              className="flex py-2 justify-center md:justify-start text-base md:text-lg lg:text-xl items-center space-x-3"
             >
               <Image
                 src={no_star}

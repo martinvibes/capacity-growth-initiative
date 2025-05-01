@@ -19,7 +19,7 @@ const ProgramSection: React.FC<ProgramSectionProps> = ({
 }) => {
   return (
     <div
-      className={`flex text-[#051609] flex-col md:flex-row ${
+      className={`flex flex-col md:flex-row ${
         reverse ? "md:flex-row-reverse" : ""
       } gap-6 mb-12`}
     >
@@ -29,11 +29,11 @@ const ProgramSection: React.FC<ProgramSectionProps> = ({
         className="w-full md:w-[445px] h-auto rounded shadow"
       />
       <div className="flex-1">
-        <h3 className="md:text-2xl text-[19px] text-center sm:text-left font-bold mb-2 ">
+        <h3 className="md:text-2xl text-[19px] text-center sm:text-left font-bold mb-2">
           {title}
         </h3>
         {description.map((item, idx) => (
-          <p key={idx} className=" md:text-2xl mb-2 leading-relaxed">
+          <p key={idx} className="md:text-2xl mb-2 leading-relaxed">
             {item}
           </p>
         ))}
@@ -75,7 +75,7 @@ const EmpowermentPrograms: React.FC = () => {
         ]}
       />
 
-      <h3 className=" md:text-2xl mb-2 leading-relaxed">
+      <h3 className="md:text-2xl mb-2 leading-relaxed">
         Through these objectives, CGI is building a network of empowered
         individuals and communities capable of driving sustainable and
         transformative change across Africa.

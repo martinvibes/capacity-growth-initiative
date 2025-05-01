@@ -18,7 +18,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
   description,
 }) => {
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center">
       <div className="mb-3 w-full relative h-40">
         <Image
           src={imageSrc}
@@ -30,7 +30,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
       <h3 className="font-bold text-center md:text-2xl text-[18px] mb-2">
         {title}
       </h3>
-      <p className="m:text-xl text-base">{description}</p>
+      <p className="md:text-xl text-base">{description}</p>
     </div>
   );
 };
@@ -73,10 +73,7 @@ const WhatWeDo: React.FC = () => {
   ];
 
   return (
-    <div
-      id="what-we-do"
-      className="max-w-6xl text-[#051609] mx-auto md:px-4 py-10"
-    >
+    <div id="what-we-do" className="max-w-6xl mx-auto md:px-4 py-10">
       <div className="text-center font-semibold mb-10">
         <h2 className="md:text-2xl text-[20px] font-bold mb-2">What We Do</h2>
         <p className="md:text-2xl text-[16px]">

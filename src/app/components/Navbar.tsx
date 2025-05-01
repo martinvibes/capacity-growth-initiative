@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className=" flex justify-between items-center mx-5 md:mx-24 my-4">
+    <div className="flex justify-between items-center mx-5 md:mx-24 my-4">
       <span className="cursor-pointer">
         <Image src={logo} alt="logo" />
       </span>
@@ -33,9 +33,9 @@ const Navbar = () => {
               key={item}
               onClick={() => handleActiveItem(item)}
               className={`cursor-pointer hidden md:block duration-300 transition-colors whitespace-nowrap ${
-                activeItem == item
+                activeItem === item
                   ? "text-[#019B83] border-b-2 border-[#019B83]"
-                  : "text-[#051609]"
+                  : ""
               }`}
             >
               {item}
@@ -65,7 +65,7 @@ const Navbar = () => {
                 className={`cursor-pointer duration-300 transition-colors ${
                   activeItem === item
                     ? "text-[#019B83] border-b-2 border-[#019B83]"
-                    : "text-[#051609]"
+                    : ""
                 }`}
               >
                 {item}

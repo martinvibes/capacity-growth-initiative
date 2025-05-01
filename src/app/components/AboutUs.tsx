@@ -10,14 +10,9 @@ import WhatWeDo from "./WhatWeDoSection";
 
 const AboutUs = () => {
   return (
-    <div
-      id="about-us"
-      className="mx-5 md:mx-24 mt-8 md:mt-16 mb-4 text-[#051609]"
-    >
+    <div id="about-us" className="mx-5 md:mx-24 mt-8 md:mt-16 mb-4">
       <div className="text-center">
-        <h1 className="text-[#051609] font-bold mb-2 text-[24px] md:text-[40px]">
-          AboutUs
-        </h1>
+        <h1 className="font-bold mb-2 text-[24px] md:text-[40px]">AboutUs</h1>
         <Image className="mx-auto" src={aboutus1} alt="about img" />
       </div>
 
@@ -28,7 +23,7 @@ const AboutUs = () => {
         <p className="text-[16px] md:text-[24px]">
           At Capacity Growth Initiative (CGI), we empower individuals and
           communities through skills, resources, and opportunities for
-          sustainable development.{" "}
+          sustainable development.
         </p>
         <p className="pt-3 text-[16px] md:text-[24px]">
           Our innovative programs and partnerships build leadership, boost
@@ -39,7 +34,7 @@ const AboutUs = () => {
 
       <div className="text-[24px] font-normal my-6">
         <h1 className="text-[24px] md:text-[40px] text-center font-bold mb-2">
-          Vission Statement
+          Vision Statement
         </h1>
         <p className="text-[16px] md:text-[24px]">
           Our vision is to be Africa’s leading nonprofit in capacity

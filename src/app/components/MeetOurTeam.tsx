@@ -37,8 +37,8 @@ const teamInfo = [
 
 const MeetOurTeam: React.FC = () => {
   return (
-    <div className="mx-5 text-center md:mx-24 mt-2 mb-4 text-[#051609]">
-      <h1 className="text-[#051609] font-bold mb-2 text-[24px] md:text-[40px]">
+    <div className="mx-5 text-center md:mx-24 mt-2 mb-4">
+      <h1 className="font-bold mb-2 text-[24px] md:text-[40px]">
         Meet Our Team
       </h1>
 

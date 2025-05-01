@@ -24,7 +24,7 @@ const Panel: React.FC<PanelProps> = ({
         <span className="relative h-48 lg:h-68 w-full">{imageSrc}</span>
         <div className="p-4 text-[#D1E2D5] lg:text-2xl text-[16px] flex flex-col justify-between flex-grow">
           <div>
-            <h3 className=" font-bold mb-2">{title}</h3>
+            <h3 className="font-bold mb-2">{title}</h3>
             {description && <p className="mb-3">{description}</p>}
             {bulletPoints?.length > 0 && (
               <ul className="list-disc pl-5 space-y-2">
@@ -121,8 +121,8 @@ const StrategicGoals: React.FC = () => {
         ))}
       </div>
 
-      <div className="text-[#051609] text-2xl">
-        <h1 className=" text-center font-semibold text-[#051609] my-4 text-[24px] md:text-[40px]">
+      <div className="text-2xl">
+        <h1 className="text-center font-semibold my-4 text-[24px] md:text-[40px]">
           Key Success Indicators
         </h1>
         <div className="md:text-2xl text-[16px] leading-9">

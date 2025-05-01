@@ -2,7 +2,7 @@ import React from "react";
 
 const WhoWeAre: React.FC = () => {
   return (
-    <section className="max-w-5xl text-[#051609]  md:max-w-full mx-auto md:px-4 py-5">
+    <section className="max-w-5xl md:max-w-full mx-auto md:px-4 py-5">
       <h2 className="text-2xl md:text-[40px] font-bold text-center mb-6">
         Who We Are
       </h2>

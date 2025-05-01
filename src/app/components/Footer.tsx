@@ -5,7 +5,7 @@ import { Instagram, Facebook, Youtube, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer id="contact-us" className="bg-[#051609] text-[#8A9C8E] py-12 ">
+    <footer id="contact-us" className="bg-[#051609] text-[#8A9C8E] py-12">
       <div className="mx-5 md:mx-24 px-">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 overflow-x-hidden">
           <div className="flex flex-col">
@@ -19,11 +19,11 @@ const Footer = () => {
               />
             </div>
             <h3 className="text-xl font-semibold mb-3">
-              We&apos;re Here To Help
+              We&aposre Here To Help
             </h3>
-            <p className=" text-sm">
-              Have a question, comment? We&apos;re always happy to hear from
-              you. Please reach out to us
+            <p className="text-sm">
+              Have a question, comment? We&aposre always happy to hear from you.
+              Please reach out to us
             </p>
           </div>
 
@@ -56,12 +56,12 @@ const Footer = () => {
 
             <div>
               <h3 className="text-xl font-semibold mb-3">Contact Info</h3>
-              <p className=" text-sm mb-2">
+              <p className="text-sm mb-2">
                 Address: No 3, Opposite Government Secondary School, Zikpak,
                 Kafanchan, Kaduna State, Nigeria
               </p>
-              <p className=" text-sm mb-2">+2347063165695</p>
-              <p className=" text-sm">Capacitygrowthinitivative@gmail.com</p>
+              <p className="text-sm mb-2">+2347063165695</p>
+              <p className="text-sm">Capacitygrowthinitivative@gmail.com</p>
 
               <div className="flex space-x-4 mt-3">
                 <Link
@@ -98,7 +98,7 @@ const Footer = () => {
 
           <div>
             <h3 className="text-xl font-semibold mb-3">Keep In Touch</h3>
-            <p className=" text-sm">
+            <p className="text-sm">
               Connect, build your network, make great business.
             </p>
           </div>

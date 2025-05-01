@@ -63,7 +63,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
       );
 
       if (response.ok) {
-        console.log("Form SUbmitted Successfully!");
+        console.log("Form Submitted Successfully!");
         setFormData({
           fullName: "",
           dateOfBirth: "",
@@ -87,7 +87,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
       }
     } catch (error) {
       console.error("Error Submitting Form", error);
-      alert("An error occured. Please try again");
+      alert("An error occurred. Please try again");
     }
   };
 
@@ -102,10 +102,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
         />
         <form onSubmit={handleSubmit} className="w-full">
           <div className="mb-4 mt-5 flex justify-between space-x-2.5 items-center">
-            <label
-              className="block text-gray-700 mb-2 whitespace-nowrap"
-              htmlFor="fullName"
-            >
+            <label className="block mb-2 whitespace-nowrap" htmlFor="fullName">
               Full Name:
             </label>
             <input
@@ -119,7 +116,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
           </div>
 
           <div className="mb-4 flex justify-between space-x-2.5 items-center">
-            <label className="block text-gray-700 mb-2" htmlFor="dateOfBirth">
+            <label className="block mb-2" htmlFor="dateOfBirth">
               Date of Birth:
             </label>
             <input
@@ -133,7 +130,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
           </div>
 
           <div className="mb-4 flex space-x-2.5 items-center">
-            <label className="block text-gray-700 mb-2">Gender:</label>
+            <label className="block mb-2">Gender:</label>
             <div className="flex space-x-4">
               <label className="inline-flex items-center">
                 <input
@@ -160,8 +157,8 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
             </div>
           </div>
 
-          <div className=" mb-4 flex justify-between space-x-2.5 items-center">
-            <label className="block text-gray-700 mb-2" htmlFor="address">
+          <div className="mb-4 flex justify-between space-x-2.5 items-center">
+            <label className="block mb-2" htmlFor="address">
               Address:
             </label>
             <input
@@ -175,10 +172,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
           </div>
 
           <div className="mb-4 flex justify-between space-x-2.5 items-center">
-            <label
-              className="block whitespace-nowrap text-gray-700 mb-2"
-              htmlFor="cityState"
-            >
+            <label className="block whitespace-nowrap mb-2" htmlFor="cityState">
               City and State:
             </label>
             <input
@@ -193,7 +187,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
 
           <div className="mb-4 flex justify-between space-x-2.5 items-center">
             <label
-              className="block whitespace-nowrap text-gray-700 mb-2"
+              className="block whitespace-nowrap mb-2"
               htmlFor="phoneNumber"
             >
               Phone Number:
@@ -209,10 +203,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
           </div>
 
           <div className="mb-4 flex justify-between space-x-2.5 items-center">
-            <label
-              className="block whitespace-nowrap text-gray-700 mb-2"
-              htmlFor="email"
-            >
+            <label className="block whitespace-nowrap mb-2" htmlFor="email">
               Email:
             </label>
             <input
@@ -226,7 +217,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2">
+            <label className="block mb-2">
               Areas of Interest (Select One or More)
             </label>
             <div className="space-y-2">
