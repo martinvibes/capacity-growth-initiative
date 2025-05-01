@@ -51,13 +51,16 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
     console.log("Form submitted:", formData);
 
     try {
-      const response = await fetch("https://formspree.io/f/xovavvwp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_FORMSPREE_URL || "",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         console.log("Form SUbmitted Successfully!");
