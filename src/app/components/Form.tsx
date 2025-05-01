@@ -97,10 +97,14 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
         <X
           width={24}
           height={24}
-          className="absolute top-3 right-4 cursor-pointer"
+          className="absolute top-3 right-4 cursor-pointer text-black"
           onClick={() => setOpenModal(false)}
         />
-        <form onSubmit={handleSubmit} className="w-full">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full"
+          style={{ color: "#000000" }}
+        >
           <div className="mb-4 mt-5 flex justify-between space-x-2.5 items-center">
             <label className="block mb-2 whitespace-nowrap" htmlFor="fullName">
               Full Name:
