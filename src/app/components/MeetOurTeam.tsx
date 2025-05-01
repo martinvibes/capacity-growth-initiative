@@ -38,13 +38,13 @@ const teamInfo = [
 const MeetOurTeam: React.FC = () => {
   return (
     <div className="mx-5 text-center md:mx-24 mt-2 mb-4 text-[#051609]">
-      <h1 className="text-[#051609] font-bold mb-2 text-[40px]">
+      <h1 className="text-[#051609] font-bold mb-2 text-[24px] md:text-[40px]">
         Meet Our Team
       </h1>
 
       <div className="flex flex-col space-y-2 items-center">
         <Image className="mx-auto" src={team1} alt="about img" />
-        <h3 className="text-2xl font-bold">Joel Leopard</h3>
+        <h3 className="md:text-2xl text-[18px] font-bold">Joel Leopard</h3>
       </div>
 
       <div className="grid md:grid-cols-3 mt-2 sm:grid-cols-2">
@@ -54,7 +54,7 @@ const MeetOurTeam: React.FC = () => {
             key={team.title}
           >
             <span>{team.img}</span>
-            <h3 className="text-2xl font-bold">{team.title}</h3>
+            <h3 className="md:text-2xl text-[18px] font-bold">{team.title}</h3>
           </div>
         ))}
       </div>

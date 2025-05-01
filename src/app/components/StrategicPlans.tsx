@@ -6,11 +6,11 @@ const StrategicPlans: React.FC = () => {
       <h1 className="text-2xl md:text-[40px] font-bold text-center">
         Strategic Plan
       </h1>
-      <h3 className="text-2xl md:text-[30px] my-2 font-bold text-center">
+      <h3 className="text-[22px] md:text-[30px] my-2 font-semibold text-center">
         Introduction
       </h3>
 
-      <div className="text-2xl">
+      <div className="md:text-2xl text-base">
         <p className="my-3">
           Capacity Growth Initiative (CGI) is committed to becoming the largest
           and most impactful nonprofit capacity development organisation in

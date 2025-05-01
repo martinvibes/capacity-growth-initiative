@@ -47,7 +47,7 @@ const Hero = () => {
         </button>
       </div>
 
-      <div className="flex px-5 items-center w-full xl:-mt-48">
+      <div className="flex px-5 items-center mt-8 w-full xl:-mt-48">
         <Image
           className="mx-auto max-w-full h-auto"
           src={hero_img2}

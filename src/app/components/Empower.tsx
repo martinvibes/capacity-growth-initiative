@@ -29,7 +29,9 @@ const ProgramSection: React.FC<ProgramSectionProps> = ({
         className="w-full md:w-[445px] h-auto rounded shadow"
       />
       <div className="flex-1">
-        <h3 className="md:text-2xl font-bold mb-2 ">{title}</h3>
+        <h3 className="md:text-2xl text-[19px] text-center sm:text-left font-bold mb-2 ">
+          {title}
+        </h3>
         {description.map((item, idx) => (
           <p key={idx} className=" md:text-2xl mb-2 leading-relaxed">
             {item}

@@ -27,8 +27,10 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
           layout="fill"
         />
       </div>
-      <h3 className="font-bold text-center text-2xl mb-2">{title}</h3>
-      <p className="text-xl">{description}</p>
+      <h3 className="font-bold text-center md:text-2xl text-[18px] mb-2">
+        {title}
+      </h3>
+      <p className="m:text-xl text-base">{description}</p>
     </div>
   );
 };
@@ -75,9 +77,11 @@ const WhatWeDo: React.FC = () => {
       id="what-we-do"
       className="max-w-6xl text-[#051609] mx-auto md:px-4 py-10"
     >
-      <div className="text-center font-semibold text-2xl mb-10">
-        <h2 className=" font-bold mb-2">What We Do</h2>
-        <p className="">At Capacity Growth Initiative, Our works include</p>
+      <div className="text-center font-semibold mb-10">
+        <h2 className="md:text-2xl text-[20px] font-bold mb-2">What We Do</h2>
+        <p className="md:text-2xl text-[16px]">
+          At Capacity Growth Initiative, Our works include
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-8">

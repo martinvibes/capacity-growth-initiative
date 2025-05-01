@@ -19,19 +19,21 @@ const Panel: React.FC<PanelProps> = ({
   imageSrc,
 }) => {
   return (
-    <div className="bg-[#051609] rounded-lg overflow-hidden shadow-md flex flex-col h-full">
-      <div className="relative h-48 w-full">{imageSrc}</div>
-      <div className="p-4 text-[#D1E2D5] lg:text-2xl text-lg flex flex-col justify-between flex-grow">
-        <div>
-          <h3 className=" font-bold mb-2">{title}</h3>
-          {description && <p className="mb-3">{description}</p>}
-          {bulletPoints?.length > 0 && (
-            <ul className="list-disc pl-5 space-y-2">
-              {bulletPoints.map((point: string, index: number) => (
-                <li key={index}>{point}</li>
-              ))}
-            </ul>
-          )}
+    <div className="">
+      <div className="bg-[#051609] rounded-lg overflow-hidden shadow-md flex flex-col h-full">
+        <span className="relative h-48 lg:h-68 w-full">{imageSrc}</span>
+        <div className="p-4 text-[#D1E2D5] lg:text-2xl text-[16px] flex flex-col justify-between flex-grow">
+          <div>
+            <h3 className=" font-bold mb-2">{title}</h3>
+            {description && <p className="mb-3">{description}</p>}
+            {bulletPoints?.length > 0 && (
+              <ul className="list-disc pl-5 space-y-2">
+                {bulletPoints.map((point: string, index: number) => (
+                  <li key={index}>{point}</li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -110,6 +112,9 @@ const StrategicGoals: React.FC = () => {
 
   return (
     <div className="max-w-full md:px-4 py-10">
+      <h1 className="text-center text-[24px] md:text-[40px] md:font-bold font-semibold mb-6">
+        Strategic Goals
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 lg:gap-x-24 md:gap-x-10 gap-6">
         {panels.map((panel, index) => (
           <Panel key={index} {...panel} />
@@ -117,10 +122,10 @@ const StrategicGoals: React.FC = () => {
       </div>
 
       <div className="text-[#051609] text-2xl">
-        <h1 className=" text-center font-semibold text-[#051609] my-4 text-[40px]">
+        <h1 className=" text-center font-semibold text-[#051609] my-4 text-[24px] md:text-[40px]">
           Key Success Indicators
         </h1>
-        <div className="text-2xl leading-9">
+        <div className="md:text-2xl text-[16px] leading-9">
           <p>Number of developments centers established and operational</p>
           <p>Number of corps members engaged through the NYSC partnership</p>
           <p>Percentage of alumni in leadership positions within key sectors</p>
