@@ -92,7 +92,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-[#00000083] backdrop-blur-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#00000083] backdrop-blur-2xl">
       <div className="w-xl p-6 mx-auto relative bg-white rounded-lg shadow">
         <X
           width={24}
