@@ -61,7 +61,9 @@ const Footer = () => {
                 Kafanchan, Kaduna State, Nigeria
               </p>
               <p className="text-sm mb-2">+2347063165695</p>
-              <p className="text-sm">Capacitygrowthinitiative@gmail.com</p>
+              <p className="text-sm break-words mb-2">
+                Capacitygrowthinitiative@gmail.com
+              </p>
 
               <div className="flex space-x-4 mt-3">
                 <Link
