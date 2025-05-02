@@ -48,12 +48,12 @@ const Hero: React.FC<HeroProps> = ({ setOpenModal }) => {
       </div>
 
       <div className="flex px-5 mt-2 w-full items-center md:hidden space-x-2 md:space-x-8">
-        <button className="md:px-10 w-full px-5 rounded-lg cursor-pointer py-3.5 border border-[#019B83]">
+        <button className="md:px-10 w-full px-5 rounded-lg cursor-pointer py-3.5 bg-[#019B83] text-[#EDEDED] hover:bg-[#018d83] ">
           Donate
         </button>
         <button
           onClick={() => setOpenModal(true)}
-          className="md:px-10 w-full px-5 rounded-lg cursor-pointer py-3.5 bg-[#019B83] text-[#EDEDED]"
+          className="md:px-10 w-full px-5 rounded-lg cursor-pointer py-3.5 border border-[#019B83] hover:bg-[#019B83] hover:text-[#EDEDED]"
         >
           Join Us
         </button>
