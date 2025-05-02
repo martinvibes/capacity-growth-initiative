@@ -52,12 +52,15 @@ const Navbar = () => {
         className="block z-50 md:hidden"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       >
-        {isMobileMenuOpen ? <X /> : <Menu />}
+        {isMobileMenuOpen ? <X color="#000000" /> : <Menu />}
       </span>
 
       {isMobileMenuOpen && (
         <div className="absolute top-8 right-4 px-10 py-4 w-fit rounded-lg bg-[#D1E2D5] shadow-lg z-40">
-          <ul className="flex flex-col items-center space-y-6 py-4 font-bold text-lg">
+          <ul
+            className="flex flex-col items-center space-y-6 py-4 font-bold text-lg"
+            style={{ color: "#000000" }}
+          >
             {["Home", "About Us", "What We Do", "Contact Us"].map((item) => (
               <li
                 key={item}

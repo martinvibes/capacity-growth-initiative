@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import aboutus1 from "../../../public/aboutus1.svg";
+import aboutus1 from "../../../public/about.svg";
 import EmpowermentPrograms from "./Empower";
 import WhoWeAre from "./WhoWeAre";
 import MeetOurTeam from "./MeetOurTeam";
@@ -11,9 +11,13 @@ import WhatWeDo from "./WhatWeDoSection";
 const AboutUs = () => {
   return (
     <div id="about-us" className="mx-5 md:mx-24 mt-8 md:mt-16 mb-4">
-      <div className="text-center">
+      <div className="text-center w-full">
         <h1 className="font-bold mb-2 text-[24px] md:text-[40px]">AboutUs</h1>
-        <Image className="mx-auto" src={aboutus1} alt="about img" />
+        <Image
+          className="mx-auto w-[1250px] shadow-2xl rounded-md"
+          src={aboutus1}
+          alt="about img"
+        />
       </div>
 
       <div className="text-[24px] font-normal mt-5">

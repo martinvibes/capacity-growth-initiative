@@ -19,11 +19,11 @@ const Footer = () => {
               />
             </div>
             <h3 className="text-xl font-semibold mb-3">
-              We&aposre Here To Help
+              We&apos;re Here To Help
             </h3>
             <p className="text-sm">
-              Have a question, comment? We&aposre always happy to hear from you.
-              Please reach out to us
+              Have a question, comment? We&apos;re always happy to hear from
+              you. Please reach out to us
             </p>
           </div>
 
@@ -61,7 +61,7 @@ const Footer = () => {
                 Kafanchan, Kaduna State, Nigeria
               </p>
               <p className="text-sm mb-2">+2347063165695</p>
-              <p className="text-sm">Capacitygrowthinitivative@gmail.com</p>
+              <p className="text-sm">Capacitygrowthinitiative@gmail.com</p>
 
               <div className="flex space-x-4 mt-3">
                 <Link
