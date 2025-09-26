@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,8 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Capacity Growth Initiative",
-  description:
-    "An organization dedicated to empowering communities through education and resources.",
+  description: "An organization dedicated to empowering communities through education and resources.",
 };
 
 export default function RootLayout({
@@ -20,7 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${inter.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} antialiased flex flex-col min-h-screen`}>
+        <Navbar />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }

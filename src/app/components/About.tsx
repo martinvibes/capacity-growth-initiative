@@ -1,42 +1,47 @@
 import Image from "next/image";
 import React from "react";
 import aboutus1 from "../../../public/about.svg";
-import EmpowermentPrograms from "./Empower";
-import WhoWeAre from "./WhoWeAre";
-import MeetOurTeam from "./MeetOurTeam";
-import StrategicGoals from "./StrategicGoals";
-import StrategicPlans from "./StrategicPlans";
-import WhatWeDo from "./WhatWeDoSection";
+import Line from "../../../public/Line.png";
+// import EmpowermentPrograms from "./Empower";
+// import WhoWeAre from "./WhoWeAre";
+// import MeetOurTeam from "./MeetOurTeam";
+// import StrategicGoals from "./StrategicGoals";
+// import StrategicPlans from "./StrategicPlans";
+// import WhatWeDo from "./WhatWeDoSection";
 
-const AboutUs = () => {
+const About = () => {
   return (
-    <div id="about-us" className="mx-5 md:mx-24 mt-8 md:mt-16 mb-4">
-      <div className="text-center w-full">
-        <h1 className="font-bold mb-2 text-[24px] md:text-[40px]">AboutUs</h1>
+    <div className="flex flex-col md:flex-row  mx-5 md:mx-24 my-4 sm:space-x-4 md:space-x-8">
+      <div className="w-full md:w-1/2 flex justify-start text-left">
         <Image
-          className="mx-auto w-[1250px] shadow-2xl rounded-md"
           src={aboutus1}
           alt="about img"
+          className="w-full md:mx-0 md:max-w-full shadow-2xl rounded-md"
         />
       </div>
-
-      <div className="text-[24px] font-normal mt-5">
-        <h1 className="text-[24px] md:text-[40px] text-center font-bold mb-2">
-          Mission Statement
+      <div className="text-[24px] font-normal mt-5  sm:w-[25rem]">
+        <h1
+          className="font-bold mb-2 text-[24px] md:text-[40px] text-center
+         "
+        >
+          About
+          <span className="block w-90  mx-auto mt-3">
+            <Image src={Line} alt="line" />
+          </span>
         </h1>
-        <p className="text-[16px] md:text-[24px]">
-          At Capacity Growth Initiative (CGI), we empower individuals and
-          communities through skills, resources, and opportunities for
-          sustainable development.
+
+        <p className="text-[16px] md:text-[24px] mt-2">
+          “Capacity Change Initiative equips people and organisations with the
+          tools, skills, and strategies to lead sustainable change and growth”
         </p>
-        <p className="pt-3 text-[16px] md:text-[24px]">
+        {/* <p className="pt-3 text-[16px] md:text-[24px]">
           Our innovative programs and partnerships build leadership, boost
           business resilience, and drive tech-driven transformation across all
           sectors.
-        </p>
+        </p> */}
       </div>
 
-      <div className="text-[24px] font-normal my-6">
+      {/* <div className="text-[24px] font-normal my-6">
         <h1 className="text-[24px] md:text-[40px] text-center font-bold mb-2">
           Vision Statement
         </h1>
@@ -47,9 +52,9 @@ const AboutUs = () => {
           network driving innovation, growth, and sustainable change across the
           continent.
         </p>
-      </div>
+      </div> */}
 
-      <div className="text-[24px] font-normal">
+      {/* <div className="text-[24px] font-normal">
         <h1 className="text-[24px] md:text-[40px] text-center font-bold mb-2">
           Our Objectives
         </h1>
@@ -59,16 +64,16 @@ const AboutUs = () => {
           Technology, equipping them with the skills and resources to thrive in
           a fast-changing world.
         </p>
-      </div>
+      </div> */}
 
-      <EmpowermentPrograms />
+      {/* <EmpowermentPrograms />
       <WhoWeAre />
       <MeetOurTeam />
       <StrategicPlans />
       <StrategicGoals />
-      <WhatWeDo />
+      <WhatWeDo /> */}
     </div>
   );
 };
 
-export default AboutUs;
+export default About;

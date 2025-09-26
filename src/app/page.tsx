@@ -1,26 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import AboutUs from "./components/AboutUs";
-import Footer from "./components/Footer";
+import About from "./components/About";
 import Hero from "./components/Hero";
 import Marque from "./components/Marque";
-import Navbar from "./components/Navbar";
 import WhyVolunteer from "./components/WhyVolunteer";
 import VolunteerForm from "./components/Form";
+import ImageCarousel from "./components/ImageCarousel";
+import UpcomingEvents from "./components/UpcomingEvents";
 
 export default function Home() {
   const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className=" overflow-x-hidden">
-      <Navbar />
       <Hero setOpenModal={setOpenModal} />
       <Marque />
+      <About />
+      <ImageCarousel />
       <WhyVolunteer />
       {openModal && <VolunteerForm setOpenModal={setOpenModal} />}
-      <AboutUs />
-      <Footer />
+      <UpcomingEvents />
     </div>
   );
 }
