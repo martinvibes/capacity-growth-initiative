@@ -11,6 +11,7 @@ interface NavItem {
   label: string;
   href?: string;
   dropdown?: { label: string; href: string }[];
+  disabled?: boolean;
 }
 
 const Navbar = () => {
@@ -45,7 +46,7 @@ const Navbar = () => {
         { label: "Mission Statement", href: "/about/mission-statement" },
         { label: "Vision Statement", href: "/about/vision-statement" },
         { label: "Objectives", href: "/about/objectives" },
-      ],
+      ]
     },
     {
       label: "Who are we",
@@ -57,6 +58,7 @@ const Navbar = () => {
       ],
     },
     {
+      disabled: true,
       label: "Projects",
       dropdown: [
         { label: "Volunteer", href: "/projects/volunteer" },
@@ -67,7 +69,8 @@ const Navbar = () => {
     },
     {
       label: "Contact Us",
-      href: "/contact-us",
+      disabled: true,
+      href: "/contact-us", 
     },
   ];
 
@@ -114,7 +117,7 @@ const Navbar = () => {
                       onClick={() => toggleDropdown(item.label)}
                       className={`inline-flex items-center px-1 pt-1 text-lg font-medium cursor-pointer ${
                         item.dropdown?.some(
-                          (subItem) => pathname === subItem.href
+                          (subItem) => pathname === subItem.href 
                         )
                           ? "text-[#019B83]"
                           : "text-[#051609] hover:text-[#019B83]"

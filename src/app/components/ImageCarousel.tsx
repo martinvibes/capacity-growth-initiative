@@ -1,17 +1,14 @@
-// src/app/components/ImageCarousel.tsx
-'use client';
+/* eslint-disable react-hooks/exhaustive-deps */
+"use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 interface Slide {
   id: number;
-  title: string;
-  description: string;
   image: string;
-  ctaText: string;
 }
 
 const ImageCarousel = () => {
@@ -23,32 +20,16 @@ const ImageCarousel = () => {
   const slides: Slide[] = [
     {
       id: 1,
-      title: 'Burger Ad',
-      description: 'Delicious burgers for everyone!',
-      image: '/images/carousel/burger.jpg',
-      ctaText: 'Order Now'
+      image: "/slide1.png",
     },
     {
       id: 2,
-      title: 'Flash Sale',
-      description: 'Limited time offers up to 50% off',
-      image: '/images/carousel/sale.jpg',
-      ctaText: 'Shop Now'
+      image: "/slide2.png",
     },
     {
       id: 3,
-      title: 'Business Agency',
-      description: 'Grow your business with us',
-      image: '/images/carousel/business.jpg',
-      ctaText: 'Learn More'
+      image: "/slide3.png",
     },
-    {
-      id: 4,
-      title: 'Summer Collection',
-      description: 'New arrivals for the season',
-      image: '/images/carousel/summer.jpg',
-      ctaText: 'View Collection'
-    }
   ];
 
   // Handle responsive slides
@@ -64,8 +45,8 @@ const ImageCarousel = () => {
     };
 
     updateSlidesToShow();
-    window.addEventListener('resize', updateSlidesToShow);
-    return () => window.removeEventListener('resize', updateSlidesToShow);
+    window.addEventListener("resize", updateSlidesToShow);
+    return () => window.removeEventListener("resize", updateSlidesToShow);
   }, []);
 
   // Auto-advance slides
@@ -96,7 +77,7 @@ const ImageCarousel = () => {
     const visibleSlides = [];
     const half = Math.floor(slidesToShow / 2);
     let start = currentIndex - half;
-    
+
     if (start < 0) start = slides.length + start;
     if (start > slides.length - 1) start = 0;
 
@@ -111,7 +92,7 @@ const ImageCarousel = () => {
   const visibleSlides = getVisibleSlides();
 
   return (
-    <div 
+    <div
       className="relative w-full max-w-7xl mx-auto px-4 py-12"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -141,8 +122,8 @@ const ImageCarousel = () => {
               {visibleSlides.map((slide, index) => {
                 const isActive = slide.actualIndex === currentIndex;
                 const distance = Math.abs(slide.actualIndex - currentIndex);
-                const scale = 1 - (distance * 0.1);
-                const opacity = 1 - (distance * 0.3);
+                const scale = 1 - distance * 0.1;
+                const opacity = 1 - distance * 0.3;
                 const zIndex = 10 - distance;
 
                 return (
@@ -150,49 +131,36 @@ const ImageCarousel = () => {
                     key={`${slide.id}-${index}`}
                     className="absolute"
                     initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ 
+                    animate={{
                       opacity,
                       scale,
-                      x: `${(index * 100) - (slidesToShow * 50) + 50}%`,
-                      zIndex
+                      x: `${index * 100 - slidesToShow * 50 + 50}%`,
+                      zIndex,
                     }}
-                    transition={{ 
+                    transition={{
                       duration: 0.5,
-                      ease: [0.4, 0, 0.2, 1]
+                      ease: [0.4, 0, 0.2, 1],
                     }}
                   >
-                    <div className={`
+                    <div
+                      className={`
                       bg-white rounded-xl overflow-hidden shadow-lg h-[350px] w-[300px]
                       transform transition-all duration-300
-                      ${isActive ? 'ring-4 ring-[#019B83] scale-110' : 'ring-1 ring-gray-200 scale-100'}
-                    `}>
-                      <div className="relative h-2/3 w-full">
+                      ${
+                        isActive
+                          ? " scale-110"
+                          : " scale-100"
+                      }
+                    `}
+                    >
+                      <div className="relative  w-full">
                         <Image
                           src={slide.image}
-                          alt={slide.title}
+                          alt="sliceImage"
                           width={100}
                           height={100}
-                          className="w-full h-full object-cover"
+                          className="object-center w-full h-full"
                         />
-                        {isActive && (
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-6">
-                            <h3 className="text-2xl font-bold text-white mb-2">{slide.title}</h3>
-                            <p className="text-gray-200 text-sm">{slide.description}</p>
-                          </div>
-                        )}
-                      </div>
-                      <div className="p-4">
-                        <button
-                          className={`
-                            w-full py-3 px-6 rounded-md font-medium transition-all duration-300
-                            ${isActive 
-                              ? 'bg-[#019B83] text-white hover:bg-[#018b76]' 
-                              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }
-                          `}
-                        >
-                          {slide.ctaText}
-                        </button>
                       </div>
                     </div>
                   </motion.div>
@@ -211,9 +179,10 @@ const ImageCarousel = () => {
             onClick={() => goToSlide(index)}
             className={`
               h-2 rounded-full transition-all duration-300
-              ${index === currentIndex 
-                ? 'w-8 bg-[#019B83]' 
-                : 'w-3 bg-gray-300 hover:bg-gray-400'
+              ${
+                index === currentIndex
+                  ? "w-8 bg-[#019B83]"
+                  : "w-3 bg-gray-300 hover:bg-gray-400"
               }
             `}
             aria-label={`Go to slide ${index + 1}`}

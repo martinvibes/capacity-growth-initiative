@@ -2,12 +2,6 @@ import Image from "next/image";
 import React from "react";
 import aboutus1 from "../../../public/about.svg";
 import Line from "../../../public/Line.png";
-// import EmpowermentPrograms from "./Empower";
-// import WhoWeAre from "./WhoWeAre";
-// import MeetOurTeam from "./MeetOurTeam";
-// import StrategicGoals from "./StrategicGoals";
-// import StrategicPlans from "./StrategicPlans";
-// import WhatWeDo from "./WhatWeDoSection";
 
 const About = () => {
   return (
@@ -34,44 +28,7 @@ const About = () => {
           “Capacity Change Initiative equips people and organisations with the
           tools, skills, and strategies to lead sustainable change and growth”
         </p>
-        {/* <p className="pt-3 text-[16px] md:text-[24px]">
-          Our innovative programs and partnerships build leadership, boost
-          business resilience, and drive tech-driven transformation across all
-          sectors.
-        </p> */}
       </div>
-
-      {/* <div className="text-[24px] font-normal my-6">
-        <h1 className="text-[24px] md:text-[40px] text-center font-bold mb-2">
-          Vision Statement
-        </h1>
-        <p className="text-[16px] md:text-[24px]">
-          Our vision is to be Africa’s leading nonprofit in capacity
-          development, empowering individuals and communities in business,
-          leadership, and technology. We aspire to build a strong CGI alumni
-          network driving innovation, growth, and sustainable change across the
-          continent.
-        </p>
-      </div> */}
-
-      {/* <div className="text-[24px] font-normal">
-        <h1 className="text-[24px] md:text-[40px] text-center font-bold mb-2">
-          Our Objectives
-        </h1>
-        <p className="text-[16px] md:text-[24px]">
-          At Capacity Growth Initiative (CGI), we aim to empower individuals and
-          communities by building capacity in Business, Leadership, and
-          Technology, equipping them with the skills and resources to thrive in
-          a fast-changing world.
-        </p>
-      </div> */}
-
-      {/* <EmpowermentPrograms />
-      <WhoWeAre />
-      <MeetOurTeam />
-      <StrategicPlans />
-      <StrategicGoals />
-      <WhatWeDo /> */}
     </div>
   );
 };

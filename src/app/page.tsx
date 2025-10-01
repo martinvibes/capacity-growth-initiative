@@ -8,6 +8,9 @@ import WhyVolunteer from "./components/WhyVolunteer";
 import VolunteerForm from "./components/Form";
 import ImageCarousel from "./components/ImageCarousel";
 import UpcomingEvents from "./components/UpcomingEvents";
+import KeySuccessIndicator from "./components/KeySuccessIndicator";
+import StrategicPlans from "./components/StrategicPlans";
+import WhoWeAre from "./components/WhoWeAre";
 
 export default function Home() {
   const [openModal, setOpenModal] = useState(false);
@@ -19,6 +22,9 @@ export default function Home() {
       <About />
       <ImageCarousel />
       <WhyVolunteer />
+      <WhoWeAre/>
+      <StrategicPlans/>
+      <KeySuccessIndicator/>
       {openModal && <VolunteerForm setOpenModal={setOpenModal} />}
       <UpcomingEvents />
     </div>
