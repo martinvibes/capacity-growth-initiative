@@ -23,14 +23,14 @@ const WhyVolunteer = () => {
         />
       </div>
 
-      <div className="w-full relative text-center flex-col   items-center md:w-1/2">
+      <div className="w-full relative flex md:justify-start md:text-center text-left flex-col  items-center md:w-1/2">
         <Image
           src={voluntryBg}
           alt="voluntryBG"
-          className="w-[79.5%] ml-[-1rem] shadow-2xl rounded-br-md  rounded-tr-md "
+          className=" w-[100%]  rounded-md  sm:w-[79.5%] sm:ml-[-8rem] shadow-2xl sm:rounded-br-md  sm:rounded-tr-md "
         />
 
-        <div className="absolute inset-0 items-center ml-5 ">
+        <div className="absolute inset-0 items-center  ml-5 sm:ml-0 mt-20 sm:mt-0 ">
           <h1 className="text-xl md:text-1xl  lg:text-3xl mt-4 md:mt-14 text-[#F9F9F9] mb-4 md:mb-2 lg:mb-4 font-bold text-center md:text-left  ">
             Why Volunteer With Us?
           </h1>
@@ -54,7 +54,7 @@ const WhyVolunteer = () => {
             ))}
             <button
               onClick={handleModal}
-              className="flex cursor-pointer mt-4 md:mt-2 lg:mt-4 text-lg sm:text-xl font-semibold space-x-2 items-center text-[#F9F9F9] border-[3px] border-[#F9F9F9] bg-[#019B83] justify-center md:justify-start rounded-[8px] p-[14px]"
+              className="flex cursor-pointer ml-16 md:ml-0 mt-4 sm:mt-2 lg:mt-4 text-lg sm:text-xl font-semibold space-x-2 items-center text-[#F9F9F9] border-[3px] border-[#F9F9F9] bg-[#019B83] justify-center md:justify-start rounded-[8px] p-[14px]"
             >
               <span>Get started</span>
               <ArrowRight />

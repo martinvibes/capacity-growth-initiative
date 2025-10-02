@@ -78,7 +78,7 @@ export default function EventsPage() {
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-b from-teal-50 to-white">
         <div className="text-center mb-12">
-          <h3 className="text-[#019B83] text-[25px] font-bold leading-[100%] mb-2 inline-block text-start  relative">
+          <h3 className="text-[#019B83] z-50 text-[25px] font-bold leading-[100%] mb-2 inline-block text-start  relative">
             Upcoming events
             <span className="block w-90  mx-auto mt-3">
               <Image src={Line} alt="line" />
@@ -93,9 +93,9 @@ export default function EventsPage() {
         </div>
       </section>
       {/* Events Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white z-50" id="events" >
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto hover:text-white">
             {events.map((event, index) => (
               <EventCard key={event.id} event={event} index={index} />
             ))}

@@ -46,37 +46,34 @@ const Navbar = () => {
         { label: "Mission Statement", href: "/about/mission-statement" },
         { label: "Vision Statement", href: "/about/vision-statement" },
         { label: "Objectives", href: "/about/objectives" },
-      ]
+      ],
     },
     {
       label: "Who are we",
       dropdown: [
         { label: "Meet Our Team", href: "/who-are-we/meet-our-team" },
-        { label: "Strategy Plan", href: "/who-are-we/strategy-plan" },
+        // { label: "Strategy Plan", href: "/who-are-we/strategy-plan" },
         { label: "Strategic Goals", href: "/who-are-we/strategic-goals" },
         { label: "What We Do", href: "/who-are-we/what-we-do" },
       ],
     },
+
     {
       disabled: true,
-      label: "Projects",
-      dropdown: [
-        { label: "Volunteer", href: "/projects/volunteer" },
-        { label: "Partner With Us", href: "/projects/partner-with-us" },
-        { label: "Careers", href: "/projects/careers" },
-        { label: "Events", href: "/projects/events" },
-      ],
+      label: "Join Us",
+      href: "/joinus",
     },
+
     {
-      label: "Contact Us",
+      label: "Donate",
       disabled: true,
-      href: "/contact-us", 
+      href: "/donate",
     },
   ];
 
   return (
     <nav
-      className={`bg-[#DEEFEC] shadow-sm  z-50 transition-all duration-300 ${
+      className={`bg-[#DEEFEC] shadow-sm  relative z-50 transition-all duration-300 ${
         isScrolled ? "py-2" : "py-4"
       }`}
     >
@@ -117,7 +114,7 @@ const Navbar = () => {
                       onClick={() => toggleDropdown(item.label)}
                       className={`inline-flex items-center px-1 pt-1 text-lg font-medium cursor-pointer ${
                         item.dropdown?.some(
-                          (subItem) => pathname === subItem.href 
+                          (subItem) => pathname === subItem.href
                         )
                           ? "text-[#019B83]"
                           : "text-[#051609] hover:text-[#019B83]"
