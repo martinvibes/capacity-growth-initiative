@@ -3,18 +3,15 @@ import React from "react";
 import successImage from "../../../public/capacity_growth_success.svg";
 
 interface SuccessModalProps {
-  setOpenModal: (openModal: boolean) => void;
-  setOpenSuccessModal: (openSuccessModal: boolean) => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 const SuccessModal: React.FC<SuccessModalProps> = ({
-  setOpenModal,
-  setOpenSuccessModal,
+  isOpen,
+  onClose,
 }) => {
-  function handleCloseModal() {
-    setOpenModal(false);
-    setOpenSuccessModal(false);
-  }
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-[#000000da] backdrop-blur-md">
@@ -25,7 +22,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
         <Image src={successImage} alt="success" className="mx-auto" />
         <h1 className="text-lg my-4">Welcome to Capacity Growth Initiative</h1>
         <button
-          onClick={handleCloseModal}
+          onClick={onClose}
           className="bg-black text-[#69A179] hover:text-white cursor-pointer rounded-lg px-4 py-2 mt-4 hover:bg-[#6ead80] transition-colors"
         >
           Back to home

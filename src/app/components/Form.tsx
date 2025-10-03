@@ -4,9 +4,10 @@ import { X } from "lucide-react";
 
 interface VolunteerFormProps {
   setOpenModal: (open: boolean) => void;
+  onSuccess?: () => void;
 }
 
-const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
+const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }) => {
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -82,6 +83,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
           },
         });
         setOpenSuccessModal(true);
+        onSuccess?.();
       } else {
         console.error("Form submission Failed.");
       }
@@ -92,8 +94,8 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#00000083] backdrop-blur-2xl">
-      <div className="w-xl p-6 mx-auto relative bg-white rounded-lg shadow">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#00000083]  backdrop-blur-2xl">
+      <div className="w-xl px-3 mx-auto relative bg-white rounded-lg shadow">
         <X
           width={24}
           height={24}
@@ -105,7 +107,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
           className="w-full"
           style={{ color: "#000000" }}
         >
-          <div className="mb-4 mt-5 flex justify-between space-x-2.5 items-center">
+          <div className=" mt-2 flex justify-between space-x-2.5 items-center">
             <label className="block mb-2 whitespace-nowrap" htmlFor="fullName">
               Full Name:
             </label>
@@ -115,11 +117,11 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
               name="fullName"
               value={formData.fullName}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500"
+              className="w-full px-3 py-1 border-b border-gray-300 focus:outline-none "
             />
           </div>
 
-          <div className="mb-4 flex justify-between space-x-2.5 items-center">
+          <div className="mb-1 flex justify-between space-x-2.5 items-center">
             <label className="block mb-2" htmlFor="dateOfBirth">
               Date of Birth:
             </label>
@@ -129,11 +131,11 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
               name="dateOfBirth"
               value={formData.dateOfBirth}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500"
+              className="w-full px-3 py-2 border-b border-gray-300 focus:outline-none "
             />
           </div>
 
-          <div className="mb-4 flex space-x-2.5 items-center">
+          <div className="mb-1 flex space-x-2.5 items-center">
             <label className="block mb-2">Gender:</label>
             <div className="flex space-x-4">
               <label className="inline-flex items-center">
@@ -161,7 +163,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
             </div>
           </div>
 
-          <div className="mb-4 flex justify-between space-x-2.5 items-center">
+          <div className="mb-1 flex justify-between space-x-2.5 items-center">
             <label className="block mb-2" htmlFor="address">
               Address:
             </label>
@@ -171,11 +173,11 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
               name="address"
               value={formData.address}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500"
+              className="w-full px-3 py-1 border-b border-gray-300 focus:outline-none "
             />
           </div>
 
-          <div className="mb-4 flex justify-between space-x-2.5 items-center">
+          <div className="mb-1 flex justify-between space-x-2.5 items-center">
             <label className="block whitespace-nowrap mb-2" htmlFor="cityState">
               City and State:
             </label>
@@ -185,11 +187,11 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
               name="cityState"
               value={formData.cityState}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500"
+              className="w-full px-3 py-1 border-b border-gray-300 focus:outline-none "
             />
           </div>
 
-          <div className="mb-4 flex justify-between space-x-2.5 items-center">
+          <div className="mb-1 flex justify-between space-x-2.5 items-center">
             <label
               className="block whitespace-nowrap mb-2"
               htmlFor="phoneNumber"
@@ -202,11 +204,11 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500"
+              className="w-full px-3 py-1 border-b border-gray-300 focus:outline-none "
             />
           </div>
 
-          <div className="mb-4 flex justify-between space-x-2.5 items-center">
+          <div className="mb-5 flex justify-between space-x-2.5 items-center">
             <label className="block whitespace-nowrap mb-2" htmlFor="email">
               Email:
             </label>
@@ -216,12 +218,12 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500"
+              className="w-full px-3 py-1 border-b border-gray-300 focus:outline-none "
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block mb-2">
+          <div className="mb-1">
+            <label className="block mb-1">
               Areas of Interest (Select One or More)
             </label>
             <div className="space-y-2">
@@ -290,19 +292,17 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal }) => {
 
           <button
             type="submit"
-            className="w-full bg-green-800 hover:bg-green-700 cursor-pointer text-white font-medium py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+            className=" mb-1.5 ml-42 bg-[#051609]  cursor-pointer text-[#019B83] font-medium py-2 px-20 rounded focus:outline-none "
           >
             Submit
           </button>
         </form>
       </div>
 
-      {openSuccessModal && (
-        <SuccessModal
-          setOpenModal={setOpenModal}
-          setOpenSuccessModal={setOpenSuccessModal}
-        />
-      )}
+      <SuccessModal
+        isOpen={openSuccessModal}
+        onClose={() => setOpenSuccessModal(false)}
+      />
     </div>
   );
 };

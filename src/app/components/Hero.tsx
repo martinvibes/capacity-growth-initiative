@@ -4,6 +4,8 @@ import Image from "next/image";
 import React from "react";
 import hero_img1 from "../../../public/hero-img1.svg";
 import hero_img2 from "../../../public/hero-img2.svg";
+import Ellipse1 from "../../../public/Ellipse1.png";
+import Ellipse2 from "../../../public/Ellipse2.png";
 
 interface HeroProps {
   setOpenModal: (open: boolean) => void;
@@ -11,61 +13,110 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ setOpenModal }) => {
   return (
-    <div className="w-full overflow-x-hidden">
-      <div className="flex justify-between items-center md:items-start mx-5 md:mx-24">
-        <div>
-          <div className="mt-10">
-            <h1 className="font-extrabold text-xl md:text-[35px] lg:text-[56px] md:leading-13">
-              Empowering Growth,
-            </h1>
-            <h2 className="font-extrabold text-xl md:text-[35px] lg:text-[56px]">
-              Expanding Possibilities:
-            </h2>
+    <div className="relative w-full overflow-hidden bg-white">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-10">
+        <div className="absolute right-0 top-0 hidden sm:hidden md:hidden lg:block ">
+          <Image src={Ellipse1} alt="ellipse" width={700} height={700} />
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 ">
+          {/* Left side - Text content */}
+          <div className="w-full">
+            <div className="text-4xl md:text-[40px] lg:text-[45px] z-50 relative  font-extrabold text-[#051609] leading-[100%]">
+              <p className="text-[#019B83] mb-2">Empowering Growth,</p>
+              <p className="text-[#019B83]">Expanding Possibilities:</p>
+            </div>
+
+            <p className="mt-6 text-lg md:text-[14px] text-[#051609] relative z-50 leading-relaxed">
+              We empower individuals, groups and communities to unlock their
+              full potential by providing innovative tools, strategic planning,
+              and strong partnerships. Our focus is on driving sustainable
+              growth through entrepreneurship, leadership, and technology. By
+              combining forward-thinking solutions with collaborative efforts,
+              we create lasting impact and help build a more resilient and
+              inclusive future.
+            </p>
+
+            <div className="mt-10 z-50 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+              <button className="px-8 py-2 cursor-pointer bg-[#019B83] hover:bg-[#019B83] text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none">
+                Donate
+              </button>
+              <button
+                onClick={() => setOpenModal(true)}
+                className="px-8 py-2 border border-[#019B83] text-[#019B83] hover:bg-green-50 font-medium rounded-lg transition-all duration-300 transform cursor-pointer hover:scale-105 focus:outline-none "
+              >
+                Join Us
+              </button>
+            </div>
           </div>
 
-          <p className="lg:w-[590px] my-4 md:my-10 text-[12px] sm:text-[18px] md:text-[20px] lg:text-[24px]">
-            We drive sustainable growth for businesses and communities through
-            innovative tools, strategic planning, and partnerships, unlocking
-            future potential.
-          </p>
-
-          <div className="hidden md:flex items-center space-x-2 md:space-x-8">
-            <button className="md:px-10 px-5 rounded-lg cursor-pointer md:py-3.5 py-2 bg-[#019B83] transition-colors hover:border-[#019B83] hover:bg-[#018d83] text-[#EDEDED]">
-              Donate
-            </button>
-            <button
-              onClick={() => setOpenModal(true)}
-              className="md:px-10 px-5 rounded-lg cursor-pointer md:py-3.5 py-2 transition-colors border text-[#019B83] border-[#019B83] hover:bg-[#019B83] hover:text-[#EDEDED]"
-            >
-              Join Us
-            </button>
+          {/* Right side - Image */}
+          <div className="relative">
+            <div className="absolute right-[10rem] hidden sm:hidden md:hidden lg:block overflow-hidden ">
+              <Image
+                src={hero_img1}
+                alt="Africa map with human face collage"
+                className="w-[20rem]  "
+                priority
+              />
+            </div>
           </div>
         </div>
 
-        <div>
-          <Image src={hero_img1} alt="hero img" className="max-w-full h-auto" />
+        {/* Bottom team image - Only show on larger screens */}
+        <div className="hidden lg:block bottom-0  relative">
+          <div className=" hidden md:block">
+            <Image
+              src={Ellipse2}
+              alt="Ellipse2"
+              className="z-0"
+              width={300}
+              height={300}
+            />
+          </div>
+          <div className="absolute max-w-4xl mx-auto top-[-4rem] right-[25rem]  overflow-hidden">
+            <Image
+              src={hero_img2}
+              alt="Team of diverse people"
+              className="w-full h-auto"
+            />
+          </div>
         </div>
       </div>
 
-      <div className="flex px-5 mt-2 w-full items-center md:hidden space-x-2 md:space-x-8">
-        <button className="md:px-10 w-full px-5 rounded-lg cursor-pointer py-3.5 bg-[#019B83] text-[#EDEDED] hover:bg-[#018d83] ">
-          Donate
-        </button>
-        <button
-          onClick={() => setOpenModal(true)}
-          className="md:px-10 w-full px-5 rounded-lg cursor-pointer py-3.5 border border-[#019B83] hover:bg-[#019B83] hover:text-[#EDEDED]"
-        >
-          Join Us
-        </button>
+      {/* Mobile team image */}
+      <div className="lg:hidden px-4">
+        <div className="relative  overflow-hidden ">
+          <Image
+            src={hero_img2}
+            alt="Team of diverse people"
+            className="w-full h-auto"
+          />
+        </div>
       </div>
 
-      <div className="flex px-5 items-center mt-8 w-full xl:-mt-48">
-        <Image
-          className="mx-auto max-w-full h-auto"
-          src={hero_img2}
-          alt="hero img"
-        />
-      </div>
+      {/* Animation keyframes */}
+      <style jsx global>{`
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+      `}</style>
     </div>
   );
 };
