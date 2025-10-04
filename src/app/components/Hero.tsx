@@ -6,6 +6,7 @@ import hero_img1 from "../../../public/hero-img1.svg";
 import hero_img2 from "../../../public/hero-img2.svg";
 import Ellipse1 from "../../../public/Ellipse1.png";
 import Ellipse2 from "../../../public/Ellipse2.png";
+import Link from "next/link";
 
 interface HeroProps {
   setOpenModal: (open: boolean) => void;
@@ -38,7 +39,10 @@ const Hero: React.FC<HeroProps> = ({ setOpenModal }) => {
 
             <div className="mt-10 z-50 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
               <button className="px-8 py-2 cursor-pointer bg-[#019B83] hover:bg-[#019B83] text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none">
+                <Link href="/donate">
+                
                 Donate
+                </Link>
               </button>
               <button
                 onClick={() => setOpenModal(true)}

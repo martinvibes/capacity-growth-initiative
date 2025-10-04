@@ -89,7 +89,7 @@ export default function DonatePage() {
 
           {submitStatus && (
             <div
-              className={`p-4 mb-6 rounded-md ${
+              className={`p-4 mb-6 rounded-md z-50 relative ${
                 submitStatus.success
                   ? "bg-green-50 text-green-800"
                   : "bg-red-50 text-red-800"

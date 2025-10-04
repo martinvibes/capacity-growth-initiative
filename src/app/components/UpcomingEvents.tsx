@@ -77,18 +77,18 @@ const UpcomingEvents = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-[90%]">
         {/* Events List */}
-        <div className="lg:col-span-2 space-y-6 border border-[#0516091A]">
+        <div className="lg:col-span-2  space-y-6 border border-[#0516091A]">
           {events.map((event) => (
             <div
               key={event.id}
-              className=" hover:shadow-md transition-all duration-300 flex overflow-hidden border border-[#0516091A] "
+              className=" hover:shadow-md transition-all  duration-300 lg:flex lg:flex-row flex-col overflow-hidden border border-[#0516091A] "
             >
               <Image
                 src={event.image}
                 alt={event.title}
                 width={128}
                 height={128}
-                className="w-[30%] h-[30%] object-cover"
+                className="lg:w-[30%] lg:h-[30%] w-full h-full object-cover"
               />
               <div className="flex-1 p-6 flex flex-col justify-center">
                 <div className="flex items-start">
@@ -132,9 +132,9 @@ const UpcomingEvents = () => {
             </div>
             <h3 className="text-[20px] font-bold text-[#F9F9F9] mb-3">
               Subscribe to our Newsletter
-            <p className="text-[#F9F9F970] text-[12px] mb-6">
-              Get the latest on news and events
-            </p>
+              <p className="text-[#F9F9F970] text-[12px] mb-6">
+                Get the latest on news and events
+              </p>
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-[50px]">
@@ -161,8 +161,8 @@ const UpcomingEvents = () => {
 
       {/* View All Events Button */}
       <div className="text-center mt-12">
-        <Link 
-          href="/events" 
+        <Link
+          href="/events"
           className="mt-6 w-fit bg-[#019B83] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#018b76] transition-colors flex items-center justify-center mx-auto"
         >
           View all Events

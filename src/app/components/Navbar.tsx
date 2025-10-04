@@ -73,7 +73,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`bg-[#DEEFEC] shadow-sm  relative z-50 transition-all duration-300 ${
+      className={`bg-[#DEEFEC] shadow-sm  relative z-40 transition-all duration-300 ${
         isScrolled ? "py-2" : "py-4"
       }`}
     >

@@ -32,7 +32,7 @@ export default function JoinUsPage() {
               </p>
               <button
                 onClick={handleOpenModal}
-                className="bg-[#019B83] text-[#F9F9F9] px-8 py-3 rounded-full font-semibold hover:bg-[#113018] transition-colors"
+                className="bg-[#019B83] text-[#F9F9F9] z-50 relative px-8 py-3 rounded-full font-semibold hover:bg-[#113018] transition-colors"
               >
                 Become a Volunteer
               </button>

@@ -292,7 +292,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
 
           <button
             type="submit"
-            className=" mb-1.5 ml-42 bg-[#051609]  cursor-pointer text-[#019B83] font-medium py-2 px-20 rounded focus:outline-none "
+            className=" mb-1.5 lg:ml-42 ml-22 bg-[#051609]  cursor-pointer text-[#019B83] font-medium py-2 px-20 rounded focus:outline-none "
           >
             Submit
           </button>

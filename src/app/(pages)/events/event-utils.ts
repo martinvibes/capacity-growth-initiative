@@ -40,7 +40,6 @@ export const events: Record<number, Event> = {
     link: "https://www.CGI.Com/Webinar/facebook.com",
     speakers: ["James peter", "Benny john", "Emmanuel sani "],
   },
-  // Add other events here...
   3: {
     id: 3,
     title: "Virtual Career Day: Connect with Top Employers",
