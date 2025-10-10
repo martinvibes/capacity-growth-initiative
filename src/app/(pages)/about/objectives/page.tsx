@@ -22,7 +22,7 @@ export default function ObjectivesPage() {
             src={objective}
             alt="Hero background"
             fill
-            className="object-center z-30 relative"
+            className="object-center"
             priority
           />
         </div>
