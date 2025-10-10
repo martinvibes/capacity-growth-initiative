@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import logo from "../../../public/logo.svg";
+import logo from "../../../public/logo.png";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 interface NavItem {
@@ -40,6 +40,12 @@ const Navbar = () => {
 
   const navItems: NavItem[] = [
     {
+      label: "Home",
+      disabled: true,
+      href: "/",
+    },
+
+    {
       label: "About",
 
       dropdown: [
@@ -73,8 +79,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`bg-[#DEEFEC] shadow-sm  relative z-50 transition-all duration-300 ${
-        isScrolled ? "py-2" : "py-4"
+      className={`bg-[#DEEFEC]   relative z-40 transition-all duration-300 ${
+        isScrolled ? "py-[20px]" : "py-[20px]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,9 +93,9 @@ const Navbar = () => {
             <Image
               src={logo}
               alt="Capacity Growth Initiative"
-              width={40}
-              height={40}
-              className="h-14 w-auto"
+              width={50}
+              height={50}
+              className="w-[70px] "
             />
           </Link>
 
@@ -100,7 +106,7 @@ const Navbar = () => {
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`inline-flex items-center px-1 pt-1 text-lg font-medium cursor-pointer ${
+                    className={`inline-flex items-center px-1 pt-1 text-[17px] leading-[100%] font-medium cursor-pointer ${
                       pathname === item.href
                         ? "text-[#019B83]"
                         : "text-[#051609] hover:text-[#019B83]"
@@ -159,7 +165,7 @@ const Navbar = () => {
             ))}
             <Link
               href="/donate"
-              className="ml-4 inline-flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#019B83] hover:bg-[#08b198] focus:outline-none transition-colors duration-200"
+              className="ml-4 inline-flex w-[111px] h-[43px] justify-center items-center p-[10px] border-[3px] border-[#F9F9F9] text-sm font-bold leading-[100%] rounded-[10px] text-[19px] bg-[#019B83] text-[#F9F9F9]  focus:outline-none"
             >
               Donate
             </Link>

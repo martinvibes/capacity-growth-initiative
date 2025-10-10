@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="flex flex-col">
             <div className="mb-4">
               <Image
-                src="/logo.svg"
+                src="/logo.png"
                 alt="Capacity Growth Initiative Logo"
                 width={80}
                 height={80}

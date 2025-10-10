@@ -27,7 +27,7 @@ export default function EventsPage() {
       month: "Sept",
       title: "webinar on the importance of teaming collaborations",
       time: "11:00 PM - 11:45 PM",
-      location: "Facebook Live",
+      location: "Facebook",
       locationType: "facebook",
       isFeatured: true,
     },
@@ -38,7 +38,7 @@ export default function EventsPage() {
       month: "Sept",
       title: "workshop for prospective volunteers",
       time: "02:00 PM - 04:00 PM",
-      location: "New City Hall",
+      location: "New choice hall",
       locationType: "venue",
     },
     {
@@ -46,9 +46,9 @@ export default function EventsPage() {
       image: "/upcome3.png",
       day: "28",
       month: "Sept",
-      title: "Virtual career day: connect with top employers",
+      title: "Hands-on Youths Skill acquisition training  ",
       time: "10:00 AM - 03:00 PM",
-      location: "Zoom Meeting",
+      location: "GGSS Zipak",
       locationType: "zoom",
     },
     {
@@ -56,9 +56,9 @@ export default function EventsPage() {
       image: "/upcome4.png",
       day: "05",
       month: "Oct",
-      title: "Community outreach program",
+      title: "Virtual career day : Connect with top employers ",
       time: "09:00 AM - 01:00 PM",
-      location: "Downtown Community Center",
+      location: "Facebook",
       locationType: "venue",
     },
     {
@@ -66,17 +66,17 @@ export default function EventsPage() {
       image: "/upcome5.png",
       day: "12",
       month: "Oct",
-      title: "Online fundraising campaign launch",
+      title: "webinar on the importance of team collaborations ",
       time: "12:00 PM - 01:00 PM",
-      location: "Facebook Live",
+      location: "Facebook",
       locationType: "facebook",
     },
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col ">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-b from-teal-50 to-white">
+      <section className="relative py-20 bg-gradient-to-b from-teal-50 to-white ">
         <div className="text-center mb-12">
           <h3 className="text-[#019B83] z-50 text-[25px] font-bold leading-[100%] mb-2 inline-block text-start  relative">
             Upcoming events
@@ -93,9 +93,9 @@ export default function EventsPage() {
         </div>
       </section>
       {/* Events Section */}
-      <section className="py-16 bg-white z-50" id="events" >
+      <section className="py-16 bg-white z-50 " id="events" >
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto hover:text-white">
+          <div className="max-w-4xl mx-auto border-x border-[#0516091A] hover:text-white">
             {events.map((event, index) => (
               <EventCard key={event.id} event={event} index={index} />
             ))}

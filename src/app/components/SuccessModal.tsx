@@ -14,12 +14,12 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-[#000000da] backdrop-blur-md">
+    <div className="fixed inset-0  flex items-center justify-center bg-[#000000da] z-50 backdrop-blur-md">
       <div
         className="w-xl text-center p-6 mx-auto bg-white rounded-lg shadow"
         style={{ color: "#000000" }}
       >
-        <Image src={successImage} alt="success" className="mx-auto" />
+        <Image src={successImage} alt="success" className="mx-auto " />
         <h1 className="text-lg my-4">Welcome to Capacity Growth Initiative</h1>
         <button
           onClick={onClose}

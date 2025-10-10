@@ -41,7 +41,7 @@ const ProgramSection: React.FC<ProgramSectionProps> = ({
     </div>
   );
 };
-
+ 
 const EmpowermentPrograms: React.FC = () => {
   return (
     <div className="w-full mx-auto md:px-4 mt-8 py-8">
