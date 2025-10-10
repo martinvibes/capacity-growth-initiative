@@ -6,6 +6,7 @@ import hero_img1 from "../../../../public/hero-img1.svg";
 import hero_img2 from "../../../../public/hero-img2.svg";
 import Ellipse1 from "../../../../public/Ellipse1.png";
 import Ellipse2 from "../../../../public/Ellipse2.png";
+import DonationSuccessModal from "@/app/components/DonationSuccessModal";
 // import { number } from "zod/v4-mini";
 
 export default function DonatePage() {
@@ -20,6 +21,7 @@ export default function DonatePage() {
     success: boolean;
     message: string;
   } | null>(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -40,14 +42,14 @@ export default function DonatePage() {
 
     try {
       // Here you would typically make an API call to your backend
-      // For now, we'll simulate a successful submission
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
+      // Show success message and modal
       setSubmitStatus({
         success: true,
-        message:
-          "Your message has been sent successfully! We'll get back to you soon.",
+        message: "Thank you! Please find our account details below.",
       });
+      setShowModal(true);
 
       // Reset form
       setFormData({
@@ -70,7 +72,7 @@ export default function DonatePage() {
 
   return (
     <div className="relative w-full overflow-hidden bg-white">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-5 py-10 md:py-7">
         <div>
           {/* Right side - Image */}
           <div className="relative">
@@ -197,7 +199,7 @@ export default function DonatePage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-[#019B83] bg-[#051609] focus:outline-none focus:ring-2  ${
+                  className={`w-full flex justify-center cursor-pointer py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-[#019B83] bg-[#051609] focus:outline-none focus:ring-2  ${
                     isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
@@ -205,6 +207,11 @@ export default function DonatePage() {
                 </button>
               </div>
             </form>
+            
+            <DonationSuccessModal 
+              isOpen={showModal}
+              onClose={() => setShowModal(false)}
+            />
           </div>
         </div>
 

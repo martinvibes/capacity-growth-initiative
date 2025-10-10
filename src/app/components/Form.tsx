@@ -1,13 +1,19 @@
 import { useState } from "react";
 import SuccessModal from "./SuccessModal";
 import { X } from "lucide-react";
+import Image from "next/image";
+import hero_img1 from "../../../public/hero-img1.svg";
+import hero_img2 from "../../../public/hero-img2.svg";
 
 interface VolunteerFormProps {
   setOpenModal: (open: boolean) => void;
   onSuccess?: () => void;
 }
 
-const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }) => {
+const VolunteerForm: React.FC<VolunteerFormProps> = ({
+  setOpenModal,
+  onSuccess,
+}) => {
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -94,21 +100,24 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#00000083]  backdrop-blur-2xl">
-      <div className="w-xl px-3 mx-auto relative bg-white rounded-lg shadow">
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-white ">
+      <div className="w-fit px-3 mx-auto relative z-40 bg-white rounded-lg border-3 border-[#051609] ">
         <X
           width={24}
           height={24}
-          className="absolute top-3 right-4 cursor-pointer text-black"
+          className="absolute top-3 right-4 z-50 cursor-pointer text-black"
           onClick={() => setOpenModal(false)}
         />
         <form
           onSubmit={handleSubmit}
-          className="w-full"
+          className="w-full z-40 relative "
           style={{ color: "#000000" }}
         >
-          <div className=" mt-2 flex justify-between space-x-2.5 items-center">
-            <label className="block mb-2 whitespace-nowrap" htmlFor="fullName">
+          <div className=" mt-1 flex space-x-2 items-center text-center">
+            <label
+              className=" text-[12px] leading-[100%] text-[#051609] font-semibold font-serif"
+              htmlFor="fullName"
+            >
               Full Name:
             </label>
             <input
@@ -117,11 +126,11 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
               name="fullName"
               value={formData.fullName}
               onChange={handleInputChange}
-              className="w-full px-3 py-1 border-b border-gray-300 focus:outline-none "
+              className="w-fit px-3 py-1 border-b border-gray-300 focus:outline-none "
             />
           </div>
 
-          <div className="mb-1 flex justify-between space-x-2.5 items-center">
+          {/* <div className="mb-1 flex justify-between space-x-2.5 items-center">
             <label className="block mb-2" htmlFor="dateOfBirth">
               Date of Birth:
             </label>
@@ -133,12 +142,14 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
               onChange={handleInputChange}
               className="w-full px-3 py-2 border-b border-gray-300 focus:outline-none "
             />
-          </div>
+          </div> */}
 
-          <div className="mb-1 flex space-x-2.5 items-center">
-            <label className="block mb-2">Gender:</label>
+          <div className="mt-1 flex space-x-2.5 items-center">
+            <label className="block mb-2 text-[12px] leading-[100%] text-[#051609] font-semibold font-serif">
+              Gender:
+            </label>
             <div className="flex space-x-4">
-              <label className="inline-flex items-center">
+              <label className="inline-flex items-center text-[12px] text-[#051609] leading-[100%] font-semibold font-serif">
                 <input
                   type="radio"
                   name="gender"
@@ -149,7 +160,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
                 />
                 <span>Male</span>
               </label>
-              <label className="inline-flex items-center">
+              <label className="inline-flex items-center text-[12px] text-[#051609] leading-[100%] font-semibold font-serif">
                 <input
                   type="radio"
                   name="gender"
@@ -160,11 +171,25 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
                 />
                 <span>Female</span>
               </label>
+              <label className="inline-flex items-center text-[12px] text-[#051609] leading-[100%] font-semibold font-serif">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="other"
+                  checked={formData.gender === "other"}
+                  onChange={handleInputChange}
+                  className="mr-2"
+                />
+                <span>Others</span>
+              </label>
             </div>
           </div>
 
           <div className="mb-1 flex justify-between space-x-2.5 items-center">
-            <label className="block mb-2" htmlFor="address">
+            <label
+              className="block mb-2 text-[12px] leading-[100%] text-[#051609] font-semibold font-serif"
+              htmlFor="address"
+            >
               Address:
             </label>
             <input
@@ -178,7 +203,10 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
           </div>
 
           <div className="mb-1 flex justify-between space-x-2.5 items-center">
-            <label className="block whitespace-nowrap mb-2" htmlFor="cityState">
+            <label
+              className="block whitespace-nowrap mb-2 text-[12px] text-[#051609] leading-[100%] font-semibold font-serif"
+              htmlFor="cityState"
+            >
               City and State:
             </label>
             <input
@@ -193,7 +221,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
 
           <div className="mb-1 flex justify-between space-x-2.5 items-center">
             <label
-              className="block whitespace-nowrap mb-2"
+              className="block whitespace-nowrap mb-2 text-[12px] text-[#051609] leading-[100%] font-semibold font-serif"
               htmlFor="phoneNumber"
             >
               Phone Number:
@@ -208,8 +236,11 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
             />
           </div>
 
-          <div className="mb-5 flex justify-between space-x-2.5 items-center">
-            <label className="block whitespace-nowrap mb-2" htmlFor="email">
+          <div className="mb-5 flex justify-between space-x-2.5 items-center text-center">
+            <label
+              className="block whitespace-nowrap mb-2 text-[12px] leading-[100%]  text-[#051609] font-semibold font-serif"
+              htmlFor="email"
+            >
               Email:
             </label>
             <input
@@ -222,8 +253,46 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
             />
           </div>
 
+          <div className="mb-2 z-50 relative">
+            <label className="block mb-1 text-[14px] leading-[100%] font-bold font-serif text-[#051609]">
+              Areas of Interest (Select One or More)
+            </label>
+            <div className="space-y-2">
+              <label className="flex items-center">
+                <input
+                  type="checkbox"
+                  name="entrepreneurship"
+                  checked={formData.interests.education}
+                  onChange={handleCheckboxChange}
+                  className="mr-2"
+                />
+                <span>Entrepreneurship</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="checkbox"
+                  name="leadership"
+                  checked={formData.interests.health}
+                  onChange={handleCheckboxChange}
+                  className="mr-2"
+                />
+                <span>Leadership </span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="checkbox"
+                  name="technology"
+                  checked={formData.interests.environmental}
+                  onChange={handleCheckboxChange}
+                  className="mr-2"
+                />
+                <span>Technology</span>
+              </label>
+            </div>
+          </div>
+
           <div className="mb-1">
-            <label className="block mb-1">
+            <label className="block mb-1 text-[14px] leading-[100%] font-bold font-serif text-[#051609]">
               Areas of Interest (Select One or More)
             </label>
             <div className="space-y-2">
@@ -235,7 +304,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Education & Tutoring</span>
+                <span>Education & Tutoring </span>
               </label>
               <label className="flex items-center">
                 <input
@@ -245,7 +314,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Health & Wellness Programs</span>
+                <span>Event planning </span>
               </label>
               <label className="flex items-center">
                 <input
@@ -255,7 +324,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Environmental Conservation</span>
+                <span>Social Media</span>
               </label>
               <label className="flex items-center">
                 <input
@@ -265,7 +334,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Community Development</span>
+                <span>partnership management </span>
               </label>
               <label className="flex items-center">
                 <input
@@ -275,28 +344,39 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ setOpenModal, onSuccess }
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Fundraising & Events</span>
-              </label>
-              <label className="flex items-center">
-                <input
-                  type="checkbox"
-                  name="socialMedia"
-                  checked={formData.interests.socialMedia}
-                  onChange={handleCheckboxChange}
-                  className="mr-2"
-                />
-                <span>Social Media & Advocacy</span>
+                <span>Advisory to the Board</span>
               </label>
             </div>
           </div>
 
           <button
             type="submit"
-            className=" mb-1.5 lg:ml-42 ml-22 bg-[#051609]  cursor-pointer text-[#019B83] font-medium py-2 px-20 rounded focus:outline-none "
+            className=" mb-1.5 lg:ml-16 ml-19 bg-[#051609]  cursor-pointer text-[#019B83] font-medium py-2 px-20 rounded focus:outline-none "
           >
             Submit
           </button>
         </form>
+      </div>
+      <div className="md:w-1/2 flex justify-center">
+        <div className="absolute top-0 right-0 w-full max-w-md">
+          <Image
+            src={hero_img1}
+            alt="Volunteer"
+            width={400}
+            height={400}
+            className=""
+            priority
+          />
+        </div>
+      </div>
+      <div className="absolute bottom-[1rem] right-[20rem]">
+        <Image
+          src={hero_img2}
+          alt="Community"
+          width={400}
+          height={400}
+          className=""
+        />
       </div>
 
       <SuccessModal

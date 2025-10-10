@@ -17,7 +17,7 @@ export default function visionStatement() {
             src={vission}
             alt="Hero background"
             fill
-            className="object-fit"
+            className="object-fit  z-30 relative"
             priority
           />
         </div>

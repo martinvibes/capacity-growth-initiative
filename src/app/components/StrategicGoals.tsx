@@ -111,7 +111,7 @@ const StrategicGoals: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-full md:px-4 py-10">
+    <div className="max-w-full md:px-4 py-10 my-10">
       <h1 className="text-center text-[24px] md:text-[40px] md:font-bold font-semibold mb-6">
         Strategic Goals
       </h1>
