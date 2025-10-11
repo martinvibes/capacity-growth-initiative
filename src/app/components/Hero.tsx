@@ -15,10 +15,10 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ setOpenModal }) => {
   return (
-    <div className="relative w-full overflow-hidden bg-white">
-      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-10">
+    <div className="relative w-full overflow-hidden bg-white ">
+      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="absolute md:right-0 hidden md:block md:top-0 overflow-hidden bottom-10 ">
-          <Image src={Ellipse1} alt="ellipse" width={700} height={700} />
+          <Image src={Ellipse1} alt="ellipse" width={700} height={500} />
         </div>
 
         <div className="absolute overflow-hidden md:hidden bottom-[-1.5rem] ">
@@ -41,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({ setOpenModal }) => {
               <p className="md:text-[#019B83]">Expanding Possibilities:</p>
             </div>
 
-            <p className="mt-10 font-normal w-full md:w-[665px] md:h-[126px] text-[17px] font-[inter] text-[#051609] relative z-50  leading-[140%]">
+            <p className="mt-8 font-normal w-full md:w-[665px] md:h-[126px] text-[17px] font-[inter] text-[#051609] relative z-50  leading-[140%]">
               We empower individuals, groups and communities to unlock their
               full potential by providing innovative tools, strategic planning,
               and strong partnerships. Our focus is on driving sustainable
@@ -51,7 +51,7 @@ const Hero: React.FC<HeroProps> = ({ setOpenModal }) => {
               inclusive future.
             </p>
 
-            <div className="mt-10 relative z-50 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+            <div className="mt-[34px] mb-[30px] relative z-50 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
               <button className="p-[20px] cursor-pointer w-[160px] h-[59px] bg-[#019B83] text-[16px] leading-[100%] font-semibold text-white  rounded-[8px] inline-flex justify-center items-center focus:outline-none border-[3px] border-[#F9F9F9]">
                 <Link href="/donate">Donate</Link>
               </button>
@@ -78,29 +78,29 @@ const Hero: React.FC<HeroProps> = ({ setOpenModal }) => {
         </div>
 
         {/* Bottom team image - Only show on larger screens */}
-        <div className="hidden md::block bottom-0  relative">
-          <div className=" hidden md:block">
+        <div className=" md::block  relative">
+          <div className="absolute overflow-hidden top-[-7rem]  hidden md:block">
             <Image
               src={Ellipse2}
               alt="Ellipse2"
               className="z-0"
-              width={300}
-              height={300}
+              width={200}
+              height={100}
             />
           </div>
-          <div className="absolute max-w-4xl mx-auto top-[-4rem] right-[25rem]  overflow-hidden">
+          <div className="absolute hidden md:block top-[-9rem] right-[10rem]  overflow-hidden">
             <Image
               src={hero_img2}
               alt="Team of diverse people"
-              className="w-full h-auto"
+              className="w-[50%]"
             />
           </div>
         </div>
       </div>
 
       {/* Mobile team image */}
-      <div className="lg:hidden px-4">
-        <div className="relative  overflow-hidden ">
+      <div className="md:hidden px-4">
+        <div className="relative top-[-6rem] z-30 overflow-hidden ">
           <Image
             src={hero_img2}
             alt="Team of diverse people"

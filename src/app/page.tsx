@@ -5,7 +5,7 @@ import About from "./components/About";
 import Hero from "./components/Hero";
 import Marque from "./components/Marque";
 import WhyVolunteer from "./components/WhyVolunteer";
-import VolunteerForm from "./components/Form";
+import VolunteerForm from "./(pages)/form/page";
 import ImageCarousel from "./components/ImageCarousel";
 import UpcomingEvents from "./components/UpcomingEvents";
 import KeySuccessIndicator from "./components/KeySuccessIndicator";

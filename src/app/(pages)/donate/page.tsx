@@ -7,7 +7,7 @@ import hero_img2 from "../../../../public/hero-img2.svg";
 import Ellipse1 from "../../../../public/Ellipse1.png";
 import Ellipse2 from "../../../../public/Ellipse2.png";
 import DonationSuccessModal from "@/app/components/DonationSuccessModal";
-// import { number } from "zod/v4-mini";
+import Marque from "@/app/components/Marque";
 
 export default function DonatePage() {
   const [formData, setFormData] = useState({
@@ -17,10 +17,9 @@ export default function DonatePage() {
     amount: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    success: boolean;
-    message: string;
-  } | null>(null);
+  // const [submitStatus, setSubmitStatus] = useState<{
+  //   success: boolean;
+  // } | null>(null);
   const [showModal, setShowModal] = useState(false);
 
   const handleChange = (
@@ -38,17 +37,16 @@ export default function DonatePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus(null);
+    // setSubmitStatus(null);
 
     try {
       // Here you would typically make an API call to your backend
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // Show success message and modal
-      setSubmitStatus({
-        success: true,
-        message: "Thank you! Please find our account details below.",
-      });
+      // setSubmitStatus({
+      //   success: true,
+      // });
       setShowModal(true);
 
       // Reset form
@@ -58,12 +56,10 @@ export default function DonatePage() {
         email: "",
         amount: "",
       });
-    } catch (error) {
-      setSubmitStatus({
-        success: false,
-        message:
-          "There was an error sending your message. Please try again later.",
-      });
+    } catch (error) { 
+      // setSubmitStatus({
+      //   success: false,
+      // });
       console.log(error);
     } finally {
       setIsSubmitting(false);
@@ -72,35 +68,33 @@ export default function DonatePage() {
 
   return (
     <div className="relative w-full overflow-hidden bg-white">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-5 py-10 md:py-7">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-5 py-10 md:py-7 mb-2">
         <div>
           {/* Right side - Image */}
           <div className="relative">
             <div className="absolute right-0 top-0 w-[60%]  md:hidden  ">
               <Image src={Ellipse1} alt="ellipse" width={700} height={700} />
             </div>
-            <div className="absolute right-0 hidden sm:hidden md:hidden lg:block overflow-hidden ">
+            <div className="absolute right-[-5rem] hidden sm:hidden md:hidden lg:block overflow-hidden ">
               <Image
                 src={hero_img1}
                 alt="Africa map with human face collage"
-                className="  "
+                className=" w-[60%]  "
                 priority
               />
             </div>
           </div>
 
-          {submitStatus && (
+          {/* {submitStatus && (
             <div
               className={`p-4 mb-6 rounded-md z-50 relative ${
                 submitStatus.success
                   ? "bg-green-50 text-green-800"
                   : "bg-red-50 text-red-800"
               }`}
-            >
-              {submitStatus.message}
-            </div>
-          )}
-          <div className=" bg-[#F9F9F9] rounded-[10px] border border-[#F9F9F9]  w-[418px] py-1 h-[352px] px-10 relative z-50 shadow-2xl shadow-[#00000033] ">
+            ></div>
+          )} */}
+          <div className=" bg-[#F9F9F9] rounded-[10px] border border-[#F9F9F9]  w-[418px] py-1 h-[352px] px-10 relative left-[4rem] z-50 shadow-2xl shadow-[#00000033] ">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className=" flex items-center">
                 <label
@@ -197,18 +191,20 @@ export default function DonatePage() {
 
               <div>
                 <button
-                  type="submit"
+                  type="Proceed"
                   disabled={isSubmitting}
-                  className={`w-full flex justify-center cursor-pointer py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-[#019B83] bg-[#051609] focus:outline-none focus:ring-2  ${
+                  className={` flex justify-center  border border-transparent  shadow-sm text-sm  focus:outline-none 
+                    
+                    w-full font-medium cursor-pointer text-[#019B83] bg-[#051609] py-2 px-4 rounded-md  text-[25px] leading-[100%] transition-colors${
                     isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
-                  {isSubmitting ? "Submitting" : "Submit"}
+                  {isSubmitting ? "Proceeding" : "Proceed"}
                 </button>
               </div>
             </form>
-            
-            <DonationSuccessModal 
+
+            <DonationSuccessModal
               isOpen={showModal}
               onClose={() => setShowModal(false)}
             />
@@ -216,25 +212,25 @@ export default function DonatePage() {
         </div>
 
         {/* Bottom team image - Only show on larger screens */}
-        <div className=" lg:block bottom-0  relative">
-          <div className="">
-            <Image
-              src={Ellipse2}
-              alt="Ellipse2"
-              className="z-0"
-              width={300}
-              height={300}
-            />
-          </div>
-          <div className="absolute  top-0 max-w-4xl mx-auto sm:bottom-0  sm:right-[25rem]  overflow-hidden">
-            <Image
-              src={hero_img2}
-              alt="Team of diverse people"
-              className="w-full h-auto"
-            />
-          </div>
+
+        <div className=" absolute bottom-[-2rem] left-0">
+          <Image
+            src={Ellipse2}
+            alt="Ellipse2"
+            className="z-0"
+            width={300}
+            height={300}
+          />
+        </div>
+        <div className="absolute  max-w-4xl mx-auto sm:bottom-0  sm:right-[10rem]  overflow-hidden">
+          <Image
+            src={hero_img2}
+            alt="Team of diverse people"
+            className="w-[60%] h-auto"
+          />
         </div>
       </div>
+      <Marque />
     </div>
   );
 }

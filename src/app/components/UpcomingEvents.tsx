@@ -96,7 +96,7 @@ const UpcomingEvents = () => {
                 alt={event.title}
                 width={128}
                 height={128}
-                className="lg:w-[40%] lg:h-[40%] z-50 w-full h-full object-cover"
+                className="lg:w-[40%] lg:h-[40%] relative z-50 w-full h-full object-cover"
               />
               <div className="flex-1 p-6 flex flex-col z-40 relative ">
                 <div className="flex">

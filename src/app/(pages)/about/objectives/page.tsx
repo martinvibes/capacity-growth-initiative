@@ -60,9 +60,9 @@ export default function ObjectivesPage() {
               
                 Technology Empowerment
               </h3>
-              <p className="text-[17px] leading-[180%] font-normal text-start">
+              <p className="text-[14px] leading-[180%] font-normal text-start">
                 Equip individuals with digital skills to thrive in the modern
-                economy. .Offer training in digital literacy, coding and
+                economy. Offer training in digital literacy, coding and
                 emerging technologies .Create innovation hub for tech-driven
                 problem solving .Connect participants with global tech
                 communities
@@ -76,7 +76,7 @@ export default function ObjectivesPage() {
               <h3 className="text-[#019B83] text-[20px] my-2 font-bold leading-[180% ">
                 Business Development{" "}
               </h3>
-              <p className="text-[17px] leading-[180%] font-normal text-start">
+              <p className="text-[14px] leading-[180%] font-normal text-start">
                 Develop visionary leaders who drive positive change in their
                 communities. Provide training to build strategic communication,
                 and problem-solving skills Promote ethical leadership rooted in
@@ -90,9 +90,9 @@ export default function ObjectivesPage() {
               <h3 className="text-[#019B83] text-[20px] my-2 font-bold leading-[180%">
                 Leadership Training
               </h3>
-              <p className="text-[17px] text-start  leading-[180%] font-normal ">
+              <p className="text-[14px] text-start  leading-[180%] font-normal ">
                 Develop visionary leaders who drive positive change in their
-                communities. .Provide training to build strategic,
+                communities. Provide training to build strategic,
                 communication, and problem-solving skills .Promote ethical
                 leadership rooted in integrity and accountability .Connect young
                 leaders with policymakers and industry experts

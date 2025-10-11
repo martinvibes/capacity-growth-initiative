@@ -39,15 +39,9 @@ export default function visionStatement() {
             </div>
             </h2>
 
-            <div className="mt-8 space-y-2 text-[14.5px] text-gray-700 max-w-3xl mx-auto z-50 relative">
+            <div className="mt-8 space-y-2 text-[17px] font-normal leading-[180%] text-gray-700 max-w-3xl mx-auto z-50 relative">
               <p>
-                Our vision is to be Africa’s leading nonprofit in capacity
-                development, empowering individuals and communities in business,
-                leadership, and technology. We aspire to build a strong CGI
-                alumni network driving innovation, growth, and sustainable
-                change across the continent. At Capacity Growth Initiative
-                (CGI), we empower individuals and communities through skills,
-                resources, and opportunities for sustainable development.
+               Our vision is to be Africa’s leading nonprofit in capacity development, empowering individuals and communities in business, leadership, and technology. We aspire to build a strong CGI alumni network driving innovation, growth, and sustainable change across the continent.
               </p>
             </div>
             <div className="absolute w-[13rem] right-[30rem] ">

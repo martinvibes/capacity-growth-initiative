@@ -1,19 +1,18 @@
+"use client";
+
 import { useState } from "react";
-import SuccessModal from "./SuccessModal";
-import { X } from "lucide-react";
 import Image from "next/image";
-import hero_img1 from "../../../public/hero-img1.svg";
-import hero_img2 from "../../../public/hero-img2.svg";
+import hero_img1 from "../../../../public/hero-img1.svg";
+import hero_img2 from "../../../../public/hero-img2.svg";
+import SuccessModal from "@/app/components/SuccessModal";
+import Marque from "@/app/components/Marque";
 
 interface VolunteerFormProps {
   setOpenModal: (open: boolean) => void;
   onSuccess?: () => void;
 }
 
-const VolunteerForm: React.FC<VolunteerFormProps> = ({
-  setOpenModal,
-  onSuccess,
-}) => {
+const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -100,20 +99,14 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-white ">
-      <div className="w-fit px-3 mx-auto relative z-40 bg-white rounded-lg border-3 border-[#051609] ">
-        <X
-          width={24}
-          height={24}
-          className="absolute top-3 right-4 z-50 cursor-pointer text-black"
-          onClick={() => setOpenModal(false)}
-        />
+    <div className="  flex items-center justify-center bg-white mb-28 ">
+      <div className=" px-3 mx-auto bg-white rounded-lg border-3 border-[#051609]  ">
         <form
           onSubmit={handleSubmit}
-          className="w-full z-40 relative "
+          className="w-full z-50  relative  "
           style={{ color: "#000000" }}
         >
-          <div className=" mt-1 flex space-x-2 items-center text-center">
+          <div className="   mt-1 flex space-x-2 items-center text-center">
             <label
               className=" text-[12px] leading-[100%] text-[#051609] font-semibold font-serif"
               htmlFor="fullName"
@@ -129,23 +122,8 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
               className="w-fit px-3 py-1 border-b border-gray-300 focus:outline-none "
             />
           </div>
-
-          {/* <div className="mb-1 flex justify-between space-x-2.5 items-center">
-            <label className="block mb-2" htmlFor="dateOfBirth">
-              Date of Birth:
-            </label>
-            <input
-              type="date"
-              id="dateOfBirth"
-              name="dateOfBirth"
-              value={formData.dateOfBirth}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 border-b border-gray-300 focus:outline-none "
-            />
-          </div> */}
-
           <div className="mt-1 flex space-x-2.5 items-center">
-            <label className="block mb-2 text-[12px] leading-[100%] text-[#051609] font-semibold font-serif">
+            <label className="block mb-1 text-[12px] leading-[100%] text-[#051609] font-semibold font-serif">
               Gender:
             </label>
             <div className="flex space-x-4">
@@ -185,9 +163,9 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
             </div>
           </div>
 
-          <div className="mb-1 flex justify-between space-x-2.5 items-center">
+          <div className=" flex justify-between space-x-2.5 items-center">
             <label
-              className="block mb-2 text-[12px] leading-[100%] text-[#051609] font-semibold font-serif"
+              className="block mb-1 text-[12px] leading-[100%] text-[#051609] font-semibold font-serif"
               htmlFor="address"
             >
               Address:
@@ -202,9 +180,9 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
             />
           </div>
 
-          <div className="mb-1 flex justify-between space-x-2.5 items-center">
+          <div className=" flex justify-between space-x-2.5 items-center">
             <label
-              className="block whitespace-nowrap mb-2 text-[12px] text-[#051609] leading-[100%] font-semibold font-serif"
+              className="block whitespace-nowrap mb-1 text-[12px] text-[#051609] leading-[100%] font-semibold font-serif"
               htmlFor="cityState"
             >
               City and State:
@@ -219,7 +197,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
             />
           </div>
 
-          <div className="mb-1 flex justify-between space-x-2.5 items-center">
+          <div className="flex justify-between space-x-2.5 items-center">
             <label
               className="block whitespace-nowrap mb-2 text-[12px] text-[#051609] leading-[100%] font-semibold font-serif"
               htmlFor="phoneNumber"
@@ -236,9 +214,9 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
             />
           </div>
 
-          <div className="mb-5 flex justify-between space-x-2.5 items-center text-center">
+          <div className="mb-3 flex justify-between space-x-2.5 items-center text-center">
             <label
-              className="block whitespace-nowrap mb-2 text-[12px] leading-[100%]  text-[#051609] font-semibold font-serif"
+              className="block whitespace-nowrap mb-1 text-[12px] leading-[100%]  text-[#051609] font-semibold font-serif"
               htmlFor="email"
             >
               Email:
@@ -253,11 +231,11 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
             />
           </div>
 
-          <div className="mb-2 z-50 relative">
-            <label className="block mb-1 text-[14px] leading-[100%] font-bold font-serif text-[#051609]">
+          <div className="mb-1 z-50 relative">
+            <label className="block mb-1 text-[14px] leading-[100%] font-bold  text-[#051609]">
               Areas of Interest (Select One or More)
             </label>
-            <div className="space-y-2">
+            <div className="">
               <label className="flex items-center">
                 <input
                   type="checkbox"
@@ -266,7 +244,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Entrepreneurship</span>
+                <span className="text-[12px]">Entrepreneurship</span>
               </label>
               <label className="flex items-center">
                 <input
@@ -276,7 +254,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Leadership </span>
+                <span className="text-[12px]">Leadership </span>
               </label>
               <label className="flex items-center">
                 <input
@@ -286,16 +264,16 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Technology</span>
+                <span className="text-[12px]">Technology</span>
               </label>
             </div>
           </div>
 
           <div className="mb-1">
-            <label className="block mb-1 text-[14px] leading-[100%] font-bold font-serif text-[#051609]">
+            <label className="block mb-1 text-[14px] leading-[100%] font-bold  text-[#051609]">
               Areas of Interest (Select One or More)
             </label>
-            <div className="space-y-2">
+            <div className="">
               <label className="flex items-center">
                 <input
                   type="checkbox"
@@ -304,7 +282,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Education & Tutoring </span>
+                <span className="text-[12px]">Education & Tutoring </span>
               </label>
               <label className="flex items-center">
                 <input
@@ -314,7 +292,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Event planning </span>
+                <span className="text-[12px]">Event planning </span>
               </label>
               <label className="flex items-center">
                 <input
@@ -324,7 +302,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Social Media</span>
+                <span className="text-[12px]">Social Media</span>
               </label>
               <label className="flex items-center">
                 <input
@@ -334,7 +312,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>partnership management </span>
+                <span className="text-[12px]">partnership management </span>
               </label>
               <label className="flex items-center">
                 <input
@@ -344,7 +322,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
                   onChange={handleCheckboxChange}
                   className="mr-2"
                 />
-                <span>Advisory to the Board</span>
+                <span className="text-[12px]">Advisory to the Board</span>
               </label>
             </div>
           </div>
@@ -383,6 +361,9 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({
         isOpen={openSuccessModal}
         onClose={() => setOpenSuccessModal(false)}
       />
+      <div className="fixed bottom-0 left-0 w-full">
+        <Marque />
+      </div>
     </div>
   );
 };
