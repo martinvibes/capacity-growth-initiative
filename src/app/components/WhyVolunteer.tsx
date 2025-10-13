@@ -56,7 +56,7 @@ export default function VolunteerSection() {
 
           <button className="mt-4 inline-flex items-center cursor-pointer bg-[#019B83] text-[#F9F9F9] p-[16px] rounded-[8px] transition border-[3px] border-[#F9F9F9] text-[20px] leading-[100%] font-semibold ">
             <Link href="/form">Get Started</Link>
-            <FaArrowRight className="ml-2" />
+            <FaArrowRight className="ml-3" />
           </button>
         </div>
       </div>

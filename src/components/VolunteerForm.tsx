@@ -354,7 +354,6 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
               alt="Volunteer"
               width={350}
               height={350}
-              className=""
               priority
             />
           </div>
