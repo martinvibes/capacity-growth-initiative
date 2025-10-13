@@ -38,7 +38,7 @@ export default function WhatWeDoPage() {
                 <Image src={Line} alt="line" />
               </span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
+            <p className="text-lg text[#051609] font-semibold max-w-3xl mx-auto mt-6">
               At capacity growth Initiative, Our works include
             </p>
           </div>

@@ -1,4 +1,0 @@
-- [x] Update generateMetadata in src/app/(pages)/events/[id]/page.tsx to await params
-- [x] Update PageProps type in page.tsx to params: Promise<{ id: string }>
-- [x] Update the EventPage component to await params
-- [x] Run Next.js build to verify the fix
