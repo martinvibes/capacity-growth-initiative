@@ -5,10 +5,9 @@ import circle1 from "../../../../public/circle1.png";
 import circle2hf from "../../../../public/circle2hf.png";
 import map from "../../../../public/map.png";
 
-const MissionPage: React.FC = () => {
+export default function MissionPage() {
   return (
-    <>
-      {/* Hero Section */}
+    <div>
       <div className="relative h-[26rem] md:h-screen/2 ">
         <div>
           <Image
@@ -57,18 +56,20 @@ const MissionPage: React.FC = () => {
             </p>
             <ol className="text-[17px] text-start text-gray-700 space-y-3 pl-5">
               <li className="mb-3">
-                <span className="font-semibold">Business:</span> Equipping individuals with entrepreneurial skills and
-                business acumen to drive economic growth and innovation.
+                <span className="font-semibold">Business:</span> Equipping
+                individuals with entrepreneurial skills and business acumen to
+                drive economic growth and innovation.
               </li>
               <li className="mb-3">
-                <span className="font-semibold">Leadership:</span> Nurturing strong and visionary leaders capable of
-                inspiring positive change and spearheading impactful
-                initiatives.
+                <span className="font-semibold">Leadership:</span> Nurturing
+                strong and visionary leaders capable of inspiring positive
+                change and spearheading impactful initiatives.
               </li>
               <li className="mb-3">
-                <span className="font-semibold">Tech:</span> Providing cutting-edge technological skills and resources
-                to empower individuals and communities to thrive in a rapidly
-                evolving digital landscape.
+                <span className="font-semibold">Tech:</span> Providing
+                cutting-edge technological skills and resources to empower
+                individuals and communities to thrive in a rapidly evolving
+                digital landscape.
               </li>
             </ol>
           </div>
@@ -89,8 +90,6 @@ const MissionPage: React.FC = () => {
           <Image src={circle2hf} alt="haftcircle" />
         </div>
       </section>
-    </>
+    </div>
   );
-};
-
-export default MissionPage;
+}

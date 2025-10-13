@@ -30,7 +30,7 @@ const EventCard = ({ event, index }: { event: Event; index: number }) => {
           className={`flex flex-col md:flex-row  overflow-hidden  transition-colors duration-300 ${
             isTealBg
               ? "bg-teal-600 text-white hover:bg-[#019B83] focus:bg-[#019B83] hover:text-white focus:text-white"
-              : "bg-white hover:bg-teal-300 hover:text-white focus:bg-[#019B83] focus:text-white"
+              : "bg-white hover:bg-[#eaf8f6] hover:text-white focus:bg-[#3eedd3] focus:text-white"
           }`}
         >
           <div className="md:w-1/3">

@@ -341,7 +341,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
 
             <button
               type="submit"
-              className=" mb-1.5 lg:ml-16 ml-19 bg-[#051609]  cursor-pointer text-[#019B83] font-medium py-2 px-20 rounded focus:outline-none "
+              className=" mb-1.5 lg:ml-16 ml-19 bg-[#051609]  cursor-pointer text-[#019B83] font-medium py-2 px-20 rounded hover:bg-[#6ead80] hover:text-white focus:outline-none "
             >
               Submit
             </button>
