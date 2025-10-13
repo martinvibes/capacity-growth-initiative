@@ -254,7 +254,7 @@ const Navbar = () => {
             <div className="flex flex-col space-y-2 px-2 pb-3 pt-2">
               <Link
                 href={isDonatePage ? "/joinus" : "/donate"}
-                className="block w-full text-center px-3 py-2 rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 whitespace-nowrap"
+                className="block w-full text-center p-[10px] rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 whitespace-nowrap"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {isDonatePage ? "Join Us" : "Donate"}

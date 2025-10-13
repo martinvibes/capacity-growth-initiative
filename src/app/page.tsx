@@ -13,11 +13,11 @@ import StrategicPlans from "./components/StrategicPlans";
 import WhoWeAre from "./components/WhoWeAre";
 
 export default function Home() {
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal] = useState(false);
 
   return (
     <div className=" overflow-x-hidden">
-      <Hero setOpenModal={setOpenModal} />
+      <Hero />
       <Marque />
       <About />
       <ImageCarousel />
@@ -25,7 +25,7 @@ export default function Home() {
       <WhoWeAre/>
       <StrategicPlans/>
       <KeySuccessIndicator/>
-      {openModal && <VolunteerForm setOpenModal={setOpenModal} />}
+      {openModal && <VolunteerForm />}
       <UpcomingEvents />
     </div>
   );

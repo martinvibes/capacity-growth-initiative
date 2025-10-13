@@ -9,11 +9,7 @@ import Ellipse4 from "../../../public/Ellipse4.png";
 import Ellipse2 from "../../../public/Ellipse2.png";
 import Link from "next/link";
 
-interface HeroProps {
-  setOpenModal: (open: boolean) => void;
-}
-
-const Hero: React.FC<HeroProps> = ({ setOpenModal }) => {
+const Hero: React.FC = () => {
   return (
     <div className="relative w-full overflow-hidden bg-white ">
       <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -55,11 +51,8 @@ const Hero: React.FC<HeroProps> = ({ setOpenModal }) => {
               <button className="p-[20px] cursor-pointer w-[160px] h-[59px] bg-[#019B83] text-[16px] leading-[100%] font-semibold text-white  rounded-[8px] inline-flex justify-center items-center focus:outline-none border-[3px] border-[#F9F9F9]">
                 <Link href="/donate">Donate</Link>
               </button>
-              <button
-                onClick={() => setOpenModal(true)}
-                className="p-[20px] cursor-pointer w-[160px] h-[59px] border-[1px] hover:scale-105 border-[#019B83] text-[#019B83] text-[16px] leading-[100%] hover:bg-green-5 font-semibold inline-flex justify-center items-center  rounded-[3px] focus:outline-none "
-              >
-                Join Us
+              <button className="p-[20px] cursor-pointer w-[160px] h-[59px] border-[1px] hover:scale-105 border-[#019B83] text-[#019B83] text-[16px] leading-[100%] hover:bg-green-5 font-semibold inline-flex justify-center items-center  rounded-[3px] focus:outline-none ">
+                <Link href="/form">Join Us</Link>
               </button>
             </div>
           </div>

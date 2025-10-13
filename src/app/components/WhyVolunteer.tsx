@@ -1,14 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 import Vector from "../../../public/Vector.png";
-import VolunteerForm from "../(pages)/form/page";
 import Link from "next/link";
 
 export default function VolunteerSection() {
-  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen w-[87%]  mx-auto my-40 ">
@@ -63,7 +60,7 @@ export default function VolunteerSection() {
           </button>
         </div>
       </div>
-      {openModal && <VolunteerForm setOpenModal={setOpenModal} />}
+
     </div>
   );
 }
