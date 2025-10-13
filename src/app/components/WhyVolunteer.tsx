@@ -1,17 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 import Vector from "../../../public/Vector.png";
-import VolunteerForm from "./Form";
+import Link from "next/link";
 
 export default function VolunteerSection() {
-  const [openModal, setOpenModal] = useState(false);
 
-  const handleModal = () => {
-    setOpenModal(!openModal);
-  };
   return (
     <div className="flex flex-col md:flex-row min-h-screen w-[87%]  mx-auto my-40 ">
       <div className="md:w-1/2 w-full h-[300px] md:h-auto relative">
@@ -59,16 +54,13 @@ export default function VolunteerSection() {
             ))}
           </ul>
 
-          <button
-            onClick={handleModal}
-            className="mt-4 inline-flex items-center cursor-pointer bg-[#019B83] text-[#F9F9F9] p-[16px] rounded-[8px] transition border-[3px] border-[#F9F9F9] text-[20px] leading-[100%] font-semibold "
-          >
-            Get Started
-            <FaArrowRight className="ml-2" />
+          <button className="mt-4 inline-flex items-center cursor-pointer bg-[#019B83] text-[#F9F9F9] p-[16px] rounded-[8px] transition border-[3px] border-[#F9F9F9] text-[20px] leading-[100%] font-semibold ">
+            <Link href="/form">Get Started</Link>
+            <FaArrowRight className="ml-3" />
           </button>
         </div>
       </div>
-      {openModal && <VolunteerForm setOpenModal={setOpenModal} />}
+
     </div>
   );
 }

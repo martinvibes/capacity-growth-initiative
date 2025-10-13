@@ -19,6 +19,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const isDonatePage = pathname === "/donate";
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -66,21 +67,21 @@ const Navbar = () => {
 
     {
       disabled: true,
-      label: "Join Us",
-      href: "/joinus",
+      label: "Project",
+      dropdown: [],
     },
 
     {
-      label: "Donate",
+      label: "Contact Us",
       disabled: true,
-      href: "/donate",
+      href: "#contact-us",
     },
   ];
 
   return (
     <nav
       className={`bg-[#DEEFEC]   relative z-40 transition-all duration-300 ${
-        isScrolled ? "py-[20px]" : "py-[20px]"
+        isScrolled ? "py-[15px]" : "py-[15px]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,7 +96,7 @@ const Navbar = () => {
               alt="Capacity Growth Initiative"
               width={50}
               height={50}
-              className="w-[70px] "
+              className="w-[50px] "
             />
           </Link>
 
@@ -164,10 +165,10 @@ const Navbar = () => {
               </div>
             ))}
             <Link
-              href="/donate"
-              className="ml-4 inline-flex w-[111px] h-[43px] justify-center items-center p-[10px] border-[3px] border-[#F9F9F9] text-sm font-bold leading-[100%] rounded-[10px] text-[19px] bg-[#019B83] text-[#F9F9F9]  focus:outline-none"
+              href={isDonatePage ? "/form" : "/donate"}
+              className="ml-4 inline-flex w-[111px] h-[43px] justify-center items-center p-[10px] border-[3px] border-[#F9F9F9] text-sm font-bold leading-[100%] rounded-[10px] text-[19px] bg-[#019B83] text-[#F9F9F9] focus:outline-none whitespace-nowrap"
             >
-              Donate
+              {isDonatePage ? "Join Us" : "Donate"}
             </Link>
           </div>
 
@@ -235,7 +236,10 @@ const Navbar = () => {
                                 ? "text-[#019B83] font-medium bg-green-50"
                                 : "text-gray-600 hover:text-[#019B83] hover:bg-gray-50"
                             } rounded-md`}
-                            onClick={() => setIsMobileMenuOpen(false)}
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setOpenDropdown(null);
+                            }}
                           >
                             {subItem.label}
                           </Link>
@@ -246,13 +250,14 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            <div className="pt-4 pb-2">
+            {/* Mobile menu CTA button */}
+            <div className="flex flex-col space-y-2 px-2 pb-3 pt-2">
               <Link
-                href="/donate"
-                className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#019B83] hover:bg-[#08b198] transition-colors duration-200"
+                href={isDonatePage ? "/joinus" : "/donate"}
+                className="block w-full text-center p-[10px] rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 whitespace-nowrap"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Donate
+                {isDonatePage ? "Join Us" : "Donate"}
               </Link>
             </div>
           </div>

@@ -53,7 +53,7 @@ export default function StrategicGoalsPage() {
                 Create an active alumni network to promote collaboration and
                 support.
               </p>
-              <ul>
+              <ul className="list-disc">
                 <li className="list-disc">
                   Position alumni as leaders in key sectors across Africa,
                   including business, governance, and technology.
@@ -86,7 +86,7 @@ export default function StrategicGoalsPage() {
             </div>
           </section>
 
-          <section className="flex   mt-10 gap-8">
+          <section className="flex  mt-10 gap-8">
             <div className="bg-[#051609] p-[20px] text-[#F9F9F9] flex flex-col rounded-[10px]">
               <div>
                 <Image src={strategic3} alt="strategic1" />
@@ -108,7 +108,7 @@ export default function StrategicGoalsPage() {
                 </li>
               </ul>
             </div>
-            <div className="bg-[#051609] p-[20px] text-[#F9F9F9] flex flex-col rounded-[10px]">
+            <div className="bg-[#051609]  p-[20px] text-[#F9F9F9] flex flex-col rounded-[10px]">
               <div>
                 <Image src={strategic4} alt="strategic1" />
               </div>

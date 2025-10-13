@@ -27,7 +27,7 @@ export default function MissionStatementPage() {
         <div className="max-w-4xl mx-auto">
           <div className=" mb-12">
             <h2 className="text-3xl text-center md:text-4xl font-bold text-teal-600 mb-4">
-              <span className="z-50 relative">Mission Statement</span>
+              <span className="z-50 relative font-bold">Mission Statement</span>
               <span className="block w-90  mx-auto mt-3 z-40 relative">
                 <Image src={Line} alt="line" />
               </span>
@@ -36,7 +36,7 @@ export default function MissionStatementPage() {
               </div>
             </h2>
 
-            <div className="mt-8 space-y-2 text-[14.5px] text-gray-700 max-w-3xl mx-auto z-50 relative">
+            <div className="mt-8 space-y-2 leading-[100%] text-[17px] font-normal text-gray-700 max-w-3xl mx-auto z-50 relative">
               <p>
                 At Capacity Growth Initiative (CGI), we empower individuals and
                 communities through skills, resources, and opportunities for
