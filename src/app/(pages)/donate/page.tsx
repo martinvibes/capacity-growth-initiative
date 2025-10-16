@@ -191,7 +191,7 @@ export default function DonatePage() {
 
               <div>
                 <button
-                  type="Proceed"
+                  type="submit"
                   disabled={isSubmitting}
                   className={` flex justify-center  border border-transparent  shadow-sm text-sm  focus:outline-none 
                     
