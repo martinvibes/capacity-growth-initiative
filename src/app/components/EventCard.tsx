@@ -6,7 +6,7 @@ import Link from "next/link";
 import Line2 from "../../../public/Line2.png";
 
 interface Event {
-  id: number;
+  id: string | number;
   image: string;
   day: string;
   month: string;
@@ -29,7 +29,7 @@ const EventCard = ({ event, index }: { event: Event; index: number }) => {
         <div
           className={`flex flex-col md:flex-row  overflow-hidden  transition-colors duration-300 ${
             isTealBg
-              ? "bg-teal-600 text-white hover:bg-[#019B83] focus:bg-[#019B83] hover:text-white focus:text-white"
+              ? "bg-[#019B83] text-white hover:bg-[#019B83] focus:bg-[#019B83] hover:text-white focus:text-white"
               : "bg-white hover:bg-[#eaf8f6] hover:text-white focus:bg-[#3eedd3] focus:text-white"
           }`}
         >

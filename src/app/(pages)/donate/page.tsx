@@ -85,15 +85,7 @@ export default function DonatePage() {
             </div>
           </div>
 
-          {/* {submitStatus && (
-            <div
-              className={`p-4 mb-6 rounded-md z-50 relative ${
-                submitStatus.success
-                  ? "bg-green-50 text-green-800"
-                  : "bg-red-50 text-red-800"
-              }`}
-            ></div>
-          )} */}
+        
           <div className=" bg-[#F9F9F9] rounded-[10px] border border-[#F9F9F9]  w-[418px] py-1 h-[352px] px-10 relative left-[4rem] z-50 shadow-2xl shadow-[#00000033] ">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className=" flex items-center">

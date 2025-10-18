@@ -1,4 +1,4 @@
-import VolunteerForm from "@/components/VolunteerForm";
+import VolunteerForm from "@/app/components/VolunteerForm";
 
 export default function Page() {
   return <VolunteerForm />;

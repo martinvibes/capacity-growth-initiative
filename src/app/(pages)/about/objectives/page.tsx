@@ -1,7 +1,7 @@
 import PageTemplate from "../../_components/PageTemplate";
 import Image from "next/image";
 import Line from "../../../../../public/Line.png";
-import objective from "../../../../../public/objective.png";
+import objective from "../../../../../public/objectives .jpg";
 import tech from "../../../../../public/tech.png";
 import business from "../../../../../public/business.png";
 import leader from "../../../../../public/leader.png";

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import SuccessModal from "@/app/components/SuccessModal";
-import VolunteerForm from "@/components/VolunteerForm";
+import VolunteerForm from "@/app/components/VolunteerForm";
 import Image from "next/image";
 import hero_img1 from "../../../../public/hero-img1.svg";
 import hero_img2 from "../../../../public/hero-img2.svg";

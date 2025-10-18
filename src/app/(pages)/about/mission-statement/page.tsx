@@ -1,5 +1,5 @@
 import PageTemplate from "../../_components/PageTemplate";
-import mission from "../../../../../public/mission.png";
+import mission from "../../../../../public/mission .jpg";
 import Line from "../../../../../public/Line.png";
 import circle1 from "../../../../../public/circle1.png";
 import Image from "next/image";
@@ -11,13 +11,13 @@ export default function MissionStatementPage() {
       description="Our commitment to excellence and service"
       showHeader={false}
     >
-      <div className="relative h-[28rem] md:h-screen/2 ">
+      <div className="relative  h-[28rem] md:h-screen/2 ">
         <div>
           <Image
             src={mission}
             alt="Hero background"
             fill
-            className="object-fit z-30 relative"
+            className="object-cover z-30 relative"
             priority
           />
         </div>

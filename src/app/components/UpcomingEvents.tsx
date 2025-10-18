@@ -9,53 +9,26 @@ import Line2 from "../../../public/Line2.png";
 import mail from "../../../public/mail.png";
 import circle2hf from "../../../public/circle2hf.png";
 import circle1 from "../../../public/circle1.png";
-
-interface Event {
-  id: number;
-  image: string;
-  day: string;
-  month: string;
-  title: string;
-  time: string;
-  location: string;
-  locationType: "zoom" | "facebook" | "venue";
-}
+import { useAdmin } from "@/context/AdminContext";
 
 const UpcomingEvents = () => {
   const [email, setEmail] = useState("");
+  const { events } = useAdmin();
 
-  const events: Event[] = [
-    {
-      id: 1,
-      image: "/upcome1.png",
-      day: "17",
-      month: "Sept",
-      title: "webinar on the importance of teaming collaborations",
-      time: "11:00 PM - 11:45 PM",
-      location: "Facebook Live",
-      locationType: "facebook",
-    },
-    {
-      id: 2,
-      image: "/upcome2.png",
-      day: "21",
-      month: "Sept",
-      title: "workshop for prospective volunteers",
-      time: "02:00 PM - 04:00 PM",
-      location: "New City Hall",
-      locationType: "venue",
-    },
-    {
-      id: 3,
-      image: "/upcome3.png",
-      day: "28",
-      month: "Sept",
-      title: "Virtual career day : connect with top employers",
-      time: "10:00 AM - 12:00 PM",
-      location: "Zoom",
-      locationType: "zoom",
-    },
-  ];
+  // Convert events to display format
+  const displayEvents = events.slice(0, 3).map(event => {
+    const date = new Date(event.date);
+    return {
+      id: event.id,
+      image: event.image,
+      day: date.getDate().toString(),
+      month: date.toLocaleString('default', { month: 'short' }),
+      title: event.title,
+      time: event.time || "TBD",
+      location: event.location || "TBD",
+      locationType: event.locationType || "venue",
+    };
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,17 +59,17 @@ const UpcomingEvents = () => {
         </div>
         {/* Events List */}
         <div className="lg:col-span-2 w-full text-end items-end z-50 relative space-y-[55px]">
-          {events.map((event) => (
+          {displayEvents.map((event) => (
             <div
               key={event.id}
-              className=" hover:shadow-md transition-all z-40  duration-300 lg:flex lg:flex-row flex-col overflow-hidden border border-[#0516091A] "
+              className=" hover:shadow-md transition-all z-40   duration-300 lg:flex lg:flex-row flex-col overflow-hidden border border-[#0516091A] "
             >
               <Image
                 src={event.image}
                 alt={event.title}
-                width={128}
-                height={128}
-                className="lg:w-[40%] lg:h-[40%] relative z-50 w-full h-full object-cover"
+                width={108}
+                height={108}
+                className="lg:w-[40%] lg:h-[20%] relative z-50 w-full h-full object-cover"
               />
               <div className="flex-1 p-6 flex flex-col z-40 relative ">
                 <div className="flex">

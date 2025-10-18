@@ -1,5 +1,5 @@
 import PageTemplate from "../../_components/PageTemplate";
-import vission from "../../../../../public/vission.png";
+import vission from "../../../../../public/our vision .jpg";
 import Line from "../../../../../public/Line.png";
 import circle1 from "../../../../../public/circle1.png";
 import Image from "next/image";

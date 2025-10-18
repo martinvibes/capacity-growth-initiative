@@ -5,73 +5,26 @@ import EventCard from "../../components/EventCard";
 import Line from "../../../../public/Line.png";
 import Ellipse3 from "../../../../public/Ellipse3.png";
 import Image from "next/image";
-
-type Event = {
-  id: number;
-  image: string;
-  day: string;
-  month: string;
-  title: string;
-  time: string;
-  location: string;
-  locationType: "facebook" | "venue" | "zoom";
-  isFeatured?: boolean;
-};
+import { useAdmin } from "@/context/AdminContext";
 
 export default function EventsPage() {
-  const events: Event[] = [
-    {
-      id: 1,
-      image: "/upcome1.png",
-      day: "17",
-      month: "Sept",
-      title: "webinar on the importance of teaming collaborations",
-      time: "11:00 PM - 11:45 PM",
-      location: "Facebook",
-      locationType: "facebook",
-      isFeatured: true,
-    },
-    {
-      id: 2,
-      image: "/upcome2.png",
-      day: "21",
-      month: "Sept",
-      title: "workshop for prospective volunteers",
-      time: "02:00 PM - 04:00 PM",
-      location: "New choice hall",
-      locationType: "venue",
-    },
-    {
-      id: 3,
-      image: "/upcome3.png",
-      day: "28",
-      month: "Sept",
-      title: "Hands-on Youths Skill acquisition training  ",
-      time: "10:00 AM - 03:00 PM",
-      location: "GGSS Zipak",
-      locationType: "zoom",
-    },
-    {
-      id: 4,
-      image: "/upcome4.png",
-      day: "05",
-      month: "Oct",
-      title: "Virtual career day : Connect with top employers ",
-      time: "09:00 AM - 01:00 PM",
-      location: "Facebook",
-      locationType: "venue",
-    },
-    {
-      id: 5,
-      image: "/upcome5.png",
-      day: "12",
-      month: "Oct",
-      title: "webinar on the importance of team collaborations ",
-      time: "12:00 PM - 01:00 PM",
-      location: "Facebook",
-      locationType: "facebook",
-    },
-  ];
+  const { events } = useAdmin();
+
+  // Convert events to display format for EventCard
+  const displayEvents = events.map(event => {
+    const date = new Date(event.date);
+    return {
+      id: event.id,
+      image: event.image,
+      day: date.getDate().toString(),
+      month: date.toLocaleString('default', { month: 'short' }),
+      title: event.title,
+      time: event.time || "TBD",
+      location: event.location || "TBD",
+      locationType: event.locationType || "venue",
+      isFeatured: false, // Can be set based on some logic if needed
+    };
+  });
 
   return (
     <div className="min-h-screen flex flex-col ">
@@ -96,7 +49,7 @@ export default function EventsPage() {
       <section className="py-16 bg-white z-50 " id="events" >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto border-x border-[#0516091A] hover:text-white">
-            {events.map((event, index) => (
+            {displayEvents.map((event, index) => (
               <EventCard key={event.id} event={event} index={index} />
             ))}
           </div>

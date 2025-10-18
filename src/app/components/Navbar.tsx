@@ -19,6 +19,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const isDonatePage = pathname === "/donate";
 
   // Close mobile menu when route changes
@@ -33,6 +34,11 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Set mounted to true after component mounts
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
   const toggleDropdown = (dropdown: string) => {
@@ -66,16 +72,15 @@ const Navbar = () => {
     },
 
     {
-      disabled: true,
       label: "Project",
       dropdown: [],
     },
 
     {
       label: "Contact Us",
-      disabled: true,
       href: "#contact-us",
     },
+   
   ];
 
   return (
@@ -164,12 +169,14 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            <Link
-              href={isDonatePage ? "/form" : "/donate"}
-              className="ml-4 inline-flex w-[111px] h-[43px] justify-center items-center p-[10px] border-[3px] border-[#F9F9F9] text-sm font-bold leading-[100%] rounded-[10px] text-[19px] bg-[#019B83] text-[#F9F9F9] focus:outline-none whitespace-nowrap"
-            >
-              {isDonatePage ? "Join Us" : "Donate"}
-            </Link>
+            {mounted && (
+              <Link
+                href={isDonatePage ? "/form" : "/donate"}
+                className="ml-4 inline-flex w-[111px] h-[43px] justify-center items-center p-[10px] border-[3px] border-[#F9F9F9] text-sm font-bold leading-[100%] rounded-[10px] text-[19px] bg-[#019B83] text-[#F9F9F9] focus:outline-none whitespace-nowrap"
+              >
+                {isDonatePage ? "Join Us" : "Donate"}
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -252,13 +259,15 @@ const Navbar = () => {
             ))}
             {/* Mobile menu CTA button */}
             <div className="flex flex-col space-y-2 px-2 pb-3 pt-2">
-              <Link
-                href={isDonatePage ? "/joinus" : "/donate"}
-                className="block w-full text-center p-[10px] rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 whitespace-nowrap"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {isDonatePage ? "Join Us" : "Donate"}
-              </Link>
+              {mounted && (
+                <Link
+                  href={isDonatePage ? "/joinus" : "/donate"}
+                  className="block w-full text-center p-[10px] rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 whitespace-nowrap"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {isDonatePage ? "Join Us" : "Donate"}
+                </Link>
+              )}
             </div>
           </div>
         </div>

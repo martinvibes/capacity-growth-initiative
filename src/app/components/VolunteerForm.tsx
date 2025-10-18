@@ -2,8 +2,8 @@
 import { useState } from "react";
 
 import Image from "next/image";
-import hero_img1 from "../../public/hero-img1.svg";
-import hero_img2 from "../../public/hero-img2.svg";
+import hero_img1 from "../../../public/hero-img1.svg";
+import hero_img2 from "../../../public/hero-img2.svg";
 import SuccessModal from "@/app/components/SuccessModal";
 import Marque from "@/app/components/Marque";
 

@@ -25,6 +25,9 @@ const Footer = () => {
               Have a question, comment? We&apos;re always happy to hear from
               you. Please reach out to us
             </p>
+            <button    className="mt-7 inline-flex w-[111px] h-[43px] justify-center items-center p-[10px] border-[3px] border-[#F9F9F9] text-sm font-bold leading-[100%] rounded-[10px] text-[15px] bg-[#019B83] text-[#F9F9F9] focus:outline-none whitespace-nowrap">
+               <Link href="/admin/login">Admin Only</Link>
+            </button>
           </div>
 
           <div className="grid grid-cols-2">

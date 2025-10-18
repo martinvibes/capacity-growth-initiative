@@ -2,21 +2,23 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-
-const posters = [
-  { src: "/slide1.png", alt: 'Burger' },
-  { src: "/slide2.png", alt: 'Business' },
-  { src: "/slide3.png", alt: 'Product' },
-];
+import { useAdmin } from '@/context/AdminContext';
 
 export default function PosterSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { carouselImages } = useAdmin();
+
+  const posters = carouselImages.map(img => ({
+    src: img.imageUrl,
+    alt: `Slide ${img.id}`,
+  }));
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % posters.length);
   };
 
   const getSlides = () => {
+    if (posters.length === 0) return [];
     return [
       posters[activeIndex % posters.length],
       posters[(activeIndex + 1) % posters.length],
