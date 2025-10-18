@@ -122,7 +122,7 @@ export default function AdminDashboard() {
             onClick={handleLogout}
             className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
           >
-            Logout
+            Sign Out
           </button>
         </div>
 
@@ -153,7 +153,7 @@ export default function AdminDashboard() {
                 : 'bg-white text-gray-700 hover:bg-gray-100'
             }`}
           >
-            Carousel Images
+           Advertisements
           </button>
         </div>
 
@@ -278,7 +278,7 @@ export default function AdminDashboard() {
           <div className="space-y-6">
             {/* Add Carousel Image Form */}
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-4">Add Carousel Image</h2>
+              <h2 className="text-xl font-semibold mb-4">Add New Image</h2>
               <form onSubmit={handleAddCarouselImage} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Image *</label>
@@ -305,7 +305,7 @@ export default function AdminDashboard() {
 
             {/* Carousel Images List */}
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-4">Manage Carousel Images</h2>
+              <h2 className="text-xl font-semibold mb-4">Manage Adverts Images</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {carouselImages.map((image) => (
                   <div key={image.id} className="border border-gray-200 rounded-md p-4">
@@ -319,7 +319,7 @@ export default function AdminDashboard() {
                   </div>
                 ))}
                 {carouselImages.length === 0 && (
-                  <p className="text-gray-500 text-center py-8 col-span-full">No carousel images added yet.</p>
+                  <p className="text-gray-500 text-center py-8 col-span-full">No adverts images added yet.</p>
                 )}
               </div>
             </div>
