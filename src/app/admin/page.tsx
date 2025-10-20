@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAdmin } from '@/context/AdminContext';
+import { resizeImage } from '@/utils/imageResize';
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -65,7 +66,10 @@ export default function AdminDashboard() {
       const reader = new FileReader();
       reader.onload = (e) => {
         const result = e.target?.result as string;
-        setCarouselForm({ imageUrl: result });
+        // Resize image to exact carousel dimensions (350x250 for desktop center image)
+        resizeImage(result, 350, 250).then(resizedImage => {
+          setCarouselForm({ imageUrl: resizedImage });
+        });
       };
       reader.readAsDataURL(file);
     }
@@ -218,7 +222,7 @@ export default function AdminDashboard() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                   />
                 </div>
-              
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Image *</label>
                   <input

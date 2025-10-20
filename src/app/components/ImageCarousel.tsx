@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { useAdmin } from '@/context/AdminContext';
+import { useState } from "react";
+import Image from "next/image";
+import { useAdmin } from "@/context/AdminContext";
 
 export default function PosterSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { carouselImages } = useAdmin();
 
-  const posters = carouselImages.map(img => ({
+  const posters = carouselImages.map((img) => ({
     src: img.imageUrl,
     alt: `Slide ${img.id}`,
   }));
@@ -29,35 +29,30 @@ export default function PosterSlider() {
   const visibleSlides = getSlides();
 
   return (
-    <div className="flex items-center justify-center gap-5 md:gap-[62px] py-8 relative mt-20 md:w-[87%] w-full ">
+    <div className="flex items-center justify-center text-center gap-5 md:gap-[40px] py-8 relative mt-20 md:w-[87%] w-full ">
       {visibleSlides.map((poster, i) => (
         <div
           key={i}
           className={`transition-all duration-500 ease-in-out ${
-            i === 0 ? 'md:w-[300px] W-[300PX] scale-125 md:scale-110 z-10' : 'md:w-[200px] W-[5PX] opacity-70'
-          }`}
+            i === 0 ? 'scale-125 md:scale-110 z-10 md:w-[450px] md:ml-16 ml-10 md:h-[450px]' : 'scale-100 md:w-[200px] md:h-[80px] md:scale-100 z-0'
+          } w-[360px] h-[190px] md:h-[300px] overflow-hidden`}
         >
           <Image
             src={poster.src}
             alt={poster.alt}
-            width={300}
-            height={450}
-            className="rounded-lg shadow-xl md:w-[300px]  w-[100px] "
+            width={100}
+            height={100}
+            className="w-full h-full object-fit shadow-xl"
+            priority={i === 0}
           />
-        </div>
-      ))}
 
+     </div>
+      ))}
       <button
         onClick={handleNext}
-        className="absolute right-2 md:right-15 top-1/2 transform -translate-y-1/2 b text-black px-4 py-2 rounded-full w-["
+        className="absolutemd:right-4 right-0 top-1/2 transform -translate-y-1/2 text-black px-2 py-2 md:px-4 md:py-2 rounded-full hover:bg-gray-100 transition-colors"
       >
-        <Image 
-          src="/arrow.png"
-          alt='arrow'
-          width={20}
-          height={20}
-         
-        />
+        <Image src="/arrow.png" alt="arrow" width={20} height={20} />
       </button>
     </div>
   );
