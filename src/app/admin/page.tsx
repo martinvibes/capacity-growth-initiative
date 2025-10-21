@@ -2,8 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAdmin } from '@/context/AdminContext';
-import { resizeImage } from '@/utils/imageResize';
+import { useAdmin } from '@/context/AdminContextNew';
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -66,8 +65,8 @@ export default function AdminDashboard() {
       const reader = new FileReader();
       reader.onload = (e) => {
         const result = e.target?.result as string;
-        // Resize image to exact carousel dimensions (350x250 for desktop center image)
-        resizeImage(result, 350, 250).then(resizedImage => {
+        // Resize image to exact carousel dimensions (450x450 for desktop center image)
+        resizeImage(result, 450, 320).then(resizedImage => {
           setCarouselForm({ imageUrl: resizedImage });
         });
       };
@@ -333,3 +332,26 @@ export default function AdminDashboard() {
     </div>
   );
 }
+function resizeImage(src: string, targetWidth: number, targetHeight: number): Promise<string> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d')!;
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+
+      // Calculate scaling to maintain aspect ratio and cover the target area
+      const scale = Math.max(targetWidth / img.width, targetHeight / img.height);
+      const scaledWidth = img.width * scale;
+      const scaledHeight = img.height * scale;
+      const x = (targetWidth - scaledWidth) / 2;
+      const y = (targetHeight - scaledHeight) / 2;
+
+      ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
+      resolve(canvas.toDataURL('image/jpeg', 0.9));
+    };
+    img.src = src;
+  });
+}
+

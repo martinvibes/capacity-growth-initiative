@@ -9,7 +9,7 @@ import Line2 from "../../../public/Line2.png";
 import mail from "../../../public/mail.png";
 import circle2hf from "../../../public/circle2hf.png";
 import circle1 from "../../../public/circle1.png";
-import { useAdmin } from "@/context/AdminContext";
+import { useAdmin } from "@/context/AdminContextNew";
 
 const UpcomingEvents = () => {
   const [email, setEmail] = useState("");

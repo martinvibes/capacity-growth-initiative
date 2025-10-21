@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useAdmin } from "@/context/AdminContext";
+import { useAdmin } from "@/context/AdminContextNew";
 
 export default function PosterSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -34,15 +34,15 @@ export default function PosterSlider() {
         <div
           key={i}
           className={`transition-all duration-500 ease-in-out ${
-            i === 0 ? 'scale-125 md:scale-110 z-10 md:w-[450px] md:ml-16 ml-10 md:h-[450px]' : 'scale-100 md:w-[200px] md:h-[80px] md:scale-100 z-0'
-          } w-[360px] h-[190px] md:h-[300px] overflow-hidden`}
+            i === 0 ? 'scale-125 md:scale-110 z-10 md:w-[450px] md:ml-24 ml-10 md:h-[450px]' : 'scale-100 md:w-[320px] md:h-[320px] z-0'
+          } w-[360px] h-[190px] md:h-[320px] overflow-hidden`}
         >
           <Image
             src={poster.src}
             alt={poster.alt}
             width={100}
             height={100}
-            className="w-full h-full object-fit shadow-xl"
+            className="w-full h-full object-fit shadow-xl "
             priority={i === 0}
           />
 

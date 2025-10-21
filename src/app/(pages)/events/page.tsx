@@ -5,7 +5,7 @@ import EventCard from "../../components/EventCard";
 import Line from "../../../../public/Line.png";
 import Ellipse3 from "../../../../public/Ellipse3.png";
 import Image from "next/image";
-import { useAdmin } from "@/context/AdminContext";
+import { useAdmin } from "@/context/AdminContextNew";
 
 export default function EventsPage() {
   const { events } = useAdmin();
