@@ -13,7 +13,7 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const DEMO_EMAIL = "Capacitygrowthinitiative@gmail.com";
+  const DEMO_EMAIL = "capacitygrowthinitiative@gmail.com";
   const DEMO_PASSWORD = "admin123";
 
   const handleSubmit = async (e: React.FormEvent) => {

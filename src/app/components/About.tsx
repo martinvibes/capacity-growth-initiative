@@ -5,7 +5,7 @@ import Line from "../../../public/Line.png";
 
 const About = () => {
   return (
-    <div className="flex flex-col md:flex-row  mx-5 md:mx-24 my-40 sm:space-x-4 md:space-x-20">
+    <div className="flex flex-col md:flex-row  mx-5 md:mx-24 my-20 sm:space-x-4 md:space-x-20">
       <div className="w-full md:w-1/2 flex justify-start text-left">
         <Image
           src={aboutus1}

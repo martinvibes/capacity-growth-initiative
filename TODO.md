@@ -1,8 +1,5 @@
-# TODO: Fix Event Deletion Error
+# TODO: Fix TypeScript ESLint Errors
 
-## Tasks
-- [x] Modify DELETE handler in `src/app/api/events/route.ts` to handle default events (ids starting with 'default-') by returning 204 success without DB deletion.
-- [x] Improve error logging in `src/utils/api-fixed.ts` deleteEvent function to log response status and text instead of assuming JSON.
-
-## Additional Issues Found
-- [x] Fix carousel image deletion error - similar issue with default carousel images (ids starting with 'default-')
+- [x] Edit src/lib/db.ts to add global declaration for mongoose cache and remove 'as any' casts
+- [x] Edit src/utils/api-fixed.ts to change errorData type to 'unknown' and remove unused 'jsonError' in catch block
+- [ ] Run build command to verify errors are resolved

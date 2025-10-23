@@ -83,10 +83,10 @@ export const deleteEvent = async (id: string): Promise<boolean> => {
     });
 
     if (!response.ok) {
-      let errorData: any = {};
+      let errorData: unknown = {};
       try {
         errorData = await response.json();
-      } catch (jsonError) {
+      } catch {
         // If response is not JSON, log the text instead
         const text = await response.text();
         console.error('Failed to delete event - non-JSON response:', {
