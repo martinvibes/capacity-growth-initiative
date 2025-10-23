@@ -81,13 +81,25 @@ export const deleteEvent = async (id: string): Promise<boolean> => {
         'Content-Type': 'application/json',
       },
     });
-    
+
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
+      let errorData: any = {};
+      try {
+        errorData = await response.json();
+      } catch (jsonError) {
+        // If response is not JSON, log the text instead
+        const text = await response.text();
+        console.error('Failed to delete event - non-JSON response:', {
+          status: response.status,
+          statusText: response.statusText,
+          body: text,
+        });
+        return false;
+      }
       console.error('Failed to delete event:', errorData);
       return false;
     }
-    
+
     return true;
   } catch (error) {
     console.error('Error deleting event:', error);

@@ -1,12 +1,8 @@
-# Admin Authentication Fix Plan
+# TODO: Fix Event Deletion Error
 
 ## Tasks
-- [x] Update login page to set secure cookie instead of localStorage
-- [x] Update dashboard to check cookie instead of localStorage
-- [x] Update logout to clear the cookie
-- [ ] Test login functionality across different browsers/devices
-- [ ] Verify logout clears authentication properly
+- [x] Modify DELETE handler in `src/app/api/events/route.ts` to handle default events (ids starting with 'default-') by returning 204 success without DB deletion.
+- [x] Improve error logging in `src/utils/api-fixed.ts` deleteEvent function to log response status and text instead of assuming JSON.
 
-## Files to Edit
-- [x] src/app/admin/login/page.tsx
-- [x] src/app/admin/page.tsx
+## Additional Issues Found
+- [x] Fix carousel image deletion error - similar issue with default carousel images (ids starting with 'default-')

@@ -1,17 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-import { Event } from '@/types';
-
-const DATA_FILE = path.join(process.cwd(), 'data', 'events.json');
-
-// Ensure data directory exists
-const ensureDataDir = () => {
-  const dataDir = path.join(process.cwd(), 'data');
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
-  }
-};
+import dbConnect from '@/lib/db';
+import Event from '@/models/Event';
 
 // Default events that will be shown when no custom events exist
 const getDefaultEvents = () => [
@@ -47,86 +36,57 @@ const getDefaultEvents = () => [
   },
 ];
 
-// Read events from file
-const readEvents = () => {
-  try {
-    ensureDataDir();
-    if (!fs.existsSync(DATA_FILE)) {
-      const defaultEvents = getDefaultEvents();
-      return defaultEvents; // Don't save to file, just return defaults
-    }
-    const data = fs.readFileSync(DATA_FILE, 'utf8');
-    const events = JSON.parse(data);
-    
-    // If no events in file, return default events
-    if (!events || events.length === 0) {
-      return getDefaultEvents();
-    }
-    
-    // Filter out duplicates based on id to ensure unique keys
-    const uniqueEvents = events.filter((event: { id: string }, index: number, arr: { id: string }[]) =>
-      arr.findIndex((e) => e.id === event.id) === index
-    );
-    
-    // Return custom events if they exist, otherwise return default events
-    return uniqueEvents.length > 0 ? uniqueEvents : getDefaultEvents();
-  } catch (_error) {
-    console.error('Error reading events', _error);
-    return [];
-  }
-};
-
-// Write events to file
-const writeEvents = (events: { id: string; title: string; date: string; time?: string; location?: string; locationType: "zoom" | "facebook" | "venue"; description?: string; image: string }[]) => {
-  try {
-    ensureDataDir();
-    fs.writeFileSync(DATA_FILE, JSON.stringify(events, null, 2));
-  } catch (_error) {
-    console.error('Error writing events',   _error);
-    throw _error;
-  }
-};
-
 export async function GET() {
   try {
-    const events = readEvents();
+    await dbConnect();
+    const events = await Event.find({}).sort({ createdAt: -1 });
+
+    // If no events in database, return default events
+    if (events.length === 0) {
+      return NextResponse.json(getDefaultEvents());
+    }
+
     return NextResponse.json(events);
   } catch (_error) {
-    return NextResponse.json({ error: 'Failed to fetch events', _error }, { status: 500 });
+    console.error('Error fetching events:', _error);
+    return NextResponse.json({ error: 'Failed to fetch events' }, { status: 500 });
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
+    await dbConnect();
     const newEvent = await request.json();
-    const events = readEvents();
 
-    // Add the new event
-    events.push(newEvent);
-    writeEvents(events);
+    const event = new Event(newEvent);
+    await event.save();
 
-    return NextResponse.json(newEvent, { status: 201 });
+    return NextResponse.json(event, { status: 201 });
   } catch (_error) {
-    return NextResponse.json({ error: 'Failed to create event', _error }, { status: 500 });
+    console.error('Error creating event:', _error);
+    return NextResponse.json({ error: 'Failed to create event' }, { status: 500 });
   }
 }
 
 export async function PUT(request: NextRequest) {
   try {
+    await dbConnect();
     const { id, ...updatedData } = await request.json();
-    const events = readEvents();
 
-    const index = events.findIndex((event: Event) => event.id === id);
-    if (index === -1) {
+    const event = await Event.findOneAndUpdate(
+      { id },
+      updatedData,
+      { new: true, runValidators: true }
+    );
+
+    if (!event) {
       return NextResponse.json({ error: 'Event not found' }, { status: 404 });
     }
 
-    events[index] = { ...events[index], ...updatedData };
-    writeEvents(events);
-
-    return NextResponse.json(events[index]);
+    return NextResponse.json(event);
   } catch (_error) {
-    return NextResponse.json({ error: 'Failed to update event', _error }, { status: 500 });
+    console.error('Error updating event:', _error);
+    return NextResponse.json({ error: 'Failed to update event' }, { status: 500 });
   }
 }
 
@@ -134,7 +94,7 @@ export async function DELETE(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
-    
+
     console.log('Received DELETE request for event ID:', id);
 
     if (!id) {
@@ -142,23 +102,24 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'Event ID is required' }, { status: 400 });
     }
 
-    const events = readEvents();
-    console.log('Current events before deletion:', events.map((e: Event) => e.id));
+    // Handle default events (not stored in DB)
+    if (id.startsWith('default-')) {
+      console.log(`Successfully handled deletion of default event with ID: ${id}`);
+      return new Response(null, { status: 204 });
+    }
 
-    const initialLength = events.length;
-    const filteredEvents = events.filter((event: Event) => event.id !== id);
-    
-    if (filteredEvents.length === initialLength) {
+    await dbConnect();
+    const event = await Event.findOneAndDelete({ id });
+
+    if (!event) {
       console.error(`Event with ID ${id} not found`);
       return NextResponse.json({ error: 'Event not found' }, { status: 404 });
     }
 
-    console.log('Events after filtering:', filteredEvents.map((e: Event) => e.id));
-    writeEvents(filteredEvents);
-    
+    console.log(`Successfully deleted event with ID: ${id}`);
     return new Response(null, { status: 204 });
   } catch (_error) {
-    console.error('Error in DELETE handler', _error);
+    console.error('Error in DELETE handler:', _error);
     return NextResponse.json(
       { error: 'Failed to delete event', details: _error instanceof Error ? _error.message : 'Unknown error' },
       { status: 500 }

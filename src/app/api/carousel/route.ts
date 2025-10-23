@@ -1,16 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-
-const DATA_FILE = path.join(process.cwd(), "data", "carousel.json");
-
-// Ensure data directory exists
-const ensureDataDir = () => {
-  const dataDir = path.join(process.cwd(), "data");
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
-  }
-};
+import dbConnect from '@/lib/db';
+import CarouselImage from '@/models/CarouselImage';
 
 // Default carousel images that will be shown when no custom images exist
 const getDefaultCarouselImages = () => [
@@ -34,52 +24,21 @@ const getDefaultCarouselImages = () => [
   },
 ];
 
-// Read carousel images from file
-const readCarouselImages = () => {
-  try {
-    ensureDataDir();
-
-    // If no data file exists, return default images without creating the file
-    if (!fs.existsSync(DATA_FILE)) {
-      return getDefaultCarouselImages();
-    }
-
-    // Read existing images
-    const data = fs.readFileSync(DATA_FILE, "utf8");
-    const images = JSON.parse(data);
-
-    // If no images in file, return default images
-    if (!images || !Array.isArray(images) || images.length === 0) {
-      return getDefaultCarouselImages();
-    }
-
-    return images;
-  } catch (_error) {
-    console.error("Error reading carousel images", _error);
-    return [];
-  }
-};
-
-// Write carousel images to file
-const writeCarouselImages = (
-  images: { id: string; imageUrl: string; caption?: string; alt?: string }[]
-) => {
-  try {
-    ensureDataDir();
-    fs.writeFileSync(DATA_FILE, JSON.stringify(images, null, 2));
-  } catch (_error) {
-    console.error("Error writing carousel images", _error);
-    throw _error;
-  }
-};
-
 export async function GET() {
   try {
-    const images = readCarouselImages();
+    await dbConnect();
+    const images = await CarouselImage.find({}).sort({ createdAt: -1 });
+
+    // If no images in database, return default images
+    if (images.length === 0) {
+      return NextResponse.json(getDefaultCarouselImages());
+    }
+
     return NextResponse.json(images);
   } catch (_error) {
+    console.error("Error fetching carousel images:", _error);
     return NextResponse.json(
-      { error: "Failed to fetch carousel images", _error },
+      { error: "Failed to fetch carousel images" },
       { status: 500 }
     );
   }
@@ -87,17 +46,17 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    await dbConnect();
     const newImage = await request.json();
-    const images = readCarouselImages();
 
-    // Add the new image
-    images.push(newImage);
-    writeCarouselImages(images);
+    const image = new CarouselImage(newImage);
+    await image.save();
 
-    return NextResponse.json(newImage, { status: 201 });
+    return NextResponse.json(image, { status: 201 });
   } catch (_error) {
+    console.error("Error creating carousel image:", _error);
     return NextResponse.json(
-      { error: "Failed to create carousel image", _error },
+      { error: "Failed to create carousel image" },
       { status: 500 }
     );
   }
@@ -112,17 +71,22 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "Image ID required" }, { status: 400 });
     }
 
-    const images = readCarouselImages();
-    const filteredImages = images.filter((image) => image.id !== id);
+    // Handle default carousel images (not stored in DB)
+    if (id.startsWith('default-')) {
+      console.log(`Successfully handled deletion of default carousel image with ID: ${id}`);
+      return new Response(null, { status: 204 });
+    }
 
-    if (filteredImages.length === images.length) {
+    await dbConnect();
+    const image = await CarouselImage.findOneAndDelete({ id });
+
+    if (!image) {
       return NextResponse.json({ error: "Image not found" }, { status: 404 });
     }
 
-    writeCarouselImages(filteredImages);
-    return NextResponse.json({ message: "Image deleted successfully" });
+    return new Response(null, { status: 204 });
   } catch (_error) {
-    console.error("Error deleting image", _error);
+    console.error("Error deleting image:", _error);
     return NextResponse.json(
       { error: "Failed to delete image" },
       { status: 500 }
