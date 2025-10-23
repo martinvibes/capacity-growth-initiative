@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": "default-2",
+    "title": "Youth Leadership Summit",
+    "date": "2025-10-30",
+    "time": "2:00 PM - 5:00 PM",
+    "location": "Virtual Event",
+    "locationType": "zoom",
+    "description": "A summit bringing together young leaders to discuss innovation and entrepreneurship.",
+    "image": "/upcome2.png"
+  },
+  {
+    "id": "default-3",
+    "title": "Technology for Development",
+    "date": "2025-11-06",
+    "time": "9:00 AM - 4:00 PM",
+    "location": "Innovation Hub",
+    "locationType": "venue",
+    "description": "Exploring how technology can drive sustainable development in our communities.",
+    "image": "/upcome3.png"
+  }
+]

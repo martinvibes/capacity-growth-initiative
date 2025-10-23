@@ -12,7 +12,14 @@ export default function AdminDashboard() {
   const [toast, setToast] = useState<string | null>(null);
 
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem('admin_authenticated');
+    const getCookie = (name: string) => {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop()?.split(';').shift();
+      return null;
+    };
+
+    const isAuthenticated = getCookie('admin_authenticated');
     if (!isAuthenticated) {
       router.push('/admin/login');
     }
@@ -43,8 +50,9 @@ export default function AdminDashboard() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('admin_authenticated');
-    localStorage.removeItem('admin_email');
+    // Clear authentication cookies
+    document.cookie = "admin_authenticated=; path=/; max-age=0; secure; samesite=strict";
+    document.cookie = "admin_email=; path=/; max-age=0; secure; samesite=strict";
     router.push('/admin/login');
   };
 

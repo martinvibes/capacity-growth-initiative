@@ -25,9 +25,9 @@ export default function AdminLogin() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
-      // Store authentication in localStorage
-      localStorage.setItem("admin_authenticated", "true");
-      localStorage.setItem("admin_email", email);
+      // Set authentication cookie
+      document.cookie = "admin_authenticated=true; path=/; max-age=86400; secure; samesite=strict";
+      document.cookie = `admin_email=${email}; path=/; max-age=86400; secure; samesite=strict`;
       router.push("/admin");
     } else {
       setError("Invalid email or password");
