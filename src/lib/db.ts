@@ -1,9 +1,14 @@
-import mongoose, { Mongoose } from 'mongoose';
+import mongoose, { Mongoose } from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI!;
+const MONGODB_URI =
+  process.env.MONGODB_URI ||
+  "mongodb://localhost:27017/capacity-growth-initiative";
 
-if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
+// Only throw error in production, not during build
+if (!process.env.MONGODB_URI && process.env.NODE_ENV === "production") {
+  throw new Error(
+    "Please define the MONGODB_URI environment variable inside .env.local"
+  );
 }
 
 /**
