@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { useAdmin } from '@/context/AdminContextNew';
 
 export default function AdminDashboard() {
@@ -94,9 +95,24 @@ export default function AdminDashboard() {
     showToast('Event added successfully!');
   };
 
-  const handleDeleteEvent = (id: string) => {
-    deleteEvent(id);
-    showToast('Event deleted successfully!');
+  const handleDeleteEvent = async (id: string | undefined) => {
+    if (!id) {
+      console.error('Cannot delete event: No ID provided');
+      showToast('Error: Missing event ID');
+      return;
+    }
+    
+    if (!confirm('Are you sure you want to delete this event?')) {
+      return;
+    }
+
+    try {
+      await deleteEvent(id);
+      showToast('Event deleted successfully!');
+    } catch (error) {
+      console.error('Error deleting event:', error);
+      showToast('Failed to delete event. Please try again.');
+    }
   };
 
   const handleAddCarouselImage = (e: React.FormEvent) => {
@@ -233,7 +249,7 @@ export default function AdminDashboard() {
                     required
                   />
                   {eventForm.image && (
-                    <img src={eventForm.image} alt="Preview" className="mt-2 w-32 h-32 object-cover rounded" />
+                    <Image src={eventForm.image} alt="Preview" width={128} height={128} className="mt-2 w-32 h-32 object-cover rounded" />
                   )}
                 </div>
                 <button
@@ -252,7 +268,7 @@ export default function AdminDashboard() {
                 {events.map((event) => (
                   <div key={event.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-md">
                     <div className="flex items-center space-x-4">
-                      <img src={event.image} alt={event.title} className="w-16 h-16 object-cover rounded" />
+                      <Image src={event.image} alt={event.title} width={64} height={64} className="w-16 h-16 object-cover rounded" />
                       <div>
                         <h3 className="font-medium">{event.title}</h3>
                         <p className="text-sm text-gray-600">{new Date(event.date).toLocaleDateString()}</p>
@@ -261,7 +277,10 @@ export default function AdminDashboard() {
                       </div>
                     </div>
                     <button
-                      onClick={() => handleDeleteEvent(event.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDeleteEvent(event?.id);
+                      }}
                       className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
                     >
                       Delete
@@ -294,7 +313,7 @@ export default function AdminDashboard() {
                     required
                   />
                   {carouselForm.imageUrl && (
-                    <img src={carouselForm.imageUrl} alt="Preview" className="mt-2 w-32 h-32 object-cover rounded" />
+                    <Image src={carouselForm.imageUrl} alt="Preview" width={128} height={128} className="mt-2 w-32 h-32 object-cover rounded" />
                   )}
                 </div>
                 <button
@@ -310,9 +329,9 @@ export default function AdminDashboard() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-xl font-semibold mb-4">Manage Adverts Images</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {carouselImages.map((image) => (
-                  <div key={image.id} className="border border-gray-200 rounded-md p-4">
-                    <img src={image.imageUrl} alt="Carousel" className="w-full h-32 object-cover rounded mb-2" />
+                {carouselImages.map((image, index) => (
+                  <div key={`carousel-${image.id || index}`} className="border border-gray-200 rounded-md p-4">
+                    <Image src={image.imageUrl} alt={`Carousel ${index + 1}`} width={320} height={128} className="w-full h-32 object-cover rounded mb-2" />
                     <button
                       onClick={() => handleDeleteCarouselImage(image.id)}
                       className="w-full bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
@@ -334,7 +353,8 @@ export default function AdminDashboard() {
 }
 function resizeImage(src: string, targetWidth: number, targetHeight: number): Promise<string> {
   return new Promise((resolve) => {
-    const img = new Image();
+    const img = new window.Image();
+    img.crossOrigin = 'anonymous';
     img.onload = () => {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d')!;

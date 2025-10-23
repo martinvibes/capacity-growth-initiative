@@ -16,7 +16,7 @@ const UpcomingEvents = () => {
   const { events } = useAdmin();
 
   // Convert events to display format
-  const displayEvents = events.slice(0, 3).map(event => {
+  const displayEvents = events.slice(0, 3).map((event) => {
     const date = new Date(event.date);
     return {
       id: event.id,
@@ -59,10 +59,10 @@ const UpcomingEvents = () => {
         </div>
         {/* Events List */}
         <div className="lg:col-span-2 w-full text-end items-end z-50 relative space-y-[55px]">
-          {displayEvents.map((event) => (
+          {displayEvents.map((event, index) => (
             <div
-              key={event.id}
-              className=" hover:shadow-md transition-all z-40   duration-300 lg:flex lg:flex-row flex-col overflow-hidden border border-[#0516091A] "
+              key={`event-${event.id || index}`}
+              className="hover:shadow-md transition-all z-40 duration-300 lg:flex lg:flex-row flex-col overflow-hidden border border-[#0516091A]"
             >
               <Image
                 src={event.image}

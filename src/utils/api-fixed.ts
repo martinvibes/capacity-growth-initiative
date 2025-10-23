@@ -34,7 +34,7 @@ export const fetchEvents = async (): Promise<Event[]> => {
   }
 };
 
-export const createEvent = async (event: Omit<Event, 'id'>): Promise<Event | null> => {
+export const createEvent = async (event: Event): Promise<Event | null> => {
   try {
     const response = await fetch(`${API_BASE}/events`, {
       method: 'POST',
@@ -74,10 +74,21 @@ export const updateEvent = async (id: string, event: Partial<Event>): Promise<Ev
 
 export const deleteEvent = async (id: string): Promise<boolean> => {
   try {
-    const response = await fetch(`${API_BASE}/events?id=${id}`, {
+    console.log('Deleting event with ID:', id);
+    const response = await fetch(`${API_BASE}/events?id=${encodeURIComponent(id)}`, {
       method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
-    return response.ok;
+    
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error('Failed to delete event:', errorData);
+      return false;
+    }
+    
+    return true;
   } catch (error) {
     console.error('Error deleting event:', error);
     return false;

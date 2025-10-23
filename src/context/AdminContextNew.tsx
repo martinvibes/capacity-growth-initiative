@@ -85,10 +85,9 @@ export const AdminProvider: React.FC<AdminProviderProps> = ({ children }) => {
     setEventsState(prev => [...prev, newEvent]);
 
     try {
-      const { id, ...eventWithoutId } = newEvent;
-      const eventPayload: Omit<Event, 'id'> = {
-        ...eventWithoutId,
-        location: eventWithoutId.location ?? '',
+      const eventPayload: Event = {
+        ...newEvent,
+        location: newEvent.location ?? '',
       };
       const result = await apiCreateEvent(eventPayload);
       if (!result) {
@@ -138,23 +137,41 @@ export const AdminProvider: React.FC<AdminProviderProps> = ({ children }) => {
   };
 
   const deleteEvent = async (id: string) => {
+    if (!id) {
+      console.error('Attempted to delete event with no ID');
+      throw new Error('Cannot delete event: No ID provided');
+    }
+
     // Store original events for potential revert
     const originalEvents = [...events];
+    
+    // Find the event being deleted for better error reporting
+    const eventToDelete = originalEvents.find(e => e.id === id);
+    if (!eventToDelete) {
+      console.error(`Event with ID ${id} not found in local state`);
+      throw new Error('Event not found');
+    }
+
+    console.log(`Deleting event:`, eventToDelete);
 
     // Optimistically update UI
-    setEventsState(prev => prev.filter(event => event.id !== id));
+    setEventsState(prev => {
+      const updated = prev.filter(event => event.id !== id);
+      console.log(`Updated events after deletion:`, updated);
+      return updated;
+    });
 
     try {
       const success = await apiDeleteEvent(id);
       if (!success) {
-        // Revert on failure
-        setEventsState(originalEvents);
-        throw new Error('Failed to delete event');
+        throw new Error('API call to delete event failed');
       }
+      console.log(`Successfully deleted event with ID: ${id}`);
     } catch (error) {
+      console.error('Error deleting event, reverting UI:', error);
       // Revert on failure
       setEventsState(originalEvents);
-      throw error;
+      throw new Error(`Failed to delete event: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   };
 
