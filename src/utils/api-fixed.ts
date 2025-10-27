@@ -25,12 +25,22 @@ export const fetchEvents = async (): Promise<Event[]> => {
   try {
     const response = await fetch(`${API_BASE}/events`);
     if (!response.ok) {
-      throw new Error('Failed to fetch events');
+      // Fallback to localStorage if API fails
+      console.warn('API failed, falling back to localStorage for events');
+      const { getEvents } = await import('@/utils/storage');
+      return getEvents();
     }
     return await response.json();
   } catch (error) {
     console.error('Error fetching events:', error);
-    return [];
+    // Fallback to localStorage
+    try {
+      const { getEvents } = await import('@/utils/storage');
+      return getEvents();
+    } catch (fallbackError) {
+      console.error('Fallback also failed:', fallbackError);
+      return [];
+    }
   }
 };
 
@@ -44,12 +54,24 @@ export const createEvent = async (event: Event): Promise<Event | null> => {
       body: JSON.stringify(event),
     });
     if (!response.ok) {
-      throw new Error('Failed to create event');
+      // Fallback to localStorage if API fails
+      console.warn('API failed, falling back to localStorage for event creation');
+      const { addEvent: addToStorage } = await import('@/utils/storage');
+      addToStorage(event);
+      return event;
     }
     return await response.json();
   } catch (error) {
     console.error('Error creating event:', error);
-    return null;
+    // Fallback to localStorage
+    try {
+      const { addEvent: addToStorage } = await import('@/utils/storage');
+      addToStorage(event);
+      return event;
+    } catch (fallbackError) {
+      console.error('Fallback also failed:', fallbackError);
+      return null;
+    }
   }
 };
 
@@ -83,20 +105,7 @@ export const deleteEvent = async (id: string): Promise<boolean> => {
     });
 
     if (!response.ok) {
-      let errorData: unknown = {};
-      try {
-        errorData = await response.json();
-      } catch {
-        // If response is not JSON, log the text instead
-        const text = await response.text();
-        console.error('Failed to delete event - non-JSON response:', {
-          status: response.status,
-          statusText: response.statusText,
-          body: text,
-        });
-        return false;
-      }
-      console.error('Failed to delete event:', errorData);
+      // API failed, but we'll fall back to localStorage
       return false;
     }
 
@@ -112,12 +121,22 @@ export const fetchCarouselImages = async (): Promise<CarouselImage[]> => {
   try {
     const response = await fetch(`${API_BASE}/carousel`);
     if (!response.ok) {
-      throw new Error('Failed to fetch carousel images');
+      // Fallback to localStorage if API fails
+      console.warn('API failed, falling back to localStorage for carousel images');
+      const { getCarouselImages } = await import('@/utils/storage');
+      return getCarouselImages();
     }
     return await response.json();
   } catch (error) {
     console.error('Error fetching carousel images:', error);
-    return [];
+    // Fallback to localStorage
+    try {
+      const { getCarouselImages } = await import('@/utils/storage');
+      return getCarouselImages();
+    } catch (fallbackError) {
+      console.error('Fallback also failed:', fallbackError);
+      return [];
+    }
   }
 };
 
@@ -131,12 +150,26 @@ export const createCarouselImage = async (image: Omit<CarouselImage, 'id'>): Pro
       body: JSON.stringify(image),
     });
     if (!response.ok) {
-      throw new Error('Failed to create carousel image');
+      // Fallback to localStorage if API fails
+      console.warn('API failed, falling back to localStorage for carousel image creation');
+      const { addCarouselImage: addToStorage } = await import('@/utils/storage');
+      const newImage: CarouselImage = { ...image, id: crypto.randomUUID() };
+      addToStorage(newImage);
+      return newImage;
     }
     return await response.json();
   } catch (error) {
     console.error('Error creating carousel image:', error);
-    return null;
+    // Fallback to localStorage
+    try {
+      const { addCarouselImage: addToStorage } = await import('@/utils/storage');
+      const newImage: CarouselImage = { ...image, id: crypto.randomUUID() };
+      addToStorage(newImage);
+      return newImage;
+    } catch (fallbackError) {
+      console.error('Fallback also failed:', fallbackError);
+      return null;
+    }
   }
 };
 
@@ -145,9 +178,24 @@ export const deleteCarouselImage = async (id: string): Promise<boolean> => {
     const response = await fetch(`${API_BASE}/carousel?id=${id}`, {
       method: 'DELETE',
     });
+    if (!response.ok) {
+      // Fallback to localStorage if API fails
+      console.warn('API failed, falling back to localStorage for carousel image deletion');
+      const { deleteCarouselImage: deleteFromStorage } = await import('@/utils/storage');
+      deleteFromStorage(id);
+      return true;
+    }
     return response.ok;
   } catch (error) {
     console.error('Error deleting carousel image:', error);
-    return false;
+    // Fallback to localStorage
+    try {
+      const { deleteCarouselImage: deleteFromStorage } = await import('@/utils/storage');
+      deleteFromStorage(id);
+      return true;
+    } catch (fallbackError) {
+      console.error('Fallback also failed:', fallbackError);
+      return false;
+    }
   }
 };
