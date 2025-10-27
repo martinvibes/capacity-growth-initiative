@@ -86,7 +86,7 @@ const Navbar = () => {
   return (
     <nav
       className={`bg-[#DEEFEC]   relative z-40 transition-all duration-300 ${
-        isScrolled ? "py-[15px]" : "py-[15px]"
+        isScrolled ? "py-[15px]" : "py-[10px]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

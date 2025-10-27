@@ -1,34 +1,21 @@
 import Image from "next/image";
 import PageTemplate from "../../_components/PageTemplate";
 import Line from "../../../../../public/Line.png";
-import strategygoals from "../../../../../public/strategygoals.png";
 import strategic1 from "../../../../../public/strategic1.svg";
 import strategic2 from "../../../../../public/strategic2.svg";
 import strategic3 from "../../../../../public/strategic3.svg";
 import strategic4 from "../../../../../public/strategic4.svg";
+import circle1 from "../../../../../public/circle1.png";
 
 export default function StrategicGoalsPage() {
   return (
     <PageTemplate title="Strategic Goals" showHeader={false}>
-      {/* Hero Section */}
-      <div className="relative h-96 w-full">
-        <div className="absolute inset-0 bg-black/50 z-10 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white">
-            STRATEGIC GOALS
-          </h1>
-        </div>
-        <Image
-          src={strategygoals}
-          alt="Strategic Planning"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
       {/* Goals Section */}
-      <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white py-16 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
+            <div className="absolute w-[15rem] top-[-2rem] right-0">
+              <Image src={circle1} alt="circle1" className="z-0" />
+            </div>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#019B83] mb-4">
               Strategic Goals
