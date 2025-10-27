@@ -5,3 +5,6 @@
 - [x] Verify responsive design in globals.css and components.
 - [x] Test the page in different browsers and screen sizes.
 - [x] Fix marque positioning to stay at the bottom in Microsoft Edge.
+- [x] Added `relative` class to the hero section in `page.tsx` for proper positioning context.
+- [x] Added `w-full` class to the marque container in `Marque.tsx` to ensure full width.
+- [x] Updated `.marquee-container` in `globals.css` to use `position: absolute` and explicit positioning for cross-browser compatibility.

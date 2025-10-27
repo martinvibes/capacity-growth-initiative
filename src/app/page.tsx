@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <div className="w-full min-h-screen overflow-x-hidden">
-      <section className="w-full min-h-screen">
+      <section className="w-full min-h-screen relative">
         <Hero />
         <Marque />
       </section>
