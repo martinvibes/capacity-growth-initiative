@@ -7,6 +7,7 @@ export interface Event {
   locationType?: "zoom" | "facebook" | "venue"; // Optional location type
   description: string;
   image: string; // URL or path
+  category?: string; // Optional category field
 }
 
 export interface CarouselImage {

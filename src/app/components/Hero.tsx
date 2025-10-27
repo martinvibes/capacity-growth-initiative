@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative w-full overflow-hidden bg-white ">
+    <div className="relative w-full overflow-hidden bg-white min-h-dvh">
       <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="absolute md:right-0 hidden md:block md:top-0 overflow-hidden bottom-10 ">
           <Image src={Ellipse1} alt="ellipse" width={700} height={500} />

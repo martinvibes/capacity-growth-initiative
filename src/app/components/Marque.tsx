@@ -4,7 +4,7 @@ import no_star from "../../../public/no-star.svg";
 
 const Marque = () => {
   return (
-    <div className="marquee-container overflow-x-hidden bg-[#019B83] text-white z-40">
+    <div className="marquee-container overflow-x-hidden bg-[#019B83] text-white z-40 absolute bottom-0 left-0 right-0">
       <div className="marquee-track py-3 space-x-8 items-center">
         {/* Duplicate this chunk twice for seamless scroll */}
         {[...Array(3)].map((_, i) => (

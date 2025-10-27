@@ -16,8 +16,8 @@ export default function Home() {
   const [openModal] = useState(false);
 
   return (
-    <div className="w-full overflow-x-hidden">
-      <section className="w-full h-screen">
+    <div className="w-full min-h-screen overflow-x-hidden">
+      <section className="w-full min-h-screen">
         <Hero />
         <Marque />
       </section>
