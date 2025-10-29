@@ -15,8 +15,8 @@ const DonationSuccessModal: React.FC<DonationSuccessModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="absolute top-[-7rem] font-serif text-center inset-0 z-auto flex items-center bottom-[-7rem] justify-center   ">
-      <div className=" text-center max-w-md mx-4 bg-[#F9F9F9] rounded-[10px] border border-[#F9F9F9]  w-[418px] py-1 h-[352px] px-10 relative z-50 ">
+    <div className="absolute top-[-7rem] font-inter inter text-center inset-0 z-auto flex items-center bottom-[-7rem] justify-center   ">
+      <div className=" text-center max-w-md mx-4 bg-[#F9F9F9] rounded-[10px] border border-[#F9F9F9]   h-[400px]  sm:w-[420px] py-1 space-y-10 px-10 relative z-50 ">
         <Image
           src="/logo.png"
           alt="logo"
@@ -25,7 +25,7 @@ const DonationSuccessModal: React.FC<DonationSuccessModalProps> = ({
           className="mx-auto"
         />
 
-        <div className="space-y-2 mb-4">
+        <div className="space-y-5 ">
           <div className="space-y-3 text-center text-[#000000]">
             <p className="text-[#000000] text-[19px] font-bold leading-[100%">
               2033106960

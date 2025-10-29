@@ -4,10 +4,10 @@ import Line from "../../../public/Line.png";
 
 const KeySuccessIndicator: React.FC = () => {
   return (
-    <section className="max-w-5xl md:max-w-full mx-auto md:px-4 py-5 w-[89%] mb-40">
-      <h2 className="text-2xl text-[#019B83] leading-[100%] md:text-[30px] font-bold text-center mb-6">
+    <section className="max-w-5xl md:max-w-full mx-auto md:px-4 py-5 w-[77%] mb-30">
+      <h2 className="text-2xl text-[#019B83] leading-[100%] md:text-[20px] font-bold text-center mb-15">
         Key Success Indicators
-        <span className="block w-[21rem] mx-auto mt-3">
+        <span className="block w-[14rem] mx-auto mt-1">
           <Image src={Line} alt="line" />
         </span>
       </h2>

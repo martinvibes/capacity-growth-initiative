@@ -31,13 +31,13 @@ export default function EventsPage() {
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-b from-teal-50 to-white ">
         <div className="text-center mb-12">
-          <h3 className="text-[#019B83] z-50 text-[25px] font-bold leading-[100%] mb-2 inline-block text-start  relative">
+          <h3 className="text-[#019B83] z-50 text-[20px] font-bold leading-[100%] mb-2 inline-block text-start  relative">
             Upcoming events
-            <span className="block w-90  mx-auto mt-3">
+            <span className="block w-40  mx-auto mt-1">
               <Image src={Line} alt="line" />
             </span>
           </h3>
-          <h2 className="text-3xl md:text-[55px] font-bold leading-[100%] z-50 relative text-[#000000] mt-2">
+          <h2 className="text-3xl md:text-[30px] font-bold leading-[100%] z-50 relative text-[#000000] mt-2">
             What&#39;s Happening <span className="md:block">Next..</span>
           </h2>
         </div>
@@ -46,7 +46,7 @@ export default function EventsPage() {
         </div>
       </section>
       {/* Events Section */}
-      <section className="py-16 bg-white z-50 " id="events" >
+      <section className="py-16  z-50 " id="events" >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto border-x border-[#0516091A] hover:text-white">
             {displayEvents.map((event, index) => (

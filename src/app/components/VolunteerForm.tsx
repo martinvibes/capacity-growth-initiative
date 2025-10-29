@@ -5,7 +5,6 @@ import Image from "next/image";
 import hero_img1 from "../../../public/hero-img1.svg";
 import hero_img2 from "../../../public/hero-img2.svg";
 import SuccessModal from "@/app/components/SuccessModal";
-import Marque from "@/app/components/Marque";
 
 
 interface VolunteerFormProps {
@@ -99,15 +98,15 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
   };
 
   return (
-    <div className="  bg-white flex flex-col">
+    <div className="  bg-white mt-2 flex flex-col">
       <div className="flex-1 flex items-center justify-center">
-        <div className="w-fit px-3 mx-auto relative z-40 bg-white rounded-lg border-3 border-[#051609] ">
+        <div className="w-fit px-3 py-4 mx-auto relative z-40 bg-white rounded-lg border-3 border-[#051609] ">
           <form
             onSubmit={handleSubmit}
             className="w-full z-40 relative "
             style={{ color: "#000000" }}
           >
-            <div className=" mt-1 flex space-x-2 items-center text-center">
+            <div className=" mt-3 flex space-x-2 items-center text-center">
               <label
                 className=" text-[12px] leading-[100%] text-[#051609] font-semibold font-serif"
                 htmlFor="fullName"
@@ -120,11 +119,11 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleInputChange}
-                className="w-fit px-3 py-1 border-b border-gray-300 focus:outline-none "
+                className="w-fit px-3 py-2 text-[12px] leading-[100%] text-[#051609] font-semibold font-serif border-b border-gray-300 focus:outline-none "
               />
             </div>
 
-            <div className="mt-1 flex space-x-2.5 items-center">
+            <div className="mt-2 flex space-x-2.5 items-center">
               <label className="block text-[12px] leading-[100%] text-[#051609] font-semibold font-serif">
                 Gender:
               </label>
@@ -165,7 +164,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
               </div>
             </div>
 
-            <div className="mb-1 flex justify-between space-x-2.5 items-center">
+            <div className="mb-2 flex justify-between space-x-2.5 items-center">
               <label
                 className="block  text-[12px] leading-[100%] text-[#051609] font-semibold font-serif"
                 htmlFor="address"
@@ -178,7 +177,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
                 name="address"
                 value={formData.address}
                 onChange={handleInputChange}
-                className="w-full px-3  border-b border-gray-300 focus:outline-none "
+                className="w-full px-3 py-2 border-b border-gray-300 focus:outline-none "
               />
             </div>
 
@@ -195,7 +194,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
                 name="cityState"
                 value={formData.cityState}
                 onChange={handleInputChange}
-                className="w-full px-3  border-b border-gray-300 focus:outline-none "
+                className="w-full px-3  py-2 border-b border-gray-300 focus:outline-none "
               />
             </div>
 
@@ -212,7 +211,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleInputChange}
-                className="w-full px-3  border-b border-gray-300 focus:outline-none "
+                className="w-full px-3 py-2 border-b border-gray-300 focus:outline-none "
               />
             </div>
 
@@ -229,15 +228,15 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-3  border-b border-gray-300 focus:outline-none "
+                className="w-full px-3 py-2  border-b border-gray-300 focus:outline-none "
               />
             </div>
 
             <div className="mb-2 z-50 relative">
-              <label className="block mb-1 text-[14px] leading-[100%] font-bold font-serif text-[#051609]">
+              <label className="block my-3 text-[14px] leading-[100%] font-bold font-serif text-[#051609]">
                 Areas of Interest (Select One or More)
               </label>
-              <div className="">
+              <div className=" space-y-2">
                 <label className="flex items-center">
                   <input
                     type="checkbox"
@@ -273,11 +272,11 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
               </div>
             </div>
 
-            <div className="mb-1">
-              <label className="block mb-1 text-[14px] leading-[100%] font-bold font-serif text-[#051609]">
+            <div className="mb-1 ">
+              <label className="block my-4 text-[14px] leading-[100%] font-bold font-serif text-[#051609]">
                 Areas of Interest (Select One or More)
               </label>
-              <div className="">
+              <div className=" space-y-3">
                 <label className="flex items-center">
                   <input
                     type="checkbox"
@@ -341,7 +340,7 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
 
             <button
               type="submit"
-              className=" mb-1.5 lg:ml-16 ml-19 bg-[#051609]  cursor-pointer text-[#019B83] font-medium py-2 px-20 rounded hover:bg-[#6ead80] hover:text-white focus:outline-none "
+              className=" mb-2 lg:ml-16 ml-19 bg-[#051609]  cursor-pointer text-[#019B83] font-medium py-2 px-20 rounded hover:bg-[#6ead80] hover:text-white focus:outline-none "
             >
               Submit
             </button>
@@ -373,7 +372,6 @@ const VolunteerForm: React.FC<VolunteerFormProps> = ({ onSuccess }) => {
           onClose={() => setOpenSuccessModal(false)}
         />
       </div>
-      <Marque />
     </div>
   );
 };

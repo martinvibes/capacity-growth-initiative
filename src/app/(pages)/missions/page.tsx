@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import whoweare from "../../../../public/whoweare.png";
 import circle1 from "../../../../public/circle1.png";
 import circle2hf from "../../../../public/circle2hf.png";
 import map from "../../../../public/map.png";
@@ -8,27 +7,15 @@ import map from "../../../../public/map.png";
 export default function MissionPage() {
   return (
     <div>
-      <div className="relative h-[26rem] md:h-screen/2 ">
-        <div>
-          <Image
-            src={whoweare}
-            alt="Hero background"
-            fill
-            className="object-center"
-            priority
-          />
-        </div>
-      </div>
-
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="py-5 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="flex justify-center items-center z-50 relative">
           <Image src={map} alt="map" />
         </div>
-        <div className="absolute w-[19rem] right-[4rem] top-0">
+        <div className="absolute w-[15rem] right-[4rem] top-0">
           <Image src={circle1} alt="circle1" className="z-0" />
         </div>
         <div className="max-w-6xl mx-auto relative z-50">
-          <div className="mt-20 text-center relative  z-50">
+          <div className="mt-10 text-center relative  z-50">
             <p className="text-[17px] text-start text-gray-700 max-w-4xl mx-auto">
               Capacity Growth Initiative (CGI) is a dedicated organisation
               committed to unlocking the inherent potential within individuals
@@ -86,7 +73,7 @@ export default function MissionPage() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-[10rem] ">
+        <div className="absolute bottom-0 left-0 w-[15rem] ">
           <Image src={circle2hf} alt="haftcircle" />
         </div>
       </section>

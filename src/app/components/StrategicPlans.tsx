@@ -4,14 +4,14 @@ import Line from "../../../public/Line.png";
 
 const StrategicPlans: React.FC = () => {
   return (
-    <section className="max-w-5xl md:max-w-full mx-auto md:px-4 py-5 w-[87%] my-20 ">
-      <h1 className="text-2xl text-[#019B83] leading-[100%] md:text-[30px] font-bold text-center mb-24">
+    <section className="max-w-5xl md:max-w-full mx-auto md:px-4 py-5 w-[77%] my-20 ">
+      <h1 className="text-2xl text-[#019B83] leading-[100%] md:text-[20px] font-bold text-center mb-10">
         Strategic Plan
-        <span className="block w-[15rem]   mx-auto mt-3">
+        <span className="block w-[8rem]   mx-auto mt-1">
           <Image src={Line} alt="line" />
         </span>
       </h1>
-      <h3 className="text-[22px] leading-[100%] text-[#051609] md:text-[25px] my-2 font-bold text-center mb-10">
+      <h3 className="text-[22px] leading-[100%] text-[#051609] md:text-[25px]  font-bold text-center mb-5">
         Introduction
       </h3>
 

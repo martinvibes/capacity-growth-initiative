@@ -42,13 +42,13 @@ const UpcomingEvents = () => {
         <Image src={circle1} alt="circle1" className="z-0" />
       </div>
       <div className="text-center mb-12 z-50 relative">
-        <h3 className="text-[#019B83] text-[30px] font-bold leading-[100%] mb-2 inline-block text-start  relative">
+        <h3 className="text-[#019B83] text-[20px] font-bold leading-[100%] mb-2 inline-block text-start  relative">
           Upcoming events
-          <span className="block w-90  mx-auto mt-3">
+          <span className="block w-56  mx-auto mt-2">
             <Image src={Line} alt="line" />
           </span>
         </h3>
-        <h2 className="text-3xl md:text-[55px] font-bold leading-[100%] text-[#000000] mt-2">
+        <h2 className="text-3xl md:text-[30px] font-bold leading-[100%] text-[#000000] mt-2">
           What&#39;s Happening <span className="md:block">Next..</span>
         </h2>
       </div>
@@ -58,7 +58,7 @@ const UpcomingEvents = () => {
           <Image src={circle1} alt="circle1" className="z-0" />
         </div>
         {/* Events List */}
-        <div className="lg:col-span-2 w-full text-end items-end z-50 relative space-y-[55px]">
+        <div className="lg:col-span-2 w-full text-end items-end z-50 relative space-y-[40px]">
           {displayEvents.map((event, index) => (
             <div
               key={`event-${event.id || index}`}
@@ -121,7 +121,7 @@ const UpcomingEvents = () => {
               </p>
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-[50px]">
+            <form onSubmit={handleSubmit} className="space-y-[30px]">
               <div>
                 <input
                   type="email"

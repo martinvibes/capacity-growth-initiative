@@ -8,8 +8,8 @@ import Link from "next/link";
 export default function VolunteerSection() {
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen w-[87%]  mx-auto my-40 ">
-      <div className="md:w-1/2 w-full h-[300px] md:h-auto relative">
+    <div className="flex flex-col md:flex-row h-[400px] w-[77%]  mx-auto my-20 ">
+      <div className="md:w-1/2 w-full h-[200px] md:h-auto relative">
         <Image
           src="/why-choose-us.svg"
           alt="Team"

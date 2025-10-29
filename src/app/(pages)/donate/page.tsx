@@ -7,7 +7,6 @@ import hero_img2 from "../../../../public/hero-img2.svg";
 import Ellipse1 from "../../../../public/Ellipse1.png";
 import Ellipse2 from "../../../../public/Ellipse2.png";
 import DonationSuccessModal from "@/app/components/DonationSuccessModal";
-import Marque from "@/app/components/Marque";
 
 export default function DonatePage() {
   const [formData, setFormData] = useState({
@@ -56,7 +55,7 @@ export default function DonatePage() {
         email: "",
         amount: "",
       });
-    } catch (error) { 
+    } catch (error) {
       // setSubmitStatus({
       //   success: false,
       // });
@@ -67,27 +66,26 @@ export default function DonatePage() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-white">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-5 py-10 md:py-7 mb-7">
+    <div className="relative w-full  overflow-hidden">
+      <div className="relative z-10  h-screen  mx-auto px-4 sm:px-6 lg:px-5 ">
         <div>
           {/* Right side - Image */}
           <div className="relative">
             <div className="absolute right-0 top-0 w-[60%]  md:hidden  ">
               <Image src={Ellipse1} alt="ellipse" width={700} height={700} />
             </div>
-            <div className="absolute right-[-5rem] hidden sm:hidden md:hidden lg:block overflow-hidden ">
+            <div className="absolute right-[-5rem] -top-5 hidden sm:hidden md:hidden lg:block overflow-hidden ">
               <Image
                 src={hero_img1}
                 alt="Africa map with human face collage"
-                className=" w-[60%]  "
+                className=" w-[70%]  "
                 priority
               />
             </div>
           </div>
 
-        
-          <div className=" bg-[#F9F9F9] rounded-[10px] border border-[#F9F9F9]  w-[418px] py-1 h-[352px] px-10 relative left-[4rem] z-50 shadow-2xl shadow-[#00000033] ">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className=" bg-[#F9F9F9] rounded-[10px] border md:mt-16 border-[#F9F9F9] h-[400px]  sm:w-[420px] py-1 px-10 relative md:left-[4rem] z-50 shadow-2xl shadow-[#00000033] ">
+            <form onSubmit={handleSubmit} className=" space-y-8">
               <div className=" flex items-center">
                 <label
                   htmlFor="name"
@@ -188,8 +186,8 @@ export default function DonatePage() {
                   className={` flex justify-center  border border-transparent  shadow-sm text-sm  focus:outline-none 
                     
                     w-full font-medium cursor-pointer text-[#019B83] bg-[#051609] py-2 px-4 rounded-md  text-[25px] leading-[100%] transition-colors${
-                    isSubmitting ? "opacity-70 cursor-not-allowed" : ""
-                  }`}
+                      isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                    }`}
                 >
                   {isSubmitting ? "Proceeding" : "Proceed"}
                 </button>
@@ -205,7 +203,7 @@ export default function DonatePage() {
 
         {/* Bottom team image - Only show on larger screens */}
 
-        <div className=" absolute bottom-[-2rem] left-0">
+        <div className=" absolute bottom-[2rem] left-0">
           <Image
             src={Ellipse2}
             alt="Ellipse2"
@@ -214,15 +212,14 @@ export default function DonatePage() {
             height={300}
           />
         </div>
-        <div className="absolute  max-w-4xl mx-auto sm:bottom-0  sm:right-[10rem]  overflow-hidden">
-          <Image
-            src={hero_img2}
-            alt="Team of diverse people"
-            className="w-[60%] h-auto"
-          />
-        </div>
       </div>
-      <Marque />
+      <div className="absolute  max-w-4xl mx-auto sm:bottom-42  sm:right-[10rem]  overflow-hidden">
+        <Image
+          src={hero_img2}
+          alt="Team of diverse people"
+          className="w-[60%] h-auto"
+        />
+      </div>
     </div>
   );
 }

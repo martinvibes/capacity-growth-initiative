@@ -11,31 +11,27 @@ export default function StrategicGoalsPage() {
   return (
     <PageTemplate title="Strategic Goals" showHeader={false}>
       {/* Goals Section */}
-      <div className="bg-white py-16 px-4 sm:px-6 lg:px-8 relative">
+      <div className="bg-white py-16 px-4 sm:px-6 lg:px-8 relative ">
         <div className="max-w-7xl mx-auto">
-            <div className="absolute w-[15rem] top-[-2rem] right-0">
-              <Image src={circle1} alt="circle1" className="z-0" />
-            </div>
+          <div className="absolute w-[15rem] top-[-3rem] right-0">
+            <Image src={circle1} alt="circle1" className="z-0" />
+          </div>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#019B83] mb-4">
+            <h2 className="text-2xl font-bold text-[#019B83] mb-4 z-30 relative">
               Strategic Goals
-              <span className="block w-90  mx-auto mt-3 z-40 relative">
+              <span className="block w-50  mx-auto mt-1 z-40 relative">
                 <Image src={Line} alt="line" />
               </span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
-              Guiding our efforts to create meaningful and sustainable impact
-              through strategic initiatives and partnerships.
-            </p>
           </div>
 
           {/* Goals Grid */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-[#051609] p-[20px] text-[#F9F9F9] flex flex-col rounded-[10px]">
-              <div>
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-20 md:ml-20 ml-7   w-[80%]">
+            <div className="bg-[#051609]  p-[30px] text-[#F9F9F9] flex flex-col justify-center items-center rounded-[10px]">
+              <div className=" "> 
                 <Image src={strategic1} alt="strategic1" />
               </div>
-              <h3>Build a Strong Alumni Network </h3>
+              <h3 className="my-3">Build a Strong Alumni Network </h3>
               <p>
                 Create an active alumni network to promote collaboration and
                 support.
@@ -51,11 +47,11 @@ export default function StrategicGoalsPage() {
                 </li>
               </ul>
             </div>
-            <div className="bg-[#051609] p-[20px] text-[#F9F9F9] flex flex-col rounded-[10px]">
+            <div className="bg-[#051609] p-[30px] text-[#F9F9F9] flex flex-col justify-center items-center rounded-[10px]">
               <div>
                 <Image src={strategic2} alt="strategic1" />
               </div>
-              <h3>Promote Sustainability and Innovation</h3>
+              <h3 className="my-3">Promote Sustainability and Innovation</h3>
 
               <ul>
                 <li className="list-disc">
@@ -73,12 +69,12 @@ export default function StrategicGoalsPage() {
             </div>
           </section>
 
-          <section className="flex  mt-10 gap-8">
-            <div className="bg-[#051609] p-[20px] text-[#F9F9F9] flex flex-col rounded-[10px]">
+          <section className="flex  mt-10 gap-8 md:ml-20 ml-7  w-[80%]">
+            <div className="bg-[#051609] p-[30px] text-[#F9F9F9] flex flex-col justify-center items-center rounded-[10px]">
               <div>
                 <Image src={strategic3} alt="strategic1" />
               </div>
-              <h3>Mobilise Youth through NYSC Partnership </h3>
+              <h3 className="my-3">Mobilise Youth through NYSC Partnership </h3>
               <ul>
                 <li>
                   Collaborate with NYSC to establish a CGI CDS group, engaging
@@ -95,11 +91,17 @@ export default function StrategicGoalsPage() {
                 </li>
               </ul>
             </div>
-            <div className="bg-[#051609]  p-[20px] text-[#F9F9F9] flex flex-col rounded-[10px]">
+            <div className="bg-[#051609]  p-[30px] text-[#F9F9F9] flex flex-col justify-center items-center rounded-[10px]">
               <div>
-                <Image src={strategic4} alt="strategic1" />
+                <Image
+                  src={strategic4}
+                  alt="strategic1"
+                  className="md:mt-[-3rem]"
+                />
               </div>
-              <h3>Expand Access to Capacity-Building Resources </h3>
+              <h3 className="my-3">
+                Expand Access to Capacity-Building Resources{" "}
+              </h3>
               <p>
                 Set up development centers in key cities and underserved areas
                 to offer training, mentorship, and networking.

@@ -17,15 +17,15 @@ export default function ObjectivesPage() {
       <section className="py-16  px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-50">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-teal-600 mb-4 z-50 relative">
+            <h2 className="text-3xl md:text-[20px] font-bold text-teal-600 mb-4 z-50 relative">
               Our Objectives
-              <span className="block w-90  mx-auto mt-3">
+              <span className="block w-40  mx-auto mt-3">
                 <Image src={Line} alt="line" />
               </span>
             </h2>
 
-            <div className="mt-4 space-y-6 text-[17px] text-start text-gray-700 max-w-4xl mx-auto z-50">
-              <p className="z-50 relative">
+            <div className="mt-1 space-y-6 text-[17px] text-start text-[#051609] max-w-4xl mx-auto z-50">
+              <p className="z-50 relative leading-[180%]">
                 At Capacity Growth Initiative (CGI), we aim to empower
                 individuals and communities by building capacity in Business,
                 Leadership, and Technology, equipping them with the skills and
@@ -35,7 +35,7 @@ export default function ObjectivesPage() {
           </div>
 
           {/* Objectives Grid */}
-          <div className="grid md:grid-cols-3 gap-8 mt-16 text-center z-40">
+          <div className="grid md:grid-cols-3 gap-8 mt-10 text-center z-40">
             <div className="absolute w-[15rem] right-0 -top-16">
               <Image src={circle1} alt="circle1" className="z-0" />
             </div>
@@ -85,8 +85,8 @@ export default function ObjectivesPage() {
           </div>
 
           {/* Closing Statement */}
-          <div className="mt-20 text-center ml-[-16rem]">
-            <p className="text-[17px] text-start text-gray-700 max-w-4xl mx-auto">
+          <div className="mt-9 text-center ">
+            <p className="text-[17px] text-start text-[#051609]  leading-[180%] max-w-4xl mx-auto">
               Through these objectives, CGI is building a network of empowered
               individuals and communities capable of driving sustainable and
               transformative change across Africa.

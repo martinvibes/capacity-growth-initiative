@@ -39,7 +39,7 @@ const Footer = () => {
                     Home
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/" className="hover:text-white">
                     About Us
                   </Link>
@@ -53,7 +53,7 @@ const Footer = () => {
                   <Link href="/" className="hover:text-white">
                     Contact Us
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
 

@@ -73,14 +73,13 @@ const Navbar = () => {
 
     {
       label: "Project",
-      dropdown: [],
+      href: "#",
     },
 
     {
       label: "Contact Us",
       href: "#contact-us",
     },
-   
   ];
 
   return (
@@ -112,7 +111,7 @@ const Navbar = () => {
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`inline-flex items-center px-1 pt-1 text-[17px] leading-[100%] font-medium cursor-pointer ${
+                    className={`flex items-center justify-center  px-1 pt-1 text-[17px] leading-[100%] font-medium cursor-pointer ${
                       pathname === item.href
                         ? "text-[#019B83]"
                         : "text-[#051609] hover:text-[#019B83]"
