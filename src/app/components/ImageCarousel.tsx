@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useAdmin } from "@/context/AdminContextNew";
 
@@ -8,10 +8,33 @@ export default function PosterSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { carouselImages } = useAdmin();
 
-  const posters = carouselImages.map((img) => ({
-    src: img.imageUrl,
-    alt: `Slide ${img.id}`,
-  }));
+  // ✅ Map carousel data from Firestore
+  interface CarouselImage {
+    id?: string;
+    imageUrl?: string;
+    // add other properties if needed
+  }
+
+  interface Poster {
+    src: string;
+    alt: string;
+  }
+
+  const posters: Poster[] = (carouselImages || []).map(
+    (img: CarouselImage) => ({
+      src: img.imageUrl || "/placeholder.png", // fallback image
+      alt: `Slide ${img.id || "no-id"}`,
+    })
+  );
+
+  // ✅ Auto slide every few seconds (optional)
+  useEffect(() => {
+    if (posters.length === 0) return;
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % posters.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [posters]);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % posters.length);
@@ -27,6 +50,17 @@ export default function PosterSlider() {
   };
 
   const visibleSlides = getSlides();
+
+  // ✅ Handle empty state
+  if (posters.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-10 text-center">
+        <p className="text-gray-500">
+          No carousel images yet. Check back soon!
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center justify-center -ml-8 text-center gap-5 md:gap-[40px] py-8 relative mt-20 md:w-[77%] w-full">
@@ -47,21 +81,24 @@ export default function PosterSlider() {
               alt={poster.alt}
               width={100}
               height={100}
-              className="w-full h-full object-fit shadow-xl"
+              className="w-full h-full object-fill shadow-xl"
               priority={i === 0}
             />
           </div>
         ))}
+
+        {/* ✅ Next Button */}
         <button
           onClick={handleNext}
-          className="absolute  right-0 top-1/2 transform -translate-y-1/2 text-black px-2 py-2 md:px-4 md:py-2 rounded-full hover:bg-gray-100 transition-colors"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 text-black px-2 py-2 md:px-4 md:py-2 rounded-full hover:bg-gray-100 transition-colors"
         >
           <Image src="/arrow.png" alt="arrow" width={20} height={20} />
         </button>
       </div>
-      {/* Pagination Dots */}
+
+      {/* ✅ Pagination Dots */}
       <div className="flex justify-center items-center mt-4 md:-mr-40 space-x-2">
-        {posters.map((_, index) => (
+        {posters.map((_: Poster, index: number) => (
           <button
             key={index}
             onClick={() => setActiveIndex(index)}

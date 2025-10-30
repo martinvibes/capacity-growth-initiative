@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { FiClock, FiMapPin, FiArrowRight } from "react-icons/fi";
@@ -12,17 +12,27 @@ import circle1 from "../../../public/circle1.png";
 import { useAdmin } from "@/context/AdminContextNew";
 
 const UpcomingEvents = () => {
+  type EventItem = {
+    id: string | number;
+    image: string | StaticImageData;
+    date: string;
+    title: string;
+    time?: string;
+    location?: string;
+    locationType?: string;
+  };
+
   const [email, setEmail] = useState("");
   const { events } = useAdmin();
 
   // Convert events to display format
-  const displayEvents = events.slice(0, 3).map((event) => {
+  const displayEvents = (events as EventItem[]).slice(0, 3).map((event: EventItem) => {
     const date = new Date(event.date);
     return {
       id: event.id,
       image: event.image,
       day: date.getDate().toString(),
-      month: date.toLocaleString('default', { month: 'short' }),
+      month: date.toLocaleString("default", { month: "short" }),
       title: event.title,
       time: event.time || "TBD",
       location: event.location || "TBD",
@@ -64,13 +74,15 @@ const UpcomingEvents = () => {
               key={`event-${event.id || index}`}
               className="hover:shadow-md transition-all z-40 duration-300 lg:flex lg:flex-row flex-col overflow-hidden border border-[#0516091A]"
             >
-              <Image
-                src={event.image}
-                alt={event.title}
-                width={108}
-                height={108}
-                className="lg:w-[40%] lg:h-[20%] relative z-50 w-full h-full object-cover"
-              />
+              {event.image ? (
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  width={108}
+                  height={108}
+                  className="lg:w-[40%] lg:h-[20%] relative z-50 w-full h-full object-cover"
+                />
+              ) : null}
               <div className="flex-1 p-6 flex flex-col z-40 relative ">
                 <div className="flex">
                   <div className=" text-gray-800 rounded-lg w-16 space-y-2 h-20 flex flex-col items-center justify-center mr-4 flex-shrink-0">
