@@ -34,8 +34,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "types": [
-      "node",
-      "next"
+      "node"
     ]
   },
   "include": [

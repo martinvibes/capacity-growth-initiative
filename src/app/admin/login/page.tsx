@@ -13,8 +13,8 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const DEMO_EMAIL = "capacitygrowthinitiative@gmail.com";
-  const DEMO_PASSWORD = "admin123";
+  const DEMO_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
+  const DEMO_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +26,8 @@ export default function AdminLogin() {
 
     if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
       // Set authentication cookie
-      document.cookie = "admin_authenticated=true; path=/; max-age=86400; secure; samesite=strict";
+      document.cookie =
+        "admin_authenticated=true; path=/; max-age=86400; secure; samesite=strict";
       document.cookie = `admin_email=${email}; path=/; max-age=86400; secure; samesite=strict`;
       router.push("/admin");
     } else {
@@ -130,8 +131,7 @@ export default function AdminLogin() {
         </div>
       </div>
       <div className="mt-[-4rem]">
-
-      <Marque />
+        <Marque />
       </div>
     </>
   );

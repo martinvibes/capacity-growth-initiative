@@ -55,8 +55,9 @@ export default function PosterSlider() {
   if (posters.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-10 text-center">
-        <p className="text-gray-500">
-          No carousel images yet. Check back soon!
+        <p className="text-gray-500 text-center">
+          Our latest adverts and promotions will show up here soon. <br /> Stay
+          tuned!
         </p>
       </div>
     );
