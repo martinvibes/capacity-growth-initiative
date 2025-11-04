@@ -66,7 +66,7 @@ export default function DonatePage() {
   };
 
   return (
-    <div className="relative w-full  overflow-hidden">
+    <div className="relative w-full mt-16 sm:mt-0 overflow-hidden">
       <div className="relative z-10  h-screen  mx-auto px-4 sm:px-6 lg:px-5 ">
         <div>
           {/* Right side - Image */}

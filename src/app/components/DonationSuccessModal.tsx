@@ -16,7 +16,7 @@ const DonationSuccessModal: React.FC<DonationSuccessModalProps> = ({
 
   return (
     <div className="absolute top-[-7rem] font-inter inter text-center inset-0 z-auto flex items-center bottom-[-7rem] justify-center   ">
-      <div className=" text-center max-w-md mx-4 bg-[#F9F9F9] rounded-[10px] border border-[#F9F9F9]   h-[400px]  sm:w-[420px] py-1 space-y-10 px-10 relative z-50 ">
+      <div className=" text-center max-w-md mx-4 bg-[#F9F9F9] rounded-[10px] border border-[#F9F9F9]   h-[400px]  sm:w-[420px] py-1 sm:space-y-10 space-y-3 px-10 relative z-50 ">
         <Image
           src="/logo.png"
           alt="logo"
