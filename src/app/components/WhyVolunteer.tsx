@@ -8,8 +8,8 @@ import Link from "next/link";
 export default function VolunteerSection() {
 
   return (
-    <div className="flex flex-col md:flex-row h-[400px] w-[77%]  mx-auto my-20 ">
-      <div className="md:w-1/2 w-full h-[200px] md:h-auto relative">
+    <div className="flex  flex-row md:h-[400px] md:w-[77%] w-[98%]  mx-auto my-20 ">
+      <div className="md:w-1/2 w-full  md:h-auto relative">
         <Image
           src="/why-choose-us.svg"
           alt="Team"
@@ -30,12 +30,12 @@ export default function VolunteerSection() {
         <div className="absolute inset-0 z-10" />
 
         {/* Foreground Content */}
-        <div className="max-w-md space-y-6 relative z-20 text-center gap-[48px] md:text-left">
-          <h2 className="text-2xl sm:text-2xl font-bold leading-[100%] text-[#F9F9F9] mb-14 ">
+        <div className="max-w-md  text-left sm:space-y-6 relative z-20 sm:text-center gap-[48px] md:text-left">
+          <h2 className="text-[10px] sm:text-2xl font-bold leading-[100%] text-[#F9F9F9] sm:mb-14 mb-3 ">
             Why Volunteer With Us?
           </h2>
 
-          <ul className="space-y-4 text-base gap-[54px] text-[#F9F9F9] sm:text-[20px] leading-[100%] font-semibold ">
+          <ul className="sm:space-y-4 space-y-2  text-base text-[7.3px] gap-[54px] text-[#F9F9F9] sm:text-[20px] leading-[100%] font-semibold ">
             {[
               "Make a difference in people’s lives",
               "Gain valuable experience and skills",
@@ -54,7 +54,7 @@ export default function VolunteerSection() {
             ))}
           </ul>
 
-          <button className="mt-4 inline-flex items-center cursor-pointer bg-[#019B83] text-[#F9F9F9] p-[16px] rounded-[8px] transition border-[3px] border-[#F9F9F9] text-[20px] leading-[100%] font-semibold ">
+          <button className="mt-4 inline-flex items-center cursor-pointer bg-[#019B83] text-[#F9F9F9] sm:p-[16px] p-[8px] rounded-[8px] transition border-[3px] border-[#F9F9F9] sm:text-[20px] text-[8px] leading-[100%] font-semibold ">
             <Link href="/form">Get Started</Link>
             <FaArrowRight className="ml-3" />
           </button>

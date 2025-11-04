@@ -17,15 +17,15 @@ export default function ObjectivesPage() {
       <section className="py-16  px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-50">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-[20px] font-bold text-teal-600 mb-4 z-50 relative">
+            <h2 className="text-[18px] md:text-[20px] font-bold text-teal-600 mb-4 z-50 relative">
               Our Objectives
-              <span className="block w-40  mx-auto mt-3">
+              <span className="block sm:w-40 w-30  mx-auto sm:mt-3">
                 <Image src={Line} alt="line" />
               </span>
             </h2>
 
-            <div className="mt-1 space-y-6 text-[17px] text-start text-[#051609] max-w-4xl mx-auto z-50">
-              <p className="z-50 relative leading-[180%]">
+            <div className="mt-1 space-y-6 sm:text-[17px] text-[9px] text-start text-[#051609] max-w-4xl mx-auto z-50">
+              <p className="z-50 relative leading-[180%] sm:text-[14px] text-[9px]">
                 At Capacity Growth Initiative (CGI), we aim to empower
                 individuals and communities by building capacity in Business,
                 Leadership, and Technology, equipping them with the skills and
@@ -44,7 +44,7 @@ export default function ObjectivesPage() {
               <h3 className="text-[#019B83] text-[20px] my-2 font-bold leading-[180% ">
                 Technology Empowerment
               </h3>
-              <p className="text-[14px] leading-[180%] font-normal text-start">
+              <p className="sm:text-[14px] text-[9px] leading-[180%] font-normal text-start">
                 Equip individuals with digital skills to thrive in the modern
                 economy. Offer training in digital literacy, coding and emerging
                 technologies .Create innovation hub for tech-driven problem
@@ -60,7 +60,7 @@ export default function ObjectivesPage() {
               <h3 className="text-[#019B83] text-[20px] my-2 font-bold leading-[180% ">
                 Business Development{" "}
               </h3>
-              <p className="text-[14px] leading-[180%] font-normal text-start">
+              <p className="sm:text-[14px] text-[9px] leading-[180%] font-normal text-start">
                 Develop visionary leaders who drive positive change in their
                 communities. Provide training to build strategic communication,
                 and problem-solving skills Promote ethical leadership rooted in
@@ -74,7 +74,7 @@ export default function ObjectivesPage() {
               <h3 className="text-[#019B83] text-[20px] my-2 font-bold leading-[180%">
                 Leadership Training
               </h3>
-              <p className="text-[14px] text-start  leading-[180%] font-normal ">
+              <p className="sm:text-[14px] text-[9px] text-start  leading-[180%] font-normal ">
                 Develop visionary leaders who drive positive change in their
                 communities. Provide training to build strategic, communication,
                 and problem-solving skills .Promote ethical leadership rooted in
@@ -86,7 +86,7 @@ export default function ObjectivesPage() {
 
           {/* Closing Statement */}
           <div className="mt-9 text-center ">
-            <p className="text-[17px] text-start text-[#051609]  leading-[180%] max-w-4xl mx-auto">
+            <p className="sm:text-[17px] text-[9px] text-start text-[#051609]  leading-[180%] max-w-4xl mx-auto">
               Through these objectives, CGI is building a network of empowered
               individuals and communities capable of driving sustainable and
               transformative change across Africa.

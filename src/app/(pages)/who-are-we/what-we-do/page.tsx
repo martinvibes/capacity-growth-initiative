@@ -13,7 +13,7 @@ export default function WhatWeDoPage() {
   return (
     <PageTemplate title="What We Do" showHeader={false}>
       {/* Goals Section */}
-      <div className="bg-white py-16 px-4 sm:px-6 lg:px-8 relative z-30">
+      <div className="bg-white py-16 px-4 overflow-x-hidden sm:px-6 lg:px-8 relative z-30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-[20px] font-bold text-[#019B83] mb-4 relative z-40">

@@ -26,19 +26,21 @@ const UpcomingEvents = () => {
   const { events } = useAdmin();
 
   // Convert events to display format
-  const displayEvents = (events as EventItem[]).slice(0, 3).map((event: EventItem) => {
-    const date = new Date(event.date);
-    return {
-      id: event.id,
-      image: event.image,
-      day: date.getDate().toString(),
-      month: date.toLocaleString("default", { month: "short" }),
-      title: event.title,
-      time: event.time || "TBD",
-      location: event.location || "TBD",
-      locationType: event.locationType || "venue",
-    };
-  });
+  const displayEvents = (events as EventItem[])
+    .slice(0, 3)
+    .map((event: EventItem) => {
+      const date = new Date(event.date);
+      return {
+        id: event.id,
+        image: event.image,
+        day: date.getDate().toString(),
+        month: date.toLocaleString("default", { month: "short" }),
+        title: event.title,
+        time: event.time || "TBD",
+        location: event.location || "TBD",
+        locationType: event.locationType || "venue",
+      };
+    });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,7 +74,7 @@ const UpcomingEvents = () => {
           {displayEvents.map((event, index) => (
             <div
               key={`event-${event.id || index}`}
-              className="hover:shadow-md transition-all z-40 duration-300 lg:flex lg:flex-row flex-col overflow-hidden border border-[#0516091A]"
+              className="hover:shadow-md transition-all z-40 relative duration-300 lg:flex lg:flex-row  overflow-hidden border border-[#0516091A]"
             >
               {event.image ? (
                 <Image
@@ -113,9 +115,21 @@ const UpcomingEvents = () => {
                   </div>
                 </div>
               </div>
+              
             </div>
           ))}
-          <div className="absolute z-0 bottom-0 left-0 w-[20rem] ">
+          
+      {/* View All Events Button */}
+      <div className="text-center mt-12 relative z-50">
+        <Link
+          href="/events"
+          className="mt-6 w-fit relative z-50 bg-[#019B83] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#018b76] transition-colors flex items-center justify-center mx-auto"
+        >
+          View all Events
+          <FiArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+        </Link>
+      </div>
+          <div className="absolute z-0 -bottom-20 left-0 w-[20rem] ">
             <Image src={circle2hf} alt="haftcircle" />
           </div>
         </div>
@@ -155,16 +169,6 @@ const UpcomingEvents = () => {
         </div>
       </div>
 
-      {/* View All Events Button */}
-      <div className="text-center mt-12">
-        <Link
-          href="/events"
-          className="mt-6 w-fit bg-[#019B83] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#018b76] transition-colors flex items-center justify-center mx-auto"
-        >
-          View all Events
-          <FiArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
-        </Link>
-      </div>
     </section>
   );
 };

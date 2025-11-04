@@ -1,4 +1,6 @@
 import type { Event } from './[id]/types';
+import { db } from '@/lib/firebase';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 
 // Mock data - in a real app, this would come from an API or database
 export const events: Record<number, Event> = {
@@ -36,7 +38,7 @@ export const events: Record<number, Event> = {
       "Getting Started Guide",
       "Q&A Session",
     ],
-  host: "Micheal Samuel",
+ host: "Micheal Samuel",
     link: "https://www.CGI.Com/Webinar/facebook.com",
     speakers: ["James peter", "Benny john", "Emmanuel sani "],
   },
@@ -59,8 +61,8 @@ export const events: Record<number, Event> = {
     link: "https://www.CGI.Com/Webinar/facebook.com",
     speakers: ["James peter", "Benny john", "Emmanuel sani "],
   },
-  
-  4: {     
+
+  4: {
       id: 4,
       title: "Community outreach program",
       image: "/upcome4.png",
@@ -82,7 +84,7 @@ export const events: Record<number, Event> = {
      id: 5,
      title: "Online fundraising campaign launch",
       image: "/upcome5.png",
-      date: "october 12, 2025",
+      date: "october 12,  2025",
       time: "12:00 PM - 01:00 PM",
       location: "Facebook Live",
       locationType: "facebook",
@@ -101,4 +103,39 @@ export const events: Record<number, Event> = {
 // Server-side version of getEventById
 export function getEventById(id: number): Event | undefined {
   return events[id];
+}
+
+// New async function to fetch events from Firestore
+export async function fetchEventsFromFirestore(): Promise<Event[]> {
+  try {
+    const querySnapshot = await getDocs(collection(db, 'events'));
+    return querySnapshot.docs.map(doc => ({
+      ...doc.data(),
+      id: parseInt(doc.id)
+    } as Event));
+  } catch (error) {
+    console.error('Error fetching events from Firestore:', error);
+    return [];
+  }
+}
+
+// New async function to get event by ID from Firestore
+export async function getEventByIdFromFirestore(id: string): Promise<Event | null> {
+  try {
+    const docRef = doc(db, 'events', id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      return {
+        ...(data as Omit<Event, 'id'>),
+        id: parseInt(docSnap.id, 10)
+      };
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching event from Firestore:', error);
+    return null;
+  }
 }

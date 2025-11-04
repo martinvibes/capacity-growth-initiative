@@ -15,7 +15,7 @@ export default function Home() {
   const [openModal] = useState(false);
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden overflow-hidden">
       <HeroSection />
       <About />
       <ImageCarousel />

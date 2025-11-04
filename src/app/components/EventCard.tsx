@@ -29,7 +29,7 @@ const EventCard = ({ event, index }: { event: Event; index: number }) => {
         <div
           className={`flex flex-col md:flex-row  overflow-hidden  transition-colors duration-300 ${
             isTealBg
-              ? "bg-[#019B83] text-white hover:bg-[#019B83] focus:bg-[#019B83] hover:text-white focus:text-white"
+              ? "bg-[#019B83] text-white  focus:bg-[#019B83] hover:text-white focus:text-white"
               : "bg-white hover:bg-[#eaf8f6] hover:text-white focus:bg-[#3eedd3] focus:text-white"
           }`}
         >
@@ -58,7 +58,7 @@ const EventCard = ({ event, index }: { event: Event; index: number }) => {
               >
                 {event.month}
               </span>
-              <span className="block w-[30px] mx-auto z-40 relative">
+              <span className="block w-[30px]  mx-auto z-40 relative">
                 <Image src={Line2} alt="line" />
               </span>
             </div>

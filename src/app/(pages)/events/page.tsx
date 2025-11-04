@@ -7,21 +7,33 @@ import Ellipse3 from "../../../../public/Ellipse3.png";
 import Image from "next/image";
 import { useAdmin } from "@/context/AdminContextNew";
 
+type DisplayEvent = {
+  id: string | number;
+  image: string;
+  day: string;
+  month: string;
+  title: string;
+  time: string;
+  location: string;
+  locationType: "zoom" | "facebook" | "venue";
+  isFeatured: boolean;
+};
+
 export default function EventsPage() {
   const { events } = useAdmin();
 
   // Convert events to display format for EventCard
-  const displayEvents = events.map(event => {
+  const displayEvents: DisplayEvent[] = events.map((event) => {
     const date = new Date(event.date);
     return {
       id: event.id,
-      image: event.image,
+      image: event.image ?? '/default-event-image.png',
       day: date.getDate().toString(),
-      month: date.toLocaleString('default', { month: 'short' }),
+      month: date.toLocaleString("default", { month: "short" }),
       title: event.title,
       time: event.time || "TBD",
       location: event.location || "TBD",
-      locationType: event.locationType || "venue",
+      locationType: (event.locationType || "venue") as "zoom" | "facebook" | "venue",
       isFeatured: false, // Can be set based on some logic if needed
     };
   });
@@ -46,7 +58,7 @@ export default function EventsPage() {
         </div>
       </section>
       {/* Events Section */}
-      <section className="py-16  z-50 " id="events" >
+      <section className="py-2  z-50 " id="events" >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto border-x border-[#0516091A] hover:text-white">
             {displayEvents.map((event, index) => (

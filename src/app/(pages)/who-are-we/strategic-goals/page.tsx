@@ -26,9 +26,9 @@ export default function StrategicGoalsPage() {
           </div>
 
           {/* Goals Grid */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-20 md:ml-20 ml-7   w-[80%]">
+          <section className="grid relative z-40 grid-cols-1 md:grid-cols-2 gap-20 md:ml-20   sm:w-[80%]">
             <div className="bg-[#051609]  p-[30px] text-[#F9F9F9] flex flex-col justify-center items-center rounded-[10px]">
-              <div className=" "> 
+              <div className=" ">
                 <Image src={strategic1} alt="strategic1" />
               </div>
               <h3 className="my-3">Build a Strong Alumni Network </h3>
@@ -69,7 +69,7 @@ export default function StrategicGoalsPage() {
             </div>
           </section>
 
-          <section className="flex  mt-10 gap-8 md:ml-20 ml-7  w-[80%]">
+          <section className="flex flex-col sm:flex-row  mt-10 gap-8 md:ml-20  sm:w-[80%]">
             <div className="bg-[#051609] p-[30px] text-[#F9F9F9] flex flex-col justify-center items-center rounded-[10px]">
               <div>
                 <Image src={strategic3} alt="strategic1" />

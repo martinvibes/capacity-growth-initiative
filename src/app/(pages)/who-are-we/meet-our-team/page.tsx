@@ -18,10 +18,10 @@ export default function MeetOurTeamPage() {
       showHeader={false}
     >
       {/* Team Section */}
-      <div className="bg-white py-5 px-4 sm:px-6 lg:px-8 ">
+      <div className="bg-white overflow-x-hidden py-5 px-4 sm:px-6 lg:px-8 ">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-5">
-            <h2 className="text-[20px] font-bold text-[#019B83] leading-[100%] mb-4">
+            <h2 className="text-[20px] relative z-50 font-bold text-[#019B83] leading-[100%] mb-4">
               Meet Our Team
               <span className="block w-40  mx-auto mt-1 z-40 relative">
                 <Image src={Line} alt="line" />
@@ -45,10 +45,10 @@ export default function MeetOurTeamPage() {
               </h3>
             </div>
 
-            <div className="absolute w-[15rem] top-[25rem] left-[39rem] ">
+            <div className="absolute w-[15rem] z-0 top-[25rem] left-[39rem] ">
               <Image src={circle1} alt="circle1" className="z-0" />
             </div>
-            <div className="absolute w-[15rem] top-[-5rem] right-0">
+            <div className="absolute w-[15rem] z-0 top-[-5rem] right-0">
               <Image src={circle1} alt="circle1" className="z-0" />
             </div>
 
@@ -103,7 +103,7 @@ export default function MeetOurTeamPage() {
                 <h3 className="z-40 font-bold text-[#051609] leading-[100%]">Samuel Dankard</h3>
               </div>
             </div>
-            <div className="absolute w-[15rem]  left-32 bottom-[19rem] ">
+            <div className="absolute w-[15rem] z-0  left-32 bottom-[19rem] ">
               <Image src={circle1} alt="circle1" className="z-0" />
             </div>
           </div>

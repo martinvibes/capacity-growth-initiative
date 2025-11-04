@@ -10,10 +10,10 @@ export default function MissionStatementPage() {
       description="Our commitment to excellence and service"
       showHeader={false}
     >
-      <section className="py-10 flex items-center md:py-44 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="py-10 mt-32 sm:mt-0 overflow-x-hidden flex items-center md:py-44 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-4xl mx-auto">
           <div className=" mb-12">
-            <h2 className="text-3xl text-center md:text-[20px] font-bold text-teal-600 mb-4">
+            <h2 className="text-[18px] text-center md:text-[20px] font-bold text-teal-600 mb-4">
               <span className="z-50 relative font-bold">Mission Statement</span>
               <span className="block w-50  mx-auto mt-2 z-40 relative">
                 <Image src={Line} alt="line" />
@@ -26,7 +26,7 @@ export default function MissionStatementPage() {
               </div>
             </h2>
 
-            <div className="mt-8 space-y-2 leading-[180%] text-[15px] font-normal text-gray-700 max-w-3xl mx-auto z-50 relative">
+            <div className="mt-8 space-y-2 leading-[180%] text-[9px] sm:text-[15px] font-normal text-gray-700 max-w-3xl mx-auto z-50 relative">
               <p>
                 At Capacity Growth Initiative (CGI), we empower individuals and
                 communities through skills, resources, and opportunities for

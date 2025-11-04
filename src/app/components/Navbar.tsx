@@ -179,10 +179,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="-mr-2 flex items-center md:hidden">
+          <div className="-mr-2 flex items-center md:hidden relative z-50">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-white hover:bg-[#019B83] focus:outline-none "
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
@@ -198,7 +198,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="pt-2 pb-3 space-y-1 px-4">
+          <div className="pt-2  space-y-1 px-4">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -256,18 +256,6 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            {/* Mobile menu CTA button */}
-            <div className="flex flex-col space-y-2 px-2 pb-3 pt-2">
-              {mounted && (
-                <Link
-                  href={isDonatePage ? "/joinus" : "/donate"}
-                  className="block w-full text-center p-[10px] rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 whitespace-nowrap"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {isDonatePage ? "Join Us" : "Donate"}
-                </Link>
-              )}
-            </div>
           </div>
         </div>
       )}
